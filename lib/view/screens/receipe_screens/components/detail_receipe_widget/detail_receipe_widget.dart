@@ -1,5 +1,5 @@
-import 'package:base_code/data/model/custom_model/recipe_model.dart';
-import 'package:base_code/provider/authentication_provider.dart';
+// import 'package:base_code/data/model/custom_model/recipe_model.dart';
+// import 'package:base_code/provider/authentication_provider.dart';
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/view/screens/receipe_screens/components/detail_receipe_widget/widgets/ingrediants_receipe_widget.dart';
 import 'package:base_code/view/screens/receipe_screens/components/detail_receipe_widget/widgets/method_rew_receipe_widet.dart';
@@ -191,7 +191,7 @@ class DetailReceipeWidget extends StatelessWidget {
                                                 "Error loading image: $exception");
                                           },
                                           image: NetworkImage(
-                                              controller.photoPath ?? "")),
+                                              controller.photoPath)),
                                       color: imagePickerColor.withOpacity(0.2),
                                       border: Border.all(
                                           color:

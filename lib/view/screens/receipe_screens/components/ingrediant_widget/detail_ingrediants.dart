@@ -24,7 +24,7 @@ class DetailIngrediantsScreen extends StatefulWidget {
 }
 
 class _DetailIngrediantsScreenState extends State<DetailIngrediantsScreen> {
-  final int _selectedIndex = 0;
+  // final int _selectedIndex = 0;
   // Track the selected index
   @override
   Widget build(BuildContext context) {

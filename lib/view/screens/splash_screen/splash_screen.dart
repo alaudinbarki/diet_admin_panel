@@ -4,7 +4,7 @@ import 'package:base_code/view/widgets/extention/string_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
+// import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import '../../../helper/routes_helper.dart';
 import '../../../provider/drawar_provider.dart';

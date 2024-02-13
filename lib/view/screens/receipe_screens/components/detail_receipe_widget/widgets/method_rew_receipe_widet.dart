@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:base_code/view/widgets/custom_text_field.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';

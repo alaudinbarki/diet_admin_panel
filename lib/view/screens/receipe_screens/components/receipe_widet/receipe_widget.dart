@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:base_code/provider/recepie_provider.dart';
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/utils/date_time_format.dart';

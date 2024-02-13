@@ -1,8 +1,10 @@
-import 'dart:io';
+// import 'dart:io';
 
-import 'package:base_code/helper/validation.dart';
+// ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
+
+// import 'package:base_code/helper/validation.dart';
 import 'package:base_code/provider/authentication_provider.dart';
-import 'package:base_code/utils/constant.dart';
+// import 'package:base_code/utils/constant.dart';
 import 'package:base_code/utils/images.dart';
 import 'package:base_code/view/screens/dashboard/components/custom_drawer.dart';
 import 'package:base_code/view/screens/dashboard/components/custom_popup_menu.dart';
@@ -11,17 +13,17 @@ import 'package:base_code/view/widgets/extention/string_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
+// import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../helper/routes_helper.dart';
+// import '../../../../../helper/routes_helper.dart';
 import '../../../../../utils/colors.dart';
-import '../../../../../utils/style.dart';
+// import '../../../../../utils/style.dart';
 import '../../../../widgets/custom_button.dart';
 import '../../../../widgets/custom_image.dart';
 import '../../../../widgets/custom_text_field.dart';
-import '../../../../widgets/web_widgets/web_custom_button.dart';
-import '../../../../widgets/web_widgets/web_text_field.dart';
+// import '../../../../widgets/web_widgets/web_custom_button.dart';
+// import '../../../../widgets/web_widgets/web_text_field.dart';
 
 class MobileUserDetailScreen extends StatefulWidget {
   const MobileUserDetailScreen({Key? key}) : super(key: key);
@@ -131,8 +133,7 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                   height: 300.h,
                                   width: 175.w,
                                   decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(
-                                          5.w),
+                                      borderRadius: BorderRadius.circular(5.w),
                                       border: Border.all(
                                           color: containerBorderColor)),
                                 ),
@@ -146,7 +147,6 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                     buttonColor: blueSecondary,
                                     buttonName: "Full View",
                                     onPressed: () {}),
-
                               ],
                             ),
                             5.width,
@@ -154,13 +154,11 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                               height: 345.h,
                               width: 175.w,
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                      5.w),
-                                  border: Border.all(
-                                      color: containerBorderColor)),
+                                  borderRadius: BorderRadius.circular(5.w),
+                                  border:
+                                      Border.all(color: containerBorderColor)),
                               child: Column(
-                                crossAxisAlignment:
-                                CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
                                     height: 50.h,
@@ -168,34 +166,30 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                     decoration: BoxDecoration(
                                         color: containerShadowColor,
                                         borderRadius:
-                                        BorderRadius.circular(
-                                            5.w),
+                                            BorderRadius.circular(5.w),
                                         border: const Border(
                                             bottom: BorderSide(
-                                                color:
-                                                containerBorderColor))),
+                                                color: containerBorderColor))),
                                     child: "Biographical Information"
                                         .toText(
-                                      color: blackPrimary,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 12,
-                                    )
+                                          color: blackPrimary,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 12,
+                                        )
                                         .align(Alignment.centerLeft)
-                                        .paddingSymmetric(
-                                        horizontal: 5.w),
+                                        .paddingSymmetric(horizontal: 5.w),
                                   ),
                                   10.height,
                                   renderingRow(context, "Email Address:",
                                       "francisp@omail.com"),
-                                  renderingRow(
-                                      context, "Gender:", "Female"),
+                                  renderingRow(context, "Gender:", "Female"),
                                   renderingRow(context, "Date of birth:",
                                       "15 June 1991"),
                                   renderingRow(context, "Age:", "33"),
                                   renderingRow(
                                       context, "Location:", "Cape Town"),
-                                  renderingRow(context, "Country:",
-                                      "South Africa"),
+                                  renderingRow(
+                                      context, "Country:", "South Africa"),
                                 ],
                               ),
                             ),
@@ -214,8 +208,8 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             CustomTextField(
-                              controller: TextEditingController(
-                                  text: "Francis Pugh"),
+                              controller:
+                                  TextEditingController(text: "Francis Pugh"),
                               width: 180.w,
                               height: 45.h,
                               borderColor: containerBorderColor,
@@ -225,26 +219,25 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                               height: 150.h,
                               width: 180.w,
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                      5.w),
-                                  border: Border.all(
-                                      color: containerBorderColor)),
+                                  borderRadius: BorderRadius.circular(5.w),
+                                  border:
+                                      Border.all(color: containerBorderColor)),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment:
-                                CrossAxisAlignment.center,
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       SizedBox(
                                         width: 75.w,
                                         child: Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                           mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                           children: [
                                             "Status".toText(
                                                 fontSize: 12,
@@ -262,9 +255,9 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                         width: 75.w,
                                         child: Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                           mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                           children: [
                                             "Platform".toText(
                                                 fontSize: 12,
@@ -284,9 +277,9 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                     width: 75.w,
                                     child: Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       children: [
                                         "Join Date".toText(
                                             fontSize: 12,
@@ -300,78 +293,60 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                     ).align(Alignment.centerRight),
                                   ),
                                 ],
-                              )
-                                  .paddingSymmetric(
-                                  horizontal: 7.w)
-                                  .center,
+                              ).paddingSymmetric(horizontal: 7.w).center,
                             ),
                           ],
                         ),
-
                         10.width,
                         Container(
                           height: 345.h,
                           width: 175.w,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                  5.w),
-                              border: Border.all(
-                                  color: containerBorderColor)),
+                              borderRadius: BorderRadius.circular(5.w),
+                              border: Border.all(color: containerBorderColor)),
                           child: Column(
-                            crossAxisAlignment:
-                            CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 height: 50.h,
                                 width: 175.w,
                                 decoration: BoxDecoration(
                                     color: containerShadowColor,
-                                    borderRadius:
-                                    BorderRadius.circular(
-                                        5.w),
+                                    borderRadius: BorderRadius.circular(5.w),
                                     border: const Border(
                                         bottom: BorderSide(
-                                            color:
-                                            containerBorderColor))),
+                                            color: containerBorderColor))),
                                 child: "Weight Statistics"
                                     .toText(
-                                  color: blackPrimary,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 12,
-                                )
+                                      color: blackPrimary,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 12,
+                                    )
                                     .align(Alignment.centerLeft)
-                                    .paddingSymmetric(
-                                    horizontal: 5.w),
+                                    .paddingSymmetric(horizontal: 5.w),
                               ),
                               35.webScaleHeight(context),
-                              renderingRow(context,
-                                  "Starting Weight:", "85.5 kg"),
                               renderingRow(
-                                  context, "Height:", "1.36 m"),
+                                  context, "Starting Weight:", "85.5 kg"),
+                              renderingRow(context, "Height:", "1.36 m"),
+                              renderingRow(context, "Starting BMI:", "30.5"),
+                              renderingRow(context, "Current BMI:", "19.9"),
+                              renderingRow(context, "Latest Weight:", "65.2"),
                               renderingRow(
-                                  context, "Starting BMI:", "30.5"),
-                              renderingRow(
-                                  context, "Current BMI:", "19.9"),
-                              renderingRow(
-                                  context, "Latest Weight:", "65.2"),
-                              renderingRow(context,
-                                  "Total Weight Lost:", "21.7 kg"),
+                                  context, "Total Weight Lost:", "21.7 kg"),
                             ],
                           ),
                         ),
                       ],
                     ),
                   ).paddingSymmetric(horizontal: 10.w),
-
                   10.height,
                   Container(
                     height: 345.h,
                     // width: 175.w,
                     decoration: BoxDecoration(
-                        borderRadius:
-                        BorderRadius.circular(5.w),
-                        border:
-                        Border.all(color: containerBorderColor)),
+                        borderRadius: BorderRadius.circular(5.w),
+                        border: Border.all(color: containerBorderColor)),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -380,29 +355,25 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                           // width: 175.w,
                           decoration: BoxDecoration(
                               color: containerShadowColor,
-                              borderRadius: BorderRadius.circular(
-                                  5.w),
+                              borderRadius: BorderRadius.circular(5.w),
                               border: const Border(
-                                  bottom: BorderSide(
-                                      color: containerBorderColor))),
+                                  bottom:
+                                      BorderSide(color: containerBorderColor))),
                           child: "Account activity"
                               .toText(
-                            color: blackPrimary,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                          )
+                                color: blackPrimary,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 12,
+                              )
                               .align(Alignment.centerLeft)
-                              .paddingSymmetric(
-                              horizontal: 5.w),
+                              .paddingSymmetric(horizontal: 5.w),
                         ),
                         10.height,
                         Column(
                           children: [
                             Row(
                               children: [
-                                renderingColumn(
-                                    context,
-                                    "Recipe was declined.",
+                                renderingColumn(context, "Recipe was declined.",
                                     "10-Jan-23  10:30"),
                                 renderingColumn(
                                     context,
@@ -426,9 +397,7 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                     context,
                                     "4 Recipes have been approved by Admin.",
                                     "19-Dec-22"),
-                                renderingColumn(
-                                    context,
-                                    "Added a weight entry",
+                                renderingColumn(context, "Added a weight entry",
                                     "22-Jun-19  15:23"),
                               ],
                             ),
@@ -455,166 +424,168 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              height: 345.h,
-                              width: 175.w,
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.circular(5.w),
-                                  border:
-                                      Border.all(color: containerBorderColor)),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    height: 50.h,
-                                    width: 175.w,
-                                    decoration: BoxDecoration(
-                                        color: containerShadowColor,
-                                        borderRadius: BorderRadius.circular(
-                                            5.w),
-                                        border: const Border(
-                                            bottom: BorderSide(
-                                                color: containerBorderColor))),
-                                    child: "Private Recipes"
-                                        .toText(
-                                          color: blackPrimary,
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 12,
-                                        )
-                                        .align(Alignment.centerLeft)
-                                        .paddingSymmetric(
-                                            horizontal: 5.w),
-                                  ),
-                                  35.webScaleHeight(context),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      SizedBox(
-                                        width: 175.w,
-                                        child:
-                                        "Chicken Salad with Mayonnaise Dressing"
-                                            .toText(
-                                            fontSize: 12,
+                                height: 345.h,
+                                width: 175.w,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5.w),
+                                    border: Border.all(
+                                        color: containerBorderColor)),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      height: 50.h,
+                                      width: 175.w,
+                                      decoration: BoxDecoration(
+                                          color: containerShadowColor,
+                                          borderRadius:
+                                              BorderRadius.circular(5.w),
+                                          border: const Border(
+                                              bottom: BorderSide(
+                                                  color:
+                                                      containerBorderColor))),
+                                      child: "Private Recipes"
+                                          .toText(
                                             color: blackPrimary,
-                                            fontWeight: FontWeight.w400,
-                                            maxLine: 2),
-                                      ).center,
-                                      25.webScaleHeight(context),
-                                      SizedBox(
-                                        width: 175.w,
-                                        child:
-                                        "Grilled Cheese Sandwich and Tomato Soup"
-                                            .toText(
+                                            fontWeight: FontWeight.w600,
                                             fontSize: 12,
-                                            color: blackPrimary,
-                                            fontWeight: FontWeight.w400,
-                                            maxLine: 2),
-                                      ).center,
-                                      25.webScaleHeight(context),
-                                      SizedBox(
-                                        width: 175.w,
-                                        child: "Frozen Oats Cups".toText(
-                                            fontSize: 12,
-                                            color: blackPrimary,
-                                            fontWeight: FontWeight.w400,
-                                            maxLine: 2),
-                                      ).center,
-                                      25.webScaleHeight(context),
-                                      SizedBox(
-                                        width: 175.w,
-                                        child: "Apple and Yogurt Parfait".toText(
-                                            fontSize: 12,
-                                            color: blackPrimary,
-                                            fontWeight: FontWeight.w400,
-                                            maxLine: 2),
-                                      ).center,
-                                      25.webScaleHeight(context),
-                                      SizedBox(
-                                        width: 175.w,
-                                        child: "Homemade Dried Fruit Bars".toText(
-                                            fontSize: 12,
-                                            color: blackPrimary,
-                                            fontWeight: FontWeight.w400,
-                                            maxLine: 2),
-                                      ).center,
-                                    ],
-                                  ).paddingAll(5),
-
-                                ],
-                              )
-                            ),
+                                          )
+                                          .align(Alignment.centerLeft)
+                                          .paddingSymmetric(horizontal: 5.w),
+                                    ),
+                                    35.webScaleHeight(context),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          width: 175.w,
+                                          child:
+                                              "Chicken Salad with Mayonnaise Dressing"
+                                                  .toText(
+                                                      fontSize: 12,
+                                                      color: blackPrimary,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      maxLine: 2),
+                                        ).center,
+                                        25.webScaleHeight(context),
+                                        SizedBox(
+                                          width: 175.w,
+                                          child:
+                                              "Grilled Cheese Sandwich and Tomato Soup"
+                                                  .toText(
+                                                      fontSize: 12,
+                                                      color: blackPrimary,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      maxLine: 2),
+                                        ).center,
+                                        25.webScaleHeight(context),
+                                        SizedBox(
+                                          width: 175.w,
+                                          child: "Frozen Oats Cups".toText(
+                                              fontSize: 12,
+                                              color: blackPrimary,
+                                              fontWeight: FontWeight.w400,
+                                              maxLine: 2),
+                                        ).center,
+                                        25.webScaleHeight(context),
+                                        SizedBox(
+                                          width: 175.w,
+                                          child: "Apple and Yogurt Parfait"
+                                              .toText(
+                                                  fontSize: 12,
+                                                  color: blackPrimary,
+                                                  fontWeight: FontWeight.w400,
+                                                  maxLine: 2),
+                                        ).center,
+                                        25.webScaleHeight(context),
+                                        SizedBox(
+                                          width: 175.w,
+                                          child: "Homemade Dried Fruit Bars"
+                                              .toText(
+                                                  fontSize: 12,
+                                                  color: blackPrimary,
+                                                  fontWeight: FontWeight.w400,
+                                                  maxLine: 2),
+                                        ).center,
+                                      ],
+                                    ).paddingAll(5),
+                                  ],
+                                )),
                             Container(
-                              height: 345.h,
-                              width: 175.w,
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.circular(13.webT(context)),
-                                  border:
-                                      Border.all(color: containerBorderColor)),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    height: 50.h,
-                                    // width: 175.w,
-                                    decoration: BoxDecoration(
-                                        color: containerShadowColor,
-                                        borderRadius: BorderRadius.circular(
-                                            13.webT(context)),
-                                        border: const Border(
-                                            bottom: BorderSide(
-                                                color: containerBorderColor))),
-                                    child: "Shared Recipes"
-                                        .toText(
-                                          color: blackPrimary,
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 12,
-                                        )
-                                        .align(Alignment.centerLeft)
-                                        .paddingSymmetric(
-                                            horizontal: 20.webT(context)),
-                                  ),
-                                  35.webScaleHeight(context),
-                                  Column(
-                                    children: [
-                                      SizedBox(
-                                        width: 175.w,
-                                        child:
-                                        "Chicken Salad with Mayonnaise Dressing"
-                                            .toText(
-                                            fontSize: 12,
+                                height: 345.h,
+                                width: 175.w,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.circular(13.webT(context)),
+                                    border: Border.all(
+                                        color: containerBorderColor)),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      height: 50.h,
+                                      // width: 175.w,
+                                      decoration: BoxDecoration(
+                                          color: containerShadowColor,
+                                          borderRadius: BorderRadius.circular(
+                                              13.webT(context)),
+                                          border: const Border(
+                                              bottom: BorderSide(
+                                                  color:
+                                                      containerBorderColor))),
+                                      child: "Shared Recipes"
+                                          .toText(
                                             color: blackPrimary,
-                                            fontWeight: FontWeight.w400,
-                                            maxLine: 2),
-                                      ).center,
-                                      25.webScaleHeight(context),
-                                      SizedBox(
-                                        width: 175.w,
-                                        child:
-                                        "Grilled Cheese Sandwich and Tomato Soup"
-                                            .toText(
+                                            fontWeight: FontWeight.w600,
                                             fontSize: 12,
-                                            color: blackPrimary,
-                                            fontWeight: FontWeight.w400,
-                                            maxLine: 2),
-                                      ).center,
-                                      25.webScaleHeight(context),
-                                      SizedBox(
-                                        width: 175.w,
-                                        child: "Frozen Oats Cups".toText(
-                                            fontSize: 12,
-                                            color: blackPrimary,
-                                            fontWeight: FontWeight.w400,
-                                            maxLine: 2),
-                                      ).center,
-                                      25.webScaleHeight(context),
-                                    ],
-                                  ).paddingAll(5.w),
-
-                                ],
-                              )
-                            ),
-
+                                          )
+                                          .align(Alignment.centerLeft)
+                                          .paddingSymmetric(
+                                              horizontal: 20.webT(context)),
+                                    ),
+                                    35.webScaleHeight(context),
+                                    Column(
+                                      children: [
+                                        SizedBox(
+                                          width: 175.w,
+                                          child:
+                                              "Chicken Salad with Mayonnaise Dressing"
+                                                  .toText(
+                                                      fontSize: 12,
+                                                      color: blackPrimary,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      maxLine: 2),
+                                        ).center,
+                                        25.webScaleHeight(context),
+                                        SizedBox(
+                                          width: 175.w,
+                                          child:
+                                              "Grilled Cheese Sandwich and Tomato Soup"
+                                                  .toText(
+                                                      fontSize: 12,
+                                                      color: blackPrimary,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      maxLine: 2),
+                                        ).center,
+                                        25.webScaleHeight(context),
+                                        SizedBox(
+                                          width: 175.w,
+                                          child: "Frozen Oats Cups".toText(
+                                              fontSize: 12,
+                                              color: blackPrimary,
+                                              fontWeight: FontWeight.w400,
+                                              maxLine: 2),
+                                        ).center,
+                                        25.webScaleHeight(context),
+                                      ],
+                                    ).paddingAll(5.w),
+                                  ],
+                                )),
                           ],
                         )
                       ],
@@ -622,60 +593,57 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                   ).paddingSymmetric(horizontal: 10.w),
                   10.height,
                   Container(
-                    height: 345.h,
-                    // width: 175.w,
-                    decoration: BoxDecoration(
-                        borderRadius:
-                        BorderRadius.circular(5.w),
-                        border:
-                        Border.all(color: containerBorderColor)),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          height: 50.h,
-                          // width: 175.w,
-                          decoration: BoxDecoration(
-                              color: containerShadowColor,
-                              borderRadius: BorderRadius.circular(
-                                  5.w),
-                              border: const Border(
-                                  bottom: BorderSide(
-                                      color: containerBorderColor))),
-                          child: "Pending Approval"
-                              .toText(
-                            color: blackPrimary,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                          )
-                              .align(Alignment.centerLeft)
-                              .paddingSymmetric(
-                              horizontal: 12.webT(context)),
-                        ),
-                        35.webScaleHeight(context),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            "Chicken Salad with Mayonnaise Dressing"
+                      height: 345.h,
+                      // width: 175.w,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5.w),
+                          border: Border.all(color: containerBorderColor)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 50.h,
+                            // width: 175.w,
+                            decoration: BoxDecoration(
+                                color: containerShadowColor,
+                                borderRadius: BorderRadius.circular(5.w),
+                                border: const Border(
+                                    bottom: BorderSide(
+                                        color: containerBorderColor))),
+                            child: "Pending Approval"
                                 .toText(
-                                fontSize: 12,
-                                color: blackPrimary,
-                                fontWeight: FontWeight.w400,
-                                maxLine: 2).center,
-                            5.height,
-                            "Chicken Salad with Mayonnaise Dressing"
-                                .toText(
-                                fontSize: 12,
-                                color: blackPrimary,
-                                fontWeight: FontWeight.w400,
-                                maxLine: 2).center,
-                          ],
-                        ).paddingAll(5.w),
-                        25.webScaleHeight(context),
-                      ],
-                    )
-                  ).paddingSymmetric(horizontal: 10.w),
+                                  color: blackPrimary,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 12,
+                                )
+                                .align(Alignment.centerLeft)
+                                .paddingSymmetric(horizontal: 12.webT(context)),
+                          ),
+                          35.webScaleHeight(context),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              "Chicken Salad with Mayonnaise Dressing"
+                                  .toText(
+                                      fontSize: 12,
+                                      color: blackPrimary,
+                                      fontWeight: FontWeight.w400,
+                                      maxLine: 2)
+                                  .center,
+                              5.height,
+                              "Chicken Salad with Mayonnaise Dressing"
+                                  .toText(
+                                      fontSize: 12,
+                                      color: blackPrimary,
+                                      fontWeight: FontWeight.w400,
+                                      maxLine: 2)
+                                  .center,
+                            ],
+                          ).paddingAll(5.w),
+                          25.webScaleHeight(context),
+                        ],
+                      )).paddingSymmetric(horizontal: 10.w),
                   10.height,
                   Container(
                     width: 500.w,
@@ -702,11 +670,11 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                   height: 40.h,
                                   decoration: BoxDecoration(
                                       color: bluePrimary,
-                                      borderRadius:
-                                          BorderRadius.circular(5.w)),
+                                      borderRadius: BorderRadius.circular(5.w)),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       CustomImage(
                                           image: Images.iconCalender,
@@ -771,9 +739,9 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                   width: 65.w,
                                   child: "Action"
                                       .toText(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w600,
-                                      color: blackPrimary)
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600,
+                                          color: blackPrimary)
                                       .align(Alignment.centerRight),
                                 ),
                               ],
@@ -793,27 +761,30 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                           SizedBox(
                                             width: 200.w,
                                             child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
                                               children: [
                                                 SizedBox(
-                                                  width: 12.w,
-                                                  child: Container(
-                                                      width: 12.w,
-                                                    height: 12.w,
-                                                    decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius.circular(
-                                                                2.w),
-                                                        border: Border.all(
-                                                            color: textGreyColor)),
-                                                  )
-                                                ).paddingSymmetric(
-                                                    horizontal: 5.w
-                                                ),
+                                                        width: 12.w,
+                                                        child: Container(
+                                                          width: 12.w,
+                                                          height: 12.w,
+                                                          decoration: BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          2.w),
+                                                              border: Border.all(
+                                                                  color:
+                                                                      textGreyColor)),
+                                                        ))
+                                                    .paddingSymmetric(
+                                                        horizontal: 5.w),
                                                 "Round 2  Day 25"
                                                     .toText(
                                                         fontSize: 12,
-                                                        fontWeight: FontWeight.w400,
+                                                        fontWeight:
+                                                            FontWeight.w400,
                                                         color: blackPrimary)
                                                     .center
                                                     .expanded,
@@ -863,24 +834,35 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                       if (selectedIndex == index)
                                         Container(
                                           decoration: BoxDecoration(
-                                            color: blueSecondary.withOpacity(0.5),
-                                            borderRadius: BorderRadius.circular(5.w),
+                                            color:
+                                                blueSecondary.withOpacity(0.5),
+                                            borderRadius:
+                                                BorderRadius.circular(5.w),
                                           ),
                                           child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
                                               Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
                                                 children: [
                                                   Container(
                                                     height: 395.h,
                                                     width: 145.w,
                                                     decoration: BoxDecoration(
                                                         color: whitePrimary,
-                                                        borderRadius: BorderRadius.circular(5.w),
-                                                        border: Border.all(color: containerBorderColor)),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5.w),
+                                                        border: Border.all(
+                                                            color:
+                                                                containerBorderColor)),
                                                     child: Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
                                                       children: [
                                                         Container(
                                                           height: 55.h,
@@ -889,35 +871,48 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                                               color:
                                                                   containerShadowColor,
                                                               borderRadius:
-                                                                  BorderRadius.circular(
-                                                                      5.w),
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5.w),
                                                               border: const Border(
                                                                   bottom: BorderSide(
                                                                       color:
                                                                           containerBorderColor))),
                                                           child:
-                                                            "Weight and measurements"
-                                                                .toText(
-                                                                  color:
-                                                                  blackPrimary,
-                                                                  fontWeight: FontWeight.w600,
-                                                                  fontSize: 12,
-                                                                )
-                                                                .align(Alignment.centerLeft)
-                                                                .paddingSymmetric(horizontal: 20.webT(context)
-                                                          ),
+                                                              "Weight and measurements"
+                                                                  .toText(
+                                                                    color:
+                                                                        blackPrimary,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontSize:
+                                                                        12,
+                                                                  )
+                                                                  .align(Alignment
+                                                                      .centerLeft)
+                                                                  .paddingSymmetric(
+                                                                      horizontal:
+                                                                          20.webT(
+                                                                              context)),
                                                         ),
-                                                        30.webScaleHeight(context),
+                                                        30.webScaleHeight(
+                                                            context),
                                                         Column(
-                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
                                                           children: [
                                                             Row(
-                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
                                                               children: [
                                                                 SizedBox(
                                                                   width: 60.w,
                                                                   child: "Weight".toText(
-                                                                      fontSize: 10,
+                                                                      fontSize:
+                                                                          10,
                                                                       color:
                                                                           containerTextColor,
                                                                       fontWeight:
@@ -927,7 +922,8 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                                                 SizedBox(
                                                                   width: 60.w,
                                                                   child: "13.8 kg".toText(
-                                                                      fontSize: 10,
+                                                                      fontSize:
+                                                                          10,
                                                                       color:
                                                                           blackPrimary,
                                                                       fontWeight:
@@ -936,260 +932,296 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                                                 )
                                                               ],
                                                             ),
-                                                            5.webScaleHeight(context),
+                                                            5.webScaleHeight(
+                                                                context),
                                                             const Divider(),
-                                                            5.webScaleHeight(context),
+                                                            5.webScaleHeight(
+                                                                context),
                                                             SizedBox(
                                                                 width: 120.w,
                                                                 child: Row(
                                                                   children: [
                                                                     SizedBox(
-                                                                        width: 60.w,
+                                                                        width: 60
+                                                                            .w,
                                                                         child: "Chest:".toText(
                                                                             fontSize:
-                                                                            10,
+                                                                                10,
                                                                             color:
-                                                                            containerTextColor,
+                                                                                containerTextColor,
                                                                             fontWeight:
-                                                                            FontWeight.w500,
+                                                                                FontWeight.w500,
                                                                             maxLine: 2)),
                                                                     SizedBox(
-                                                                        width: 60.w,
+                                                                        width: 60
+                                                                            .w,
                                                                         child: "136 cm".toText(
                                                                             fontSize:
-                                                                            10,
+                                                                                10,
                                                                             color:
-                                                                            blackPrimary,
+                                                                                blackPrimary,
                                                                             fontWeight:
-                                                                            FontWeight.w400,
+                                                                                FontWeight.w400,
                                                                             maxLine: 2)),
                                                                   ],
                                                                 )),
-                                                            5.webScaleHeight(context),
-                                                            SizedBox(
-                                                                width: 120.w,
-                                                                child: Row(
-                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                  children: [
-                                                                    SizedBox(
-                                                                        width: 60.w,
-                                                                        child: "Neck:".toText(
-                                                                            fontSize:
-                                                                            10,
-                                                                            color:
-                                                                            containerTextColor,
-                                                                            fontWeight:
-                                                                            FontWeight.w500,
-                                                                            maxLine: 2)),
-                                                                    SizedBox(
-                                                                        width: 60.w,
-                                                                        child: "67 cm".toText(
-                                                                            fontSize:
-                                                                            10,
-                                                                            color:
-                                                                            blackPrimary,
-                                                                            fontWeight:
-                                                                            FontWeight.w400,
-                                                                            maxLine: 2)),
-                                                                  ],
-                                                                )),
-                                                            10.webScaleHeight(context),
-                                                            SizedBox(
-                                                                width: 120.w,
-                                                                child: Row(
-                                                                  children: [
-                                                                    SizedBox(
-                                                                        width: 60.w,
-                                                                        child: "Left Arm:".toText(
-                                                                            fontSize:
-                                                                            10,
-                                                                            color:
-                                                                            containerTextColor,
-                                                                            fontWeight:
-                                                                            FontWeight.w500,
-                                                                            maxLine: 2)),
-                                                                    SizedBox(
-                                                                        width: 60.w,
-                                                                        child: "18 cm".toText(
-                                                                            fontSize:
-                                                                            10,
-                                                                            color:
-                                                                            blackPrimary,
-                                                                            fontWeight:
-                                                                            FontWeight.w400,
-                                                                            maxLine: 2)),
-                                                                  ],
-                                                                )),
-                                                            5.webScaleHeight(context),
-                                                            SizedBox(
-                                                                width: 120.w,
-                                                                child: Row(
-                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                  children: [
-                                                                    SizedBox(
-                                                                        width: 60.w,
-                                                                        child: "Right Arm:".toText(
-                                                                            fontSize:
-                                                                            10,
-                                                                            color:
-                                                                            containerTextColor,
-                                                                            fontWeight:
-                                                                            FontWeight.w500,
-                                                                            maxLine: 2)),
-                                                                    SizedBox(
-                                                                        width: 60.w,
-                                                                        child: "18 cm".toText(
-                                                                            fontSize:
-                                                                            10,
-                                                                            color:
-                                                                            blackPrimary,
-                                                                            fontWeight:
-                                                                            FontWeight.w400,
-                                                                            maxLine: 2)),
-                                                                  ],
-                                                                )),
-                                                            10.webScaleHeight(context),
-                                                            SizedBox(
-                                                                width: 120.w,
-                                                                child: Row(
-                                                                  children: [
-                                                                    SizedBox(
-                                                                        width: 60.w,
-                                                                        child: "Waist:".toText(
-                                                                            fontSize:
-                                                                            10,
-                                                                            color:
-                                                                            containerTextColor,
-                                                                            fontWeight:
-                                                                            FontWeight.w500,
-                                                                            maxLine: 2)),
-                                                                    SizedBox(
-                                                                        width: 60.w,
-                                                                        child: "56 cm".toText(
-                                                                            fontSize:
-                                                                            10,
-                                                                            color:
-                                                                            blackPrimary,
-                                                                            fontWeight:
-                                                                            FontWeight.w400,
-                                                                            maxLine: 2)),
-                                                                  ],
-                                                                )),
-                                                            5.webScaleHeight(context),
+                                                            5.webScaleHeight(
+                                                                context),
                                                             SizedBox(
                                                                 width: 120.w,
                                                                 child: Row(
                                                                   mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .start,
+                                                                      MainAxisAlignment
+                                                                          .start,
                                                                   children: [
                                                                     SizedBox(
-                                                                        width: 60.w,
-                                                                        child: "Hips:".toText(
+                                                                        width: 60
+                                                                            .w,
+                                                                        child: "Neck:".toText(
                                                                             fontSize:
-                                                                            10,
+                                                                                10,
                                                                             color:
-                                                                            containerTextColor,
+                                                                                containerTextColor,
                                                                             fontWeight:
-                                                                            FontWeight.w500,
+                                                                                FontWeight.w500,
                                                                             maxLine: 2)),
                                                                     SizedBox(
-                                                                        width: 60.w,
-                                                                        child: "65 cm".toText(
+                                                                        width: 60
+                                                                            .w,
+                                                                        child: "67 cm".toText(
                                                                             fontSize:
-                                                                            10,
+                                                                                10,
                                                                             color:
-                                                                            blackPrimary,
+                                                                                blackPrimary,
                                                                             fontWeight:
-                                                                            FontWeight.w400,
+                                                                                FontWeight.w400,
                                                                             maxLine: 2)),
                                                                   ],
                                                                 )),
-                                                            10.webScaleHeight(context),
+                                                            10.webScaleHeight(
+                                                                context),
+                                                            SizedBox(
+                                                                width: 120.w,
+                                                                child: Row(
+                                                                  children: [
+                                                                    SizedBox(
+                                                                        width: 60
+                                                                            .w,
+                                                                        child: "Left Arm:".toText(
+                                                                            fontSize:
+                                                                                10,
+                                                                            color:
+                                                                                containerTextColor,
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                            maxLine: 2)),
+                                                                    SizedBox(
+                                                                        width: 60
+                                                                            .w,
+                                                                        child: "18 cm".toText(
+                                                                            fontSize:
+                                                                                10,
+                                                                            color:
+                                                                                blackPrimary,
+                                                                            fontWeight:
+                                                                                FontWeight.w400,
+                                                                            maxLine: 2)),
+                                                                  ],
+                                                                )),
+                                                            5.webScaleHeight(
+                                                                context),
+                                                            SizedBox(
+                                                                width: 120.w,
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    SizedBox(
+                                                                        width: 60
+                                                                            .w,
+                                                                        child: "Right Arm:".toText(
+                                                                            fontSize:
+                                                                                10,
+                                                                            color:
+                                                                                containerTextColor,
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                            maxLine: 2)),
+                                                                    SizedBox(
+                                                                        width: 60
+                                                                            .w,
+                                                                        child: "18 cm".toText(
+                                                                            fontSize:
+                                                                                10,
+                                                                            color:
+                                                                                blackPrimary,
+                                                                            fontWeight:
+                                                                                FontWeight.w400,
+                                                                            maxLine: 2)),
+                                                                  ],
+                                                                )),
+                                                            10.webScaleHeight(
+                                                                context),
+                                                            SizedBox(
+                                                                width: 120.w,
+                                                                child: Row(
+                                                                  children: [
+                                                                    SizedBox(
+                                                                        width: 60
+                                                                            .w,
+                                                                        child: "Waist:".toText(
+                                                                            fontSize:
+                                                                                10,
+                                                                            color:
+                                                                                containerTextColor,
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                            maxLine: 2)),
+                                                                    SizedBox(
+                                                                        width: 60
+                                                                            .w,
+                                                                        child: "56 cm".toText(
+                                                                            fontSize:
+                                                                                10,
+                                                                            color:
+                                                                                blackPrimary,
+                                                                            fontWeight:
+                                                                                FontWeight.w400,
+                                                                            maxLine: 2)),
+                                                                  ],
+                                                                )),
+                                                            5.webScaleHeight(
+                                                                context),
+                                                            SizedBox(
+                                                                width: 120.w,
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    SizedBox(
+                                                                        width: 60
+                                                                            .w,
+                                                                        child: "Hips:".toText(
+                                                                            fontSize:
+                                                                                10,
+                                                                            color:
+                                                                                containerTextColor,
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                            maxLine: 2)),
+                                                                    SizedBox(
+                                                                        width: 60
+                                                                            .w,
+                                                                        child: "65 cm".toText(
+                                                                            fontSize:
+                                                                                10,
+                                                                            color:
+                                                                                blackPrimary,
+                                                                            fontWeight:
+                                                                                FontWeight.w400,
+                                                                            maxLine: 2)),
+                                                                  ],
+                                                                )),
+                                                            10.webScaleHeight(
+                                                                context),
                                                             Row(
                                                               children: [
                                                                 SizedBox(
                                                                     width: 60.w,
                                                                     child: "Left Thigh:".toText(
                                                                         fontSize:
-                                                                        10,
+                                                                            10,
                                                                         color:
-                                                                        containerTextColor,
+                                                                            containerTextColor,
                                                                         fontWeight:
-                                                                        FontWeight.w500,
-                                                                        maxLine: 2)),
+                                                                            FontWeight
+                                                                                .w500,
+                                                                        maxLine:
+                                                                            2)),
                                                                 SizedBox(
                                                                     width: 60.w,
                                                                     child: "37 cm".toText(
                                                                         fontSize:
-                                                                        10,
+                                                                            10,
                                                                         color:
-                                                                        blackPrimary,
+                                                                            blackPrimary,
                                                                         fontWeight:
-                                                                        FontWeight.w400,
-                                                                        maxLine: 2)),
+                                                                            FontWeight
+                                                                                .w400,
+                                                                        maxLine:
+                                                                            2)),
                                                               ],
                                                             ),
-                                                            10.webScaleHeight(context),
+                                                            10.webScaleHeight(
+                                                                context),
                                                             SizedBox(
                                                                 width: 120.w,
                                                                 child: Row(
                                                                   children: [
                                                                     SizedBox(
-                                                                        width: 60.w,
+                                                                        width: 60
+                                                                            .w,
                                                                         child: "Left Calf:".toText(
                                                                             fontSize:
-                                                                            10,
+                                                                                10,
                                                                             color:
-                                                                            containerTextColor,
+                                                                                containerTextColor,
                                                                             fontWeight:
-                                                                            FontWeight.w500,
+                                                                                FontWeight.w500,
                                                                             maxLine: 2)),
                                                                     SizedBox(
-                                                                        width: 60.w,
+                                                                        width: 60
+                                                                            .w,
                                                                         child: "16 cm".toText(
                                                                             fontSize:
-                                                                            10,
+                                                                                10,
                                                                             color:
-                                                                            blackPrimary,
+                                                                                blackPrimary,
                                                                             fontWeight:
-                                                                            FontWeight.w400,
+                                                                                FontWeight.w400,
                                                                             maxLine: 2)),
                                                                   ],
                                                                 )),
-                                                            5.webScaleHeight(context),
+                                                            5.webScaleHeight(
+                                                                context),
                                                             SizedBox(
                                                                 width: 120.w,
                                                                 child: Row(
                                                                   mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .start,
+                                                                      MainAxisAlignment
+                                                                          .start,
                                                                   children: [
                                                                     SizedBox(
-                                                                        width: 60.w,
+                                                                        width: 60
+                                                                            .w,
                                                                         child: "Right Calf:".toText(
                                                                             fontSize:
-                                                                            10,
+                                                                                10,
                                                                             color:
-                                                                            containerTextColor,
+                                                                                containerTextColor,
                                                                             fontWeight:
-                                                                            FontWeight.w500,
+                                                                                FontWeight.w500,
                                                                             maxLine: 2)),
                                                                     SizedBox(
-                                                                        width: 60.w,
+                                                                        width: 60
+                                                                            .w,
                                                                         child: "18 cm".toText(
                                                                             fontSize:
-                                                                            10,
+                                                                                10,
                                                                             color:
-                                                                            blackPrimary,
+                                                                                blackPrimary,
                                                                             fontWeight:
-                                                                            FontWeight.w400,
+                                                                                FontWeight.w400,
                                                                             maxLine: 2)),
                                                                   ],
                                                                 )),
-                                                            5.webScaleHeight(context),
+                                                            5.webScaleHeight(
+                                                                context),
                                                             const Divider(),
-                                                            5.webScaleHeight(context),
+                                                            5.webScaleHeight(
+                                                                context),
                                                             Row(
                                                               mainAxisAlignment:
                                                                   MainAxisAlignment
@@ -1198,7 +1230,8 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                                                 SizedBox(
                                                                   width: 60.w,
                                                                   child: "Blood Pressure:".toText(
-                                                                      fontSize: 10,
+                                                                      fontSize:
+                                                                          10,
                                                                       color:
                                                                           containerTextColor,
                                                                       fontWeight:
@@ -1208,7 +1241,8 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                                                 SizedBox(
                                                                   width: 60.w,
                                                                   child: "120/80 mmHg".toText(
-                                                                      fontSize: 10,
+                                                                      fontSize:
+                                                                          10,
                                                                       color:
                                                                           blackPrimary,
                                                                       fontWeight:
@@ -1217,7 +1251,8 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                                                 )
                                                               ],
                                                             ),
-                                                            5.webScaleHeight(context),
+                                                            5.webScaleHeight(
+                                                                context),
                                                             Row(
                                                               mainAxisAlignment:
                                                                   MainAxisAlignment
@@ -1226,7 +1261,8 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                                                 SizedBox(
                                                                   width: 60.w,
                                                                   child: "Blood Sugar".toText(
-                                                                      fontSize: 10,
+                                                                      fontSize:
+                                                                          10,
                                                                       color:
                                                                           containerTextColor,
                                                                       fontWeight:
@@ -1236,7 +1272,8 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                                                 SizedBox(
                                                                   width: 60.w,
                                                                   child: "5.6 mmol/L".toText(
-                                                                      fontSize: 10,
+                                                                      fontSize:
+                                                                          10,
                                                                       color:
                                                                           blackPrimary,
                                                                       fontWeight:
@@ -1247,80 +1284,9 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                                             ),
                                                           ],
                                                         ).paddingSymmetric(
-                                                            horizontal:
-                                                                20.webT(context), vertical: 5.h)
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  7.width,
-                                                  Container(
-                                                    height: 395.h,
-                                                    width: 145.w,
-                                                    decoration: BoxDecoration(
-                                                        color: whitePrimary,
-                                                        borderRadius: BorderRadius.circular(13.webT(context)),
-                                                        border: Border.all(color: containerBorderColor)),
-                                                    child: Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                      children: [
-                                                        Container(
-                                                          height: 55.h,
-                                                          width: 145.w,
-                                                          decoration: BoxDecoration(
-                                                              color:
-                                                                  containerShadowColor,
-                                                              borderRadius:
-                                                                  BorderRadius.circular(
-                                                                      5.w),
-                                                              border: const Border(
-                                                                  bottom: BorderSide(
-                                                                      color:
-                                                                          containerBorderColor))),
-                                                          child: "Images"
-                                                              .toText(
-                                                                color: blackPrimary,
-                                                                fontWeight:
-                                                                    FontWeight.w600,
-                                                                fontSize: 12,
-                                                              )
-                                                              .align(Alignment
-                                                                  .centerLeft)
-                                                              .paddingSymmetric(
-                                                                  horizontal: 20
-                                                                      .webT(
-                                                                          context)),
-                                                        ),
-                                                        30.webScaleHeight(context),
-                                                        Column(
-                                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                              children: [
-                                                                SizedBox(
-                                                                  width: 60.w,
-                                                                  child: "Body".toText(
-                                                                      fontSize: 10,
-                                                                      color:
-                                                                          containerTextColor,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500),
-                                                                ),
-                                                                SizedBox(
-                                                                  width: 60.w,
-                                                                  child: "Face".toText(
-                                                                      fontSize: 10,
-                                                                      color:
-                                                                          blackPrimary,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500),
-                                                                )
-                                                              ],
-                                                            ),
-                                                          ],
-                                                        ).paddingSymmetric(horizontal: 20.webT(context))
+                                                            horizontal: 20
+                                                                .webT(context),
+                                                            vertical: 5.h)
                                                       ],
                                                     ),
                                                   ),
@@ -1332,25 +1298,37 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                                         color: whitePrimary,
                                                         borderRadius:
                                                             BorderRadius.circular(
-                                                                13.webT(context)),
+                                                                13.webT(
+                                                                    context)),
                                                         border: Border.all(
                                                             color:
                                                                 containerBorderColor)),
                                                     child: Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
                                                       children: [
                                                         Container(
                                                           height: 55.h,
-                                                          width: 160.w,
+                                                          width: 145.w,
                                                           decoration: BoxDecoration(
-                                                              color: containerShadowColor,
-                                                              borderRadius: BorderRadius.circular(5.w),
-                                                              border: const Border(bottom: BorderSide(color: containerBorderColor))),
-                                                          child: "Journal Entry"
+                                                              color:
+                                                                  containerShadowColor,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5.w),
+                                                              border: const Border(
+                                                                  bottom: BorderSide(
+                                                                      color:
+                                                                          containerBorderColor))),
+                                                          child: "Images"
                                                               .toText(
-                                                                color: blackPrimary,
+                                                                color:
+                                                                    blackPrimary,
                                                                 fontWeight:
-                                                                    FontWeight.w600,
+                                                                    FontWeight
+                                                                        .w600,
                                                                 fontSize: 12,
                                                               )
                                                               .align(Alignment
@@ -1360,19 +1338,115 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                                                       .webT(
                                                                           context)),
                                                         ),
-                                                        25.webScaleHeight(context),
+                                                        30.webScaleHeight(
+                                                            context),
+                                                        Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                SizedBox(
+                                                                  width: 60.w,
+                                                                  child: "Body".toText(
+                                                                      fontSize:
+                                                                          10,
+                                                                      color:
+                                                                          containerTextColor,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500),
+                                                                ),
+                                                                SizedBox(
+                                                                  width: 60.w,
+                                                                  child: "Face".toText(
+                                                                      fontSize:
+                                                                          10,
+                                                                      color:
+                                                                          blackPrimary,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500),
+                                                                )
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ).paddingSymmetric(
+                                                            horizontal: 20
+                                                                .webT(context))
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  7.width,
+                                                  Container(
+                                                    height: 395.h,
+                                                    width: 145.w,
+                                                    decoration: BoxDecoration(
+                                                        color: whitePrimary,
+                                                        borderRadius:
+                                                            BorderRadius.circular(
+                                                                13.webT(
+                                                                    context)),
+                                                        border: Border.all(
+                                                            color:
+                                                                containerBorderColor)),
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Container(
+                                                          height: 55.h,
+                                                          width: 160.w,
+                                                          decoration: BoxDecoration(
+                                                              color:
+                                                                  containerShadowColor,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5.w),
+                                                              border: const Border(
+                                                                  bottom: BorderSide(
+                                                                      color:
+                                                                          containerBorderColor))),
+                                                          child: "Journal Entry"
+                                                              .toText(
+                                                                color:
+                                                                    blackPrimary,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontSize: 12,
+                                                              )
+                                                              .align(Alignment
+                                                                  .centerLeft)
+                                                              .paddingSymmetric(
+                                                                  horizontal: 20
+                                                                      .webT(
+                                                                          context)),
+                                                        ),
+                                                        25.webScaleHeight(
+                                                            context),
                                                         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
                                                             .toText(
                                                                 fontSize: 10,
-                                                                color: blackPrimary,
+                                                                color:
+                                                                    blackPrimary,
                                                                 fontWeight:
-                                                                    FontWeight.w400,
+                                                                    FontWeight
+                                                                        .w400,
                                                                 maxLine: 16)
                                                             .paddingSymmetric(
-                                                              horizontal:
-                                                                  20.webT(context),
+                                                              horizontal: 20
+                                                                  .webT(
+                                                                      context),
                                                             ),
-                                                        20.webScaleHeight(context),
+                                                        20.webScaleHeight(
+                                                            context),
                                                       ],
                                                     ),
                                                   ),
@@ -1381,8 +1455,7 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                             ],
                                           ).paddingAll(10.w),
                                         ).paddingSymmetric(
-                                            vertical: 10.h,
-                                            horizontal: 7.w),
+                                            vertical: 10.h, horizontal: 7.w),
                                     ],
                                   );
                                 },
@@ -1390,7 +1463,8 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                   return Container(
                                     height: 1.webH(context),
                                     color: dividerColor,
-                                  ).paddingSymmetric(vertical: 20.webT(context));
+                                  ).paddingSymmetric(
+                                      vertical: 20.webT(context));
                                 },
                                 itemCount: 5),
                           ],
@@ -1481,8 +1555,7 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                             height: 24.h,
                                             decoration: BoxDecoration(
                                                 borderRadius:
-                                                    BorderRadius.circular(
-                                                        35.w),
+                                                    BorderRadius.circular(35.w),
                                                 border: Border.all(
                                                     color: greenPrimary)),
                                             child: "App Purchase"
@@ -1491,8 +1564,7 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
                                                     fontWeight: FontWeight.w500,
                                                     color: greenPrimary)
                                                 .center)
-                                        .paddingSymmetric(
-                                            horizontal: 17.w),
+                                        .paddingSymmetric(horizontal: 17.w),
                                   ),
                                 ],
                               );
@@ -1620,10 +1692,7 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
               fontSize: 10, color: blackPrimary, fontWeight: FontWeight.w500),
         )
       ],
-    ).paddingOnly(
-        left: 5.w,
-        right: 5.w,
-        bottom: 15.h);
+    ).paddingOnly(left: 5.w, right: 5.w, bottom: 15.h);
   }
 
   renderingColumn(BuildContext context, String title, String value) {
@@ -1644,9 +1713,6 @@ class _MobileUserDetailState extends State<MobileUserDetailScreen> {
               maxLine: 2),
         )
       ],
-    ).paddingOnly(
-        left: 5.w,
-        right: 5.w,
-        bottom: 15.h);
+    ).paddingOnly(left: 5.w, right: 5.w, bottom: 15.h);
   }
 }

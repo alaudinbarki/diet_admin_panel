@@ -23,7 +23,7 @@ class UnitOfMeasurementScreen extends StatefulWidget {
 }
 
 class _UnitOfMeasurementScreenState extends State<UnitOfMeasurementScreen> {
-  final int _selectedIndex = 0;
+  // final int _selectedIndex = 0;
   // Track the selected index
   @override
   Widget build(BuildContext context) {
@@ -145,10 +145,15 @@ class _UnitOfMeasurementScreenState extends State<UnitOfMeasurementScreen> {
                         );
                       }).toList(),
                     ).paddingSymmetric(horizontal: 52.webW(context)),
-                  ).paddingOnly(left: 48.webW(context), right: 48.webW(context), bottom: 23.webH(context)),
-                  const AddNewUnitWidget().paddingSymmetric(horizontal: 48.webW(context)),
+                  ).paddingOnly(
+                      left: 48.webW(context),
+                      right: 48.webW(context),
+                      bottom: 23.webH(context)),
+                  const AddNewUnitWidget()
+                      .paddingSymmetric(horizontal: 48.webW(context)),
                   10.webScaleHeight(context),
-                  const UnitWidget().paddingSymmetric(horizontal: 48.webW(context)),
+                  const UnitWidget()
+                      .paddingSymmetric(horizontal: 48.webW(context)),
                   31.webScaleHeight(context),
                 ],
               ),
