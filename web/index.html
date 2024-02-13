@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -27,7 +28,7 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>deal_tracker_flutter</title>
   <link rel="manifest" href="manifest.json">
@@ -39,21 +40,64 @@
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
 </head>
+
 <body>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js"></script>
+  <script src="main.dart.js" type="application/javascript"></script>
   <script>
-    window.addEventListener('load', function(ev) {
+    window.addEventListener('load', function (ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
+        onEntrypointLoaded: function (engineInitializer) {
+          engineInitializer.initializeEngine().then(function (appRunner) {
             appRunner.runApp();
           });
         }
       });
     });
   </script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    // import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: 'AIzaSyBYLIVMF3nArpRAGZpQXrRy_MTTWEzTwVw',
+      appId: '1:1032404132016:web:114fef060fb89652a9db75',
+      messagingSenderId: '1032404132016',
+      projectId: 'eetplanidees-app',
+      authDomain: 'eetplanidees-app.firebaseapp.com',
+      storageBucket: 'eetplanidees-app.appspot.com',
+      measurementId: 'G-9Y2CMGFFMG',
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+  <!-- <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyAqB8Pw9SQ5bV5C3cAT_VkJ97NI3TWJu1M",
+      authDomain: "[YOUR_PROJECT].firebaseapp.com",
+      databaseURL: "https://[YOUR_PROJECT].firebaseio.com",
+      projectId: "[YOUR_PROJECT]",
+      storageBucket: "[YOUR_PROJECT].appspot.com",
+      messagingSenderId: "...",
+      appId: "1:...:web:...",
+      measurementId: "G-...",
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script> -->
 </body>
+
 </html>

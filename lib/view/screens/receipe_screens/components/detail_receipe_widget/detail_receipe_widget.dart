@@ -1,3 +1,4 @@
+import 'package:base_code/data/model/custom_model/recipe_model.dart';
 import 'package:base_code/provider/authentication_provider.dart';
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/view/screens/receipe_screens/components/detail_receipe_widget/widgets/ingrediants_receipe_widget.dart';
@@ -15,67 +16,72 @@ import '../../../../../data/model/custom_model/tab_item_model.dart';
 import '../../../../../provider/recepie_provider.dart';
 
 class DetailReceipeWidget extends StatelessWidget {
-  const DetailReceipeWidget({super.key});
+  // final RecipeModel recipe;
+  const DetailReceipeWidget({
+    super.key,
+    // required this.recipe
+  });
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 1294.webH(context),
       color: backgroundColor,
-      child: Consumer2<RecepieProvider, AuthProvider>(
-        builder: (context, controller, controller2, child) {
+      child: Consumer<RecepieProvider>(
+        builder: (context, controller, child) {
           return SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        "Review User Recipe".toTextWeb(
-                            context: context,
-                            fontSize: 34,
-                            fontWeight: FontWeight.w600,
-                            color: bluePrimary),
-                        "Approve or decline recipes submitted by app users"
-                            .toTextWeb(
-                                context: context,
-                                fontSize: 16,
-                                color: textGreyColor),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        20.webScaleWidth(context),
-                        WebCustomButton(
-                          buttonName: "Decline",
-                          onPressed: () {},
-                          width: 206.webT(context),
-                          height: 45.webT(context),
-                          buttonColor: redPrimary,
-                          borderColor: redPrimary,
-                          buttonTextColor: whitePrimary,
-                          radius: 15.webT(context),
-                        ),
-                        30.webScaleWidth(context),
-                        WebCustomButton(
-                          buttonName: "Accept",
-                          onPressed: () {},
-                          buttonColor: greenPrimary,
-                          borderColor: greenPrimary,
-                          buttonTextColor: whitePrimary,
-                          width: 206.webT(context),
-                          height: 45.webT(context),
-                          radius: 15.webT(context),
-                        ),
-                      ],
-                    )
-                  ],
-                ).paddingSymmetric(vertical: 25.webT(context)),
+                if (controller.selectedAutherName != "Admin")
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          "Review User Recipe".toTextWeb(
+                              context: context,
+                              fontSize: 34,
+                              fontWeight: FontWeight.w600,
+                              color: bluePrimary),
+                          "Approve or decline recipes submitted by app users"
+                              .toTextWeb(
+                                  context: context,
+                                  fontSize: 16,
+                                  color: textGreyColor),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          20.webScaleWidth(context),
+                          WebCustomButton(
+                            buttonName: "Decline",
+                            onPressed: () {},
+                            width: 206.webT(context),
+                            height: 45.webT(context),
+                            buttonColor: redPrimary,
+                            borderColor: redPrimary,
+                            buttonTextColor: whitePrimary,
+                            radius: 15.webT(context),
+                          ),
+                          30.webScaleWidth(context),
+                          WebCustomButton(
+                            buttonName: "Accept",
+                            onPressed: () {},
+                            buttonColor: greenPrimary,
+                            borderColor: greenPrimary,
+                            buttonTextColor: whitePrimary,
+                            width: 206.webT(context),
+                            height: 45.webT(context),
+                            radius: 15.webT(context),
+                          ),
+                        ],
+                      )
+                    ],
+                  ).paddingSymmetric(vertical: 25.webT(context)),
                 Container(
                   decoration: BoxDecoration(
                     color: whitePrimary,
@@ -179,6 +185,13 @@ class DetailReceipeWidget extends StatelessWidget {
                                   width: 360.webW(context),
                                   height: 150.webT(context),
                                   decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          onError: (exception, stackTrace) {
+                                            print(
+                                                "Error loading image: $exception");
+                                          },
+                                          image: NetworkImage(
+                                              controller.photoPath ?? "")),
                                       color: imagePickerColor.withOpacity(0.2),
                                       border: Border.all(
                                           color:
@@ -186,7 +199,7 @@ class DetailReceipeWidget extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(
                                           15.webT(context))),
                                 ).onPress(() {
-                                  controller2.pickImageFromFiles();
+                                  controller.pickImageFromFiles();
                                 }),
                                 15.webHeight(context),
                                 WebCustomButton(
@@ -211,7 +224,7 @@ class DetailReceipeWidget extends StatelessWidget {
                                 isLabelBold: true,
                                 label: "Recipe Title",
                                 radius: 8.webT(context),
-                                controller: controller2.firstNameController,
+                                controller: controller.recipeTitle,
                                 hintText: "Grilled Chicken Kebabs",
                                 textInputAction: TextInputAction.next,
                               ).paddingOnly(bottom: 20.webH(context)),
@@ -221,7 +234,7 @@ class DetailReceipeWidget extends StatelessWidget {
                                 label: "Author",
                                 isLabelBold: true,
                                 radius: 8.webT(context),
-                                controller: controller2.lastNameController,
+                                controller: controller.autherName,
                                 hintText: "Poppie van Staden",
                                 textInputAction: TextInputAction.next,
                               ).paddingOnly(bottom: 20.webH(context)),
@@ -237,7 +250,7 @@ class DetailReceipeWidget extends StatelessWidget {
                                 label: "Upload Date",
                                 isLabelBold: true,
                                 radius: 8.webT(context),
-                                controller: controller2.emailAddressController,
+                                controller: controller.recipeUpdateDate,
                                 hintText: "Select Date",
                                 textInputAction: TextInputAction.next,
                                 textInputType: TextInputType.emailAddress,
@@ -252,7 +265,8 @@ class DetailReceipeWidget extends StatelessWidget {
                               6.webScaleHeight(context),
 
                               WebCustomButton(
-                                buttonName: "4 781 Likes",
+                                buttonName:
+                                    "${controller.totalLikes.text} Likes",
                                 onPressed: () {},
                                 width: 165.webW(context),
                                 height: 50.webT(context),
@@ -276,7 +290,7 @@ class DetailReceipeWidget extends StatelessWidget {
                             label: "Primary Category",
                             isLabelBold: true,
                             radius: 8.webT(context),
-                            controller: controller2.emailAddressController,
+                            controller: TextEditingController(),
                             hintText: "Chicken & Salad/Vegetables",
                             textInputAction: TextInputAction.next,
                             textInputType: TextInputType.emailAddress,
@@ -287,7 +301,7 @@ class DetailReceipeWidget extends StatelessWidget {
                             label: "Additional Categories",
                             isLabelBold: true,
                             radius: 8.webT(context),
-                            controller: controller2.emailAddressController,
+                            controller: TextEditingController(),
                             hintText:
                                 "Chicken & 1 Vegetable, Fish & Salad/Vegetables",
                             textInputAction: TextInputAction.next,
@@ -299,7 +313,7 @@ class DetailReceipeWidget extends StatelessWidget {
                             label: "Upload Language",
                             isLabelBold: true,
                             radius: 8.webT(context),
-                            controller: controller2.emailAddressController,
+                            controller: controller.uploadLang,
                             hintText: "Afrikaans",
                             textInputAction: TextInputAction.next,
                             textInputType: TextInputType.emailAddress,
@@ -310,9 +324,9 @@ class DetailReceipeWidget extends StatelessWidget {
                   ).paddingSymmetric(
                       horizontal: 52.webW(context), vertical: 30.h),
                 ).paddingOnly(bottom: 25.webT(context)),
-                const IngrediantsDetailWidget(),
+                IngrediantsDetailWidget(ingredients: controller.ingredients),
                 25.webScaleHeight(context),
-                MethodDetailReceipeWidget(),
+                MethodDetailReceipeWidget(methods: controller.methodText),
                 25.webHeight(context),
                 ReceipeNotesWidget(),
                 45.webHeight(context),

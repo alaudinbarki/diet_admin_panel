@@ -22,7 +22,7 @@ class DetailCategoryWidget extends StatefulWidget {
 }
 
 class _DetailCategoryWidgetState extends State<DetailCategoryWidget> {
-  final int _selectedIndex = 0;
+  // final int _selectedIndex = 0;
   // Track the selected index
   @override
   Widget build(BuildContext context) {

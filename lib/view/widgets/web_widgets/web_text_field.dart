@@ -4,10 +4,10 @@ import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
+// import 'package:flutter_svg/svg.dart';
 
 import '../../../utils/colors.dart';
-import '../../../utils/dimension.dart';
+// import '../../../utils/dimension.dart';
 import '../../../utils/style.dart';
 
 class WebTextField extends StatelessWidget {
@@ -86,7 +86,12 @@ class WebTextField extends StatelessWidget {
       children: [
         label != null
             ? label!.toText(
-            fontSize: 14.webT(context), fontFamily: poppinsRegular, color: blackPrimary, fontWeight: isLabelBold == null || !isLabelBold! ? FontWeight.w400 : FontWeight.w600)
+                fontSize: 14.webT(context),
+                fontFamily: poppinsRegular,
+                color: blackPrimary,
+                fontWeight: isLabelBold == null || !isLabelBold!
+                    ? FontWeight.w400
+                    : FontWeight.w600)
             : const SizedBox(),
         label != null ? 15.webHeight(context) : const SizedBox(),
         SizedBox(
@@ -100,7 +105,10 @@ class WebTextField extends StatelessWidget {
               autovalidateMode: controller.text.isNotEmpty
                   ? AutovalidateMode.always
                   : AutovalidateMode.onUserInteraction,
-              style: TextStyle(fontSize: 16.webT(context), fontFamily: poppinsLight, color: blackPrimary),
+              style: TextStyle(
+                  fontSize: 16.webT(context),
+                  fontFamily: poppinsLight,
+                  color: blackPrimary),
               obscureText: obscureText ?? false,
               keyboardType: textInputType,
               validator: validator,
@@ -109,7 +117,9 @@ class WebTextField extends StatelessWidget {
               onFieldSubmitted: onSubmitted,
               textInputAction: textInputAction,
               onTap: onTap,
-              inputFormatters: [LengthLimitingTextInputFormatter(inputFormatter)],
+              inputFormatters: [
+                LengthLimitingTextInputFormatter(inputFormatter)
+              ],
               decoration: InputDecoration(
                 errorStyle: TextStyle(
                     fontSize: 16.webT(context),
@@ -135,13 +145,15 @@ class WebTextField extends StatelessWidget {
                 errorBorder: isBorder == true
                     ? OutlineInputBorder(
                         borderRadius: BorderRadius.circular(radius),
-                        borderSide: const BorderSide(color: redPrimary, width: 1),
+                        borderSide:
+                            const BorderSide(color: redPrimary, width: 1),
                       )
                     : InputBorder.none,
                 focusedErrorBorder: isBorder == true
                     ? OutlineInputBorder(
                         borderRadius: BorderRadius.circular(radius),
-                        borderSide: const BorderSide(color: redPrimary, width: 1.2),
+                        borderSide:
+                            const BorderSide(color: redPrimary, width: 1.2),
                       )
                     : InputBorder.none,
                 enabledBorder: isBorder == true
@@ -153,7 +165,8 @@ class WebTextField extends StatelessWidget {
                 focusedBorder: isBorder == true
                     ? OutlineInputBorder(
                         borderRadius: BorderRadius.circular(radius),
-                        borderSide: const BorderSide(color: bluePrimary, width: 1),
+                        borderSide:
+                            const BorderSide(color: bluePrimary, width: 1),
                       )
                     : InputBorder.none,
               )),

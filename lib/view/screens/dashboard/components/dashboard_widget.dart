@@ -43,16 +43,27 @@ class DashboardWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      "The 28 Day Diet App".toTextWeb(context: context, fontSize: 40, fontWeight: FontWeight.w600, color: blackPrimary),
-                      "ADMIN PANEL".toTextWeb(context: context, fontSize: 16,),
+                      "The 28 Day Diet App".toTextWeb(
+                          context: context,
+                          fontSize: 40,
+                          fontWeight: FontWeight.w600,
+                          color: blackPrimary),
+                      "ADMIN PANEL".toTextWeb(
+                        context: context,
+                        fontSize: 16,
+                      ),
                     ],
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      CustomImage(image: Images.iconProfileImage, width: 50.webT(context), height: 50.webT(context)),
+                      CustomImage(
+                          image: Images.iconProfileImage,
+                          width: 50.webT(context),
+                          height: 50.webT(context)),
                       10.webWidth(context),
-                      "Marci Fumons".toTextWeb(context: context, fontSize: 22, color: blackPrimary),
+                      "Marci Fumons".toTextWeb(
+                          context: context, fontSize: 22, color: blackPrimary),
                       CustomPopupMenuButton()
                     ],
                   )
@@ -64,20 +75,48 @@ class DashboardWidget extends StatelessWidget {
               height: 185.webT(context),
               decoration: BoxDecoration(
                   color: whitePrimary,
-                  border: Border.all(color: borderColor, width: 1.webT(context)),
-                  borderRadius: BorderRadius.circular(16.webT(context))
-              ),
+                  border:
+                      Border.all(color: borderColor, width: 1.webT(context)),
+                  borderRadius: BorderRadius.circular(16.webT(context))),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  renderingDetailBox(context, "Active User", "400", Images.iconActiveUser, Images.iconArrowUp, "10.2", "+1.01% this week"),
+                  renderingDetailBox(
+                      context,
+                      "Active User",
+                      "400",
+                      Images.iconActiveUser,
+                      Images.iconArrowUp,
+                      "10.2",
+                      "+1.01% this week"),
                   Container(color: dividerColor, width: (2).webW(context)),
-                  renderingDetailBox(context, "Earnings this month", "R7 856.25", Images.iconThisMonth, Images.iconArrowUp, "3.1", "+0.49% this week"),
+                  renderingDetailBox(
+                      context,
+                      "Earnings this month",
+                      "R7 856.25",
+                      Images.iconThisMonth,
+                      Images.iconArrowUp,
+                      "3.1",
+                      "+0.49% this week"),
                   Container(color: dividerColor, width: 2.webW(context)),
-                  renderingDetailBox(context, "Total User", "46 827", Images.iconTotalUser, Images.iconArrowDown, "2.56", "-0.91% this week"),
+                  renderingDetailBox(
+                      context,
+                      "Total User",
+                      "46 827",
+                      Images.iconTotalUser,
+                      Images.iconArrowDown,
+                      "2.56",
+                      "-0.91% this week"),
                   Container(color: dividerColor, width: 2.webW(context)),
-                  renderingDetailBox(context, "Active subscriptions", "4 320", Images.iconActiveUser, Images.iconArrowUp, "7.2", "+1.51% this week"),
+                  renderingDetailBox(
+                      context,
+                      "Active subscriptions",
+                      "4 320",
+                      Images.iconActiveUser,
+                      Images.iconArrowUp,
+                      "7.2",
+                      "+1.51% this week"),
                 ],
               ).paddingAll(18.webT(context)),
             ).paddingSymmetric(horizontal: 48.webW(context)),
@@ -90,16 +129,20 @@ class DashboardWidget extends StatelessWidget {
                   height: 460.webT(context),
                   decoration: BoxDecoration(
                       color: whitePrimary,
-                      border: Border.all(color: borderColor, width: 1.webT(context)),
-                      borderRadius: BorderRadius.circular(16.webT(context))
-                  ),
+                      border: Border.all(
+                          color: borderColor, width: 1.webT(context)),
+                      borderRadius: BorderRadius.circular(16.webT(context))),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          "Active Installs".toTextWeb(context: context, fontSize: 26, fontWeight: FontWeight.w500, color: blackPrimary),
+                          "Active Installs".toTextWeb(
+                              context: context,
+                              fontSize: 26,
+                              fontWeight: FontWeight.w500,
+                              color: blackPrimary),
                           Row(
                             children: [
                               Container(
@@ -107,22 +150,28 @@ class DashboardWidget extends StatelessWidget {
                                 height: 12.webT(context),
                                 decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
-                                    color: iosLineColor
-                                ),
+                                    color: iosLineColor),
                               ),
                               12.webScaleWidth(context),
-                              "iOS install".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w500, color: blackPrimary),
+                              "iOS install".toTextWeb(
+                                  context: context,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: blackPrimary),
                               15.webScaleWidth(context),
                               Container(
                                 width: 12.webT(context),
                                 height: 12.webT(context),
                                 decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
-                                    color: androidLineColor
-                                ),
+                                    color: androidLineColor),
                               ),
                               12.webScaleWidth(context),
-                              "Android Install".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w500, color: blackPrimary),
+                              "Android Install".toTextWeb(
+                                  context: context,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: blackPrimary),
                               15.webScaleWidth(context),
                               Container(
                                 decoration: BoxDecoration(
@@ -140,11 +189,22 @@ class DashboardWidget extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    "Monthly".toTextWeb(context: context, fontSize: 16, color: blackPrimary,),
+                                    "Monthly".toTextWeb(
+                                      context: context,
+                                      fontSize: 16,
+                                      color: blackPrimary,
+                                    ),
                                     5.webWidth(context),
-                                    CustomImage(image: Images.iconDropDown, width: 22.webT(context), height: 22.webT(context)),
+                                    CustomImage(
+                                        image: Images.iconDropDown,
+                                        width: 22.webT(context),
+                                        height: 22.webT(context)),
                                   ],
-                                ).paddingSymmetric(horizontal: 12.webW(context), vertical: 5.webH(context)).center,
+                                )
+                                    .paddingSymmetric(
+                                        horizontal: 12.webW(context),
+                                        vertical: 5.webH(context))
+                                    .center,
                               ),
                             ],
                           ),
@@ -152,16 +212,20 @@ class DashboardWidget extends StatelessWidget {
                       ),
                       LineChartWidget(),
                     ],
-                  ).paddingOnly(left: 25.webT(context), right: 25.webT(context), top: 25.webT(context), bottom: 10.webT(context)),
+                  ).paddingOnly(
+                      left: 25.webT(context),
+                      right: 25.webT(context),
+                      top: 25.webT(context),
+                      bottom: 10.webT(context)),
                 ),
                 Container(
                   width: 355.webT(context),
                   height: 460.webT(context),
                   decoration: BoxDecoration(
                       color: whitePrimary,
-                      border: Border.all(color: borderColor, width: 1.webT(context)),
-                      borderRadius: BorderRadius.circular(16.webT(context))
-                  ),
+                      border: Border.all(
+                          color: borderColor, width: 1.webT(context)),
+                      borderRadius: BorderRadius.circular(16.webT(context))),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -169,8 +233,15 @@ class DashboardWidget extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          "Earnings".toTextWeb(context: context, fontSize: 26, fontWeight: FontWeight.w600, color: blackPrimary),
-                          CustomImage(image: Images.iconThisMonth, width: 22.webT(context), height: 22.webT(context)),
+                          "Earnings".toTextWeb(
+                              context: context,
+                              fontSize: 26,
+                              fontWeight: FontWeight.w600,
+                              color: blackPrimary),
+                          CustomImage(
+                              image: Images.iconThisMonth,
+                              width: 22.webT(context),
+                              height: 22.webT(context)),
                         ],
                       ),
                       22.webScaleHeight(context),
@@ -185,13 +256,16 @@ class DashboardWidget extends StatelessWidget {
                                 width: 12.webT(context),
                                 height: 12.webT(context),
                                 decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: yellowPrimary,
+                                  shape: BoxShape.circle,
+                                  color: yellowPrimary,
                                 ),
                               ),
                               12.webScaleWidth(context),
-                              "Subscriptions ".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w500, color: blackPrimary),
-
+                              "Subscriptions ".toTextWeb(
+                                  context: context,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: blackPrimary),
                             ],
                           ),
                           Row(
@@ -201,12 +275,14 @@ class DashboardWidget extends StatelessWidget {
                                 height: 12.webT(context),
                                 decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
-                                    color: greenPrimary
-                                ),
+                                    color: greenPrimary),
                               ),
                               12.webScaleWidth(context),
-                              "App Purchases ".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w500, color: blackPrimary),
-
+                              "App Purchases ".toTextWeb(
+                                  context: context,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: blackPrimary),
                             ],
                           ),
                         ],
@@ -220,13 +296,14 @@ class DashboardWidget extends StatelessWidget {
                             width: 12.webT(context),
                             height: 12.webT(context),
                             decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: redPrimary
-                            ),
+                                shape: BoxShape.circle, color: redPrimary),
                           ),
                           12.webScaleWidth(context),
-                          "Refunds".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w500, color: blackPrimary),
-
+                          "Refunds".toTextWeb(
+                              context: context,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: blackPrimary),
                         ],
                       ),
                     ],
@@ -238,16 +315,20 @@ class DashboardWidget extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                   color: whitePrimary,
-                  border: Border.all(color: borderColor, width: 1.webT(context)),
-                  borderRadius: BorderRadius.circular(16.webT(context))
-              ),
+                  border:
+                      Border.all(color: borderColor, width: 1.webT(context)),
+                  borderRadius: BorderRadius.circular(16.webT(context))),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      "Order List".toTextWeb(context: context, fontSize: 26, color: blackPrimary, fontWeight: FontWeight.w500),
+                      "Order List".toTextWeb(
+                          context: context,
+                          fontSize: 26,
+                          color: blackPrimary,
+                          fontWeight: FontWeight.w500),
                       Container(
                         decoration: BoxDecoration(
                           color: whitePrimary,
@@ -264,11 +345,22 @@ class DashboardWidget extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            "Monthly".toTextWeb(context: context, fontSize: 16, color: blackPrimary,),
+                            "Monthly".toTextWeb(
+                              context: context,
+                              fontSize: 16,
+                              color: blackPrimary,
+                            ),
                             5.webWidth(context),
-                            CustomImage(image: Images.iconDropDown, width: 22.webT(context), height: 22.webT(context)),
+                            CustomImage(
+                                image: Images.iconDropDown,
+                                width: 22.webT(context),
+                                height: 22.webT(context)),
                           ],
-                        ).paddingSymmetric(horizontal: 12.webW(context), vertical: 5.webH(context)).center,
+                        )
+                            .paddingSymmetric(
+                                horizontal: 12.webW(context),
+                                vertical: 5.webH(context))
+                            .center,
                       ),
                     ],
                   ),
@@ -277,14 +369,25 @@ class DashboardWidget extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 208.webW(context),
-                        child: "Email".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w600, color: blackPrimary),
+                        child: "Email".toTextWeb(
+                            context: context,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: blackPrimary),
                       ),
                       SizedBox(
                         width: 208.webW(context),
                         child: Row(
                           children: [
-                            "Date".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w600, color: blackPrimary),
-                            CustomImage(image: Images.iconFilter, width: 16.webT(context), height: 16.webT(context))
+                            "Date".toTextWeb(
+                                context: context,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                color: blackPrimary),
+                            CustomImage(
+                                image: Images.iconFilter,
+                                width: 16.webT(context),
+                                height: 16.webT(context))
                           ],
                         ),
                       ),
@@ -292,35 +395,64 @@ class DashboardWidget extends StatelessWidget {
                         width: 208.webW(context),
                         child: Row(
                           children: [
-                            "Location".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w600, color: blackPrimary),
-                            CustomImage(image: Images.iconFilter, width: 16.webT(context), height: 16.webT(context))
+                            "Location".toTextWeb(
+                                context: context,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                color: blackPrimary),
+                            CustomImage(
+                                image: Images.iconFilter,
+                                width: 16.webT(context),
+                                height: 16.webT(context))
                           ],
                         ),
                       ),
                       SizedBox(
                         width: 208.webW(context),
-                        child: "Order Details".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w600, color: blackPrimary),
+                        child: "Order Details".toTextWeb(
+                            context: context,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: blackPrimary),
                       ),
                       SizedBox(
                         width: 208.webW(context),
-                        child: "Amount".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w600, color: blackPrimary),
+                        child: "Amount".toTextWeb(
+                            context: context,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: blackPrimary),
                       ),
                       SizedBox(
                         width: 208.webW(context),
                         child: Row(
                           children: [
-                            "Status".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w600, color: blackPrimary),
-                            CustomImage(image: Images.iconFilter, width: 16.webT(context), height: 16.webT(context))
+                            "Status".toTextWeb(
+                                context: context,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                color: blackPrimary),
+                            CustomImage(
+                                image: Images.iconFilter,
+                                width: 16.webT(context),
+                                height: 16.webT(context))
                           ],
                         ),
                       ),
                       SizedBox(
                         width: 208.webW(context),
-                        child: "Platform".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w600, color: blackPrimary),
+                        child: "Platform".toTextWeb(
+                            context: context,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: blackPrimary),
                       ),
                     ],
                   ),
-                  Container(height: 1.webH(context), color: dividerColor,).paddingSymmetric(vertical: 20.webT(context)),
+                  Container(
+                    height: 1.webH(context),
+                    color: dividerColor,
+                  ).paddingSymmetric(vertical: 20.webT(context)),
                   ListView.separated(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
@@ -329,30 +461,51 @@ class DashboardWidget extends StatelessWidget {
                           children: [
                             SizedBox(
                               width: 208.webW(context),
-                              child: "heleenvdm@gmail.com".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w400, color: blackPrimary),
+                              child: "heleenvdm@gmail.com".toTextWeb(
+                                  context: context,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: blackPrimary),
                             ),
                             SizedBox(
                               width: 208.webW(context),
-                              child: "21 Nov 2021".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w400, color: blackPrimary),
+                              child: "21 Nov 2021".toTextWeb(
+                                  context: context,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: blackPrimary),
                             ),
                             SizedBox(
                               width: 208.webW(context),
-                              child: "Cape Town, ZA".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w400, color: blackPrimary),
+                              child: "Cape Town, ZA".toTextWeb(
+                                  context: context,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: blackPrimary),
                             ),
                             SizedBox(
                               width: 208.webW(context),
-                              child: "App Purchase".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w400, color: blackPrimary),
+                              child: "App Purchase".toTextWeb(
+                                  context: context,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: blackPrimary),
                             ),
                             SizedBox(
                               width: 208.webW(context),
-                              child: "ZAR 39.00".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w400, color: blackPrimary),
+                              child: "ZAR 39.00".toTextWeb(
+                                  context: context,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: blackPrimary),
                             ),
                             SizedBox(
                               width: 208.webW(context),
                               child: Container(
                                 width: 125.webW(context),
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.webT(context)),
+                                  borderRadius:
+                                      BorderRadius.circular(10.webT(context)),
                                   color: whitePrimary,
                                   boxShadow: [
                                     BoxShadow(
@@ -367,25 +520,45 @@ class DashboardWidget extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    CircleAvatar(backgroundColor: index %2 == 0 ? redPrimary : greenPrimary, radius: 5.webT(context)),
+                                    CircleAvatar(
+                                        backgroundColor: index % 2 == 0
+                                            ? redPrimary
+                                            : greenPrimary,
+                                        radius: 5.webT(context)),
                                     10.webWidth(context),
-                                    "Charged".toTextWeb(context: context, fontSize: 16, color: blackPrimary,),
+                                    "Charged".toTextWeb(
+                                      context: context,
+                                      fontSize: 16,
+                                      color: blackPrimary,
+                                    ),
                                   ],
-                                ).paddingSymmetric(horizontal: 12.webW(context), vertical: 5.webH(context)).center,
-                              ).align(Alignment.centerLeft).paddingOnly(right: 30.webW(context)),
+                                )
+                                    .paddingSymmetric(
+                                        horizontal: 12.webW(context),
+                                        vertical: 5.webH(context))
+                                    .center,
+                              )
+                                  .align(Alignment.centerLeft)
+                                  .paddingOnly(right: 30.webW(context)),
                             ),
                             SizedBox(
                               width: 208.webW(context),
-                              child: "Android".toTextWeb(context: context, fontSize: 16, fontWeight: FontWeight.w400, color: blackPrimary),
+                              child: "Android".toTextWeb(
+                                  context: context,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: blackPrimary),
                             ),
                           ],
                         );
                       },
                       separatorBuilder: (context, index) {
-                        return Container(height: 1.webH(context), color: dividerColor,).paddingSymmetric(vertical: 20.webT(context));
+                        return Container(
+                          height: 1.webH(context),
+                          color: dividerColor,
+                        ).paddingSymmetric(vertical: 20.webT(context));
                       },
-                      itemCount: 10
-                  )
+                      itemCount: 10)
                 ],
               ).paddingAll(18.webT(context)),
             ).paddingSymmetric(horizontal: 48.webW(context)),
@@ -396,7 +569,14 @@ class DashboardWidget extends StatelessWidget {
     );
   }
 
-  renderingDetailBox(BuildContext context, String title, String titleNumber, String titleIcon, String arrowIcon, String titlePercentage, String titleDescription) {
+  renderingDetailBox(
+      BuildContext context,
+      String title,
+      String titleNumber,
+      String titleIcon,
+      String arrowIcon,
+      String titlePercentage,
+      String titleDescription) {
     return SizedBox(
       width: 280.webW(context),
       child: Column(
@@ -405,7 +585,11 @@ class DashboardWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              titleNumber.toTextWeb(context: context, fontSize: 36, fontWeight: FontWeight.w600, color: blackPrimary),
+              titleNumber.toTextWeb(
+                  context: context,
+                  fontSize: 36,
+                  fontWeight: FontWeight.w600,
+                  color: blackPrimary),
               Container(
                 width: 60.webT(context),
                 height: 60.webT(context),

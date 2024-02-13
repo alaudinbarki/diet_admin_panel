@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable, invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
+
 import 'package:base_code/provider/authentication_provider.dart';
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/utils/images.dart';

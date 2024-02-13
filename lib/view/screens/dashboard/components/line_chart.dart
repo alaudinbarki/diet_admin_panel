@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -31,7 +33,8 @@ class LineChartWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: fromMobile! ? null : 385.webT(context),
-      width: fromMobile! ? MediaQuery.of(context).size.width :  1120.webT(context),
+      width:
+          fromMobile! ? MediaQuery.of(context).size.width : 1120.webT(context),
       child: SfCartesianChart(
         plotAreaBorderWidth: 0,
         plotAreaBorderColor: borderColor,
@@ -39,11 +42,17 @@ class LineChartWidget extends StatelessWidget {
           majorGridLines: const MajorGridLines(width: 0),
           minorGridLines: const MinorGridLines(width: 0),
           axisLine: const AxisLine(color: Colors.transparent),
-          majorTickLines: const MajorTickLines(size: 0), // Set size to 0 to hide major ticks
-          minorTickLines: const MinorTickLines(size: 0), // Set size to 0 to hide minor ticks
+          majorTickLines: const MajorTickLines(
+              size: 0), // Set size to 0 to hide major ticks
+          minorTickLines: const MinorTickLines(
+              size: 0), // Set size to 0 to hide minor ticks
           borderWidth: 0,
           borderColor: borderColor,
-          labelStyle: TextStyle(color: textColor, fontSize: fromMobile! ? 10 : 16.webT(context)), // Change text color for X-axis labels
+          labelStyle: TextStyle(
+              color: textColor,
+              fontSize: fromMobile!
+                  ? 10
+                  : 16.webT(context)), // Change text color for X-axis labels
         ),
         primaryYAxis: NumericAxis(
           minimum: 0,
@@ -56,9 +65,11 @@ class LineChartWidget extends StatelessWidget {
           axisLine: const AxisLine(color: Colors.transparent),
           borderWidth: 0,
           borderColor: borderColor,
-          labelStyle: TextStyle(color: textColor, fontSize: fromMobile! ? 10 : 16.webT(context)),
+          labelStyle: TextStyle(
+              color: textColor, fontSize: fromMobile! ? 10 : 16.webT(context)),
         ),
-        title: ChartTitle(text: 'ABC', textStyle: const TextStyle(color: Colors.transparent)),
+        title: ChartTitle(
+            text: 'ABC', textStyle: const TextStyle(color: Colors.transparent)),
         legend: Legend(isVisible: false),
         tooltipBehavior: TooltipBehavior(enable: false),
         series: <CartesianSeries<SalesData, String>>[
@@ -68,7 +79,7 @@ class LineChartWidget extends StatelessWidget {
             yValueMapper: (SalesData sales, _) => sales.sales,
             name: 'Android',
             color: androidLineColor,
-            width: fromMobile! ? 3/2.h : 3.webT(context),
+            width: fromMobile! ? 3 / 2.h : 3.webT(context),
             dataLabelSettings: const DataLabelSettings(isVisible: false),
             // markerSettings: MarkerSettings(isVisible: true, width: 12.webT(context), height: 12.webT(context)),
           ),
@@ -78,7 +89,7 @@ class LineChartWidget extends StatelessWidget {
             yValueMapper: (SalesData sales, _) => sales.sales,
             name: 'iOS',
             color: iosLineColor,
-            width: fromMobile! ? 3/2.h : 3.webT(context),
+            width: fromMobile! ? 3 / 2.h : 3.webT(context),
             dataLabelSettings: const DataLabelSettings(isVisible: false),
             // markerSettings: MarkerSettings(isVisible: true, width: 12.webT(context), height: 12.webT(context)),
           ),

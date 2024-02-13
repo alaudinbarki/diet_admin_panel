@@ -1,11 +1,10 @@
 import 'dart:typed_data';
 
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker_web/image_picker_web.dart';
 
 class UtilProvider extends ChangeNotifier {
-
   Future<Uint8List?> pickImage() async {
     Uint8List? image = await ImagePickerWeb.getImageAsBytes();
     return image;
@@ -21,6 +20,6 @@ class UtilProvider extends ChangeNotifier {
     if (picked != null) {
       return picked;
     }
+    return null;
   }
-
 }

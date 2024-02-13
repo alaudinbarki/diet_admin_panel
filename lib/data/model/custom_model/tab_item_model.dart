@@ -1,6 +1,6 @@
 class TabItem {
   final String label;
-  final String count;
+  String count;
 
   TabItem({required this.label, required this.count});
 }

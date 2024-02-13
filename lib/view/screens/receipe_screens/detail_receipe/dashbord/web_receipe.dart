@@ -1,3 +1,4 @@
+// import 'package:base_code/data/model/custom_model/recipe_model.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,12 @@ import '../../../dashboard/components/custom_drawer.dart';
 import '../../components/detail_receipe_widget/detail_receipe_widget.dart';
 
 class WebDetailReceipeScreen extends StatefulWidget {
-  const WebDetailReceipeScreen({super.key});
+  // final RecipeModel recipe;
+
+  const WebDetailReceipeScreen({
+    Key? key,
+    //  required this.recipe
+  });
 
   @override
   State<WebDetailReceipeScreen> createState() => _WebDetailReceipeScreenState();
@@ -38,7 +44,10 @@ class _WebDetailReceipeScreenState extends State<WebDetailReceipeScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CustomDrawer(),
-                  const DetailReceipeWidget().expanded
+                  DetailReceipeWidget(
+                          // recipe: widget.recipe,
+                          )
+                      .expanded
                 ],
               ),
             )),

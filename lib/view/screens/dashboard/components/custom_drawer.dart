@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:base_code/data/model/custom_model/drawer_model.dart';
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/utils/images.dart';
@@ -35,7 +37,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
         // height: 1294.webH(context),
         decoration: BoxDecoration(
             color: blueSecondary,
-            borderRadius: BorderRadius.only(topRight: Radius.circular(widget.fromMobile! ? 10.w : 25.webT(context)))),
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(
+                    widget.fromMobile! ? 10.w : 25.webT(context)))),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -111,22 +115,16 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   children.addAll(item.subItems!.map<Widget>((subItem) {
                     bool isSubItemSelected =
                         subItem == controller.selectedSubItem;
-                    return renderingSubCategoryBox(
-                      context,
-                      subItem.image ?? '',
-                      isSubItemSelected,
-                      subItem.title,
-                      () {
-                        if (subItem.path != null) {
-                          Navigator.pushNamed(context, subItem.path!);
-                        }
-                        controller.setSelectedSubItem(subItem);
-                        controller
-                            .notifier(); // Notify listeners or update state
-                      },
-                      widget.fromMobile!
-                      // Additional parameters for styling if needed
-                    );
+                    return renderingSubCategoryBox(context, subItem.image ?? '',
+                        isSubItemSelected, subItem.title, () {
+                      if (subItem.path != null) {
+                        Navigator.pushNamed(context, subItem.path!);
+                      }
+                      controller.setSelectedSubItem(subItem);
+                      controller.notifier(); // Notify listeners or update state
+                    }, widget.fromMobile!
+                        // Additional parameters for styling if needed
+                        );
                   }).toList());
                 }
 
@@ -135,7 +133,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         color: item.isExpandable && item.isExpanded
                             ? whitePrimary.withOpacity(0.3)
                             : blueSecondary,
-                        borderRadius: BorderRadius.circular(widget.fromMobile! ? 12.w : 15.webT(context))),
+                        borderRadius: BorderRadius.circular(
+                            widget.fromMobile! ? 12.w : 15.webT(context))),
                     child: Column(children: children));
               },
             ),
@@ -145,7 +144,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
               height: widget.fromMobile! ? 40.h : 60.webH(context),
               decoration: BoxDecoration(
                 color: isSelected ? whitePrimary : blueSecondary,
-                borderRadius: BorderRadius.circular(widget.fromMobile! ? 15.w : 20.webT(context)),
+                borderRadius: BorderRadius.circular(
+                    widget.fromMobile! ? 15.w : 20.webT(context)),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -158,21 +158,27 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     iconColor: blackPrimary,
                   ),
                   widget.fromMobile! ? 7.width : 16.webWidth(context),
-                  widget.fromMobile! ? "Logout".toText(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: blackPrimary,
-                      ) : "Logout".toTextWeb(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      color: blackPrimary,
-                      context: context),
+                  widget.fromMobile!
+                      ? "Logout".toText(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: blackPrimary,
+                        )
+                      : "Logout".toTextWeb(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: blackPrimary,
+                          context: context),
                 ],
-              ).paddingSymmetric(horizontal: widget.fromMobile! ? 20.w : 25.webW(context)).center,
+              )
+                  .paddingSymmetric(
+                      horizontal: widget.fromMobile! ? 20.w : 25.webW(context))
+                  .center,
             ),
             widget.fromMobile! ? 40.height : 50.webHeight(context),
           ],
-        ).paddingSymmetric(horizontal: widget.fromMobile! ? 20.w : 30.webW(context)),
+        ).paddingSymmetric(
+            horizontal: widget.fromMobile! ? 20.w : 30.webW(context)),
       );
     });
   }
@@ -185,7 +191,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
       height: widget.fromMobile! ? 50.h : 60.webH(context),
       decoration: BoxDecoration(
         color: isSelected ? whitePrimary : blueSecondary,
-        borderRadius: BorderRadius.circular(widget.fromMobile! ? 5.w : 15.webT(context)),
+        borderRadius:
+            BorderRadius.circular(widget.fromMobile! ? 5.w : 15.webT(context)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -209,36 +216,34 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
           widget.fromMobile!
               ? title.toText(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              color: isLogout
-                  ? blackPrimary
-                  : isSelected
-                  ? bluePrimary
-                  : whitePrimary,)
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: isLogout
+                      ? blackPrimary
+                      : isSelected
+                          ? bluePrimary
+                          : whitePrimary,
+                )
               : title.toTextWeb(
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-              color: isLogout
-                  ? blackPrimary
-                  : isSelected
-                      ? bluePrimary
-                      : whitePrimary,
-              context: context),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: isLogout
+                      ? blackPrimary
+                      : isSelected
+                          ? bluePrimary
+                          : whitePrimary,
+                  context: context),
         ],
-      ).paddingSymmetric(horizontal: widget.fromMobile! ? 10.w : 25.webW(context)).center,
+      )
+          .paddingSymmetric(
+              horizontal: widget.fromMobile! ? 10.w : 25.webW(context))
+          .center,
     ).onPress(onTap);
   }
 }
 
-renderingSubCategoryBox(
-  BuildContext context,
-  String icon,
-  bool isSelected,
-  String title,
-  GestureTapCallback onTap,
-  bool isMobile
-) {
+renderingSubCategoryBox(BuildContext context, String icon, bool isSelected,
+    String title, GestureTapCallback onTap, bool isMobile) {
   return SizedBox(
     width: isMobile ? 150.w : 290.webW(context),
     height: isMobile ? 40.h : 60.webH(context),
@@ -248,15 +253,15 @@ renderingSubCategoryBox(
       children: [
         isMobile
             ? title.toText(
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-            color: isSelected ? bluePrimary : containerTextColor,
-            )
-            :  title.toTextWeb(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            color: isSelected ? bluePrimary : containerTextColor,
-            context: context),
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: isSelected ? bluePrimary : containerTextColor,
+              )
+            : title.toTextWeb(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: isSelected ? bluePrimary : containerTextColor,
+                context: context),
       ],
     ).paddingSymmetric(horizontal: isMobile ? 20.w : 25.webW(context)).center,
   ).onPress(onTap);

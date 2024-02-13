@@ -1,3 +1,4 @@
+import 'package:base_code/data/model/custom_model/recipe_model.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';
@@ -10,7 +11,12 @@ import '../../../../../widgets/web_widgets/web_text_field.dart';
 import '../../receipe_widet/receipe_widget.dart';
 
 class IngrediantsDetailWidget extends StatelessWidget {
-  const IngrediantsDetailWidget({super.key});
+  final List<IngredientTextEditor> ingredients;
+
+  const IngrediantsDetailWidget({
+    super.key,
+    required this.ingredients,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +88,7 @@ class IngrediantsDetailWidget extends StatelessWidget {
                         width: 220.webW(context),
                         isLabelBold: true,
                         radius: 8.webT(context),
-                        controller: TextEditingController(),
+                        controller: ingredients[index].amountController,
                         hintText: "2",
                         textInputAction: TextInputAction.next,
                       ),
@@ -91,7 +97,7 @@ class IngrediantsDetailWidget extends StatelessWidget {
                         width: 220.webW(context),
                         isLabelBold: true,
                         radius: 8.webT(context),
-                        controller: TextEditingController(),
+                        controller: ingredients[index].unitController,
                         hintText: "tbsp",
                         textInputAction: TextInputAction.next,
                       ),
@@ -100,7 +106,7 @@ class IngrediantsDetailWidget extends StatelessWidget {
                         width: 420.webW(context),
                         isLabelBold: true,
                         radius: 8.webT(context),
-                        controller: TextEditingController(),
+                        controller: ingredients[index].nameController,
                         hintText: "Olive oil",
                         textInputAction: TextInputAction.next,
                       ),
@@ -109,7 +115,7 @@ class IngrediantsDetailWidget extends StatelessWidget {
                         width: 420.webW(context),
                         isLabelBold: true,
                         radius: 8.webT(context),
-                        controller: TextEditingController(),
+                        controller: ingredients[index].notesController,
                         hintText: "extra virgin",
                         textInputAction: TextInputAction.next,
                       ),
@@ -122,7 +128,7 @@ class IngrediantsDetailWidget extends StatelessWidget {
                     // color: dividerColor,
                   ).paddingSymmetric(vertical: 20.webT(context));
                 },
-                itemCount: 2),
+                itemCount: ingredients.length),
             30.webHeight(context),
           ],
         ).paddingAll(18.webT(context)),

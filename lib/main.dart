@@ -1,6 +1,10 @@
+import 'package:base_code/firebase_options.dart';
 import 'package:base_code/utils/colors.dart';
+// import 'package:base_code/view/widgets/extention/object_extension.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+// import 'package:firebase_analytics/firebase_analytics.dart';
 
 import 'helper/provider_helper.dart';
 import 'helper/routes_helper.dart';
@@ -8,12 +12,24 @@ import 'helper/scroll_behaviour.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+//   @override
+//   void initState() {
+//     print(analytics.appInstanceId);
+//     super.initState();
+//   }
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +55,8 @@ class MyApp extends StatelessWidget {
             }),
           ),
           //   home: const LessonDashbord(),
-          initialRoute: RouterHelper.dashboardScreen,
-          routes: RouterHelper.routes
-          ),
+          initialRoute: RouterHelper.initial,
+          routes: RouterHelper.routes),
     );
   }
 }

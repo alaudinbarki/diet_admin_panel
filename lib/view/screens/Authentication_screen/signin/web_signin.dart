@@ -1,13 +1,12 @@
-
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
+// import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import '../../../../helper/routes_helper.dart';
-import '../../../../helper/validation.dart';
+// import '../../../../helper/validation.dart';
 import '../../../../provider/authentication_provider.dart';
 import '../../../../utils/colors.dart';
 import '../../../../utils/constant.dart';
@@ -65,37 +64,39 @@ class _WebSignInScreenState extends State<WebSignInScreen> {
                                 ),
                               ],
                             ),
-
                             Container(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Constant.login.toTextWeb(
+                                  Constant.login
+                                      .toTextWeb(
                                         context: context,
                                         overflow: TextOverflow.clip,
                                         textAlign: TextAlign.center,
                                         fontSize: 40,
                                         fontFamily: poppinsBold,
                                         color: bluePrimary,
-                                      ).paddingOnly(bottom: 10.webH(context)),
-
+                                      )
+                                      .paddingOnly(bottom: 10.webH(context)),
                                   SizedBox(
                                     width: 380.webW(context),
-                                    child: Constant.loginDetail.toTextWeb(
+                                    child: Constant.loginDetail
+                                        .toTextWeb(
                                           context: context,
                                           overflow: TextOverflow.clip,
                                           fontSize: 16,
                                           fontFamily: poppinsRegular,
                                           maxLine: 2,
                                           color: greyLight,
-                                        ).paddingOnly(bottom: 50.webH(context)),
+                                        )
+                                        .paddingOnly(bottom: 50.webH(context)),
                                   ),
-
                                   WebTextField(
                                     height: 50.webT(context),
                                     label: Constant.email,
                                     radius: 8.webT(context),
-                                    controller: controller.signInEmailController,
+                                    controller:
+                                        controller.signInEmailController,
                                     hintText: Constant.hintEmail,
                                     iconPadding: 5.webT(context),
                                     textInputType: TextInputType.emailAddress,
@@ -104,7 +105,9 @@ class _WebSignInScreenState extends State<WebSignInScreen> {
                                       Images.iconEmailCross,
                                       width: 20.webT(context),
                                       height: 20.webT(context),
-                                    ).paddingSymmetric(horizontal: 0.webT(context), vertical: 12.webT(context)),
+                                    ).paddingSymmetric(
+                                        horizontal: 0.webT(context),
+                                        vertical: 12.webT(context)),
                                   ).paddingOnly(bottom: 20.webH(context)),
                                   WebTextField(
                                     height: 50.webT(context),
@@ -112,7 +115,8 @@ class _WebSignInScreenState extends State<WebSignInScreen> {
                                     isPassword: true,
                                     radius: 8.webT(context),
                                     iconPadding: 5.webT(context),
-                                    controller: controller.signInPasswordController,
+                                    controller:
+                                        controller.signInPasswordController,
                                     hintText: Constant.hintPassword,
                                     textInputType: TextInputType.text,
                                     textInputAction: TextInputAction.done,
@@ -123,12 +127,15 @@ class _WebSignInScreenState extends State<WebSignInScreen> {
                                       Images.iconPasswordHide,
                                       width: 20.webT(context),
                                       height: 20.webT(context),
-                                    ).paddingSymmetric(horizontal: 0.webT(context), vertical: 12.webT(context)),
+                                    ).paddingSymmetric(
+                                        horizontal: 0.webT(context),
+                                        vertical: 12.webT(context)),
                                   ).paddingOnly(bottom: 10.webH(context)),
                                   SizedBox(
                                     width: 360.webW(context),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Row(
                                           children: [
@@ -136,14 +143,24 @@ class _WebSignInScreenState extends State<WebSignInScreen> {
                                               height: 16.webT(context),
                                               width: 16.webT(context),
                                               decoration: BoxDecoration(
-                                                color: controller.isRememberMe ? bluePrimary : whitePrimary,
-                                                border: Border.all(color: controller.isRememberMe ? bluePrimary : greyLight)
-                                              ),
-                                              child: Icon(Icons.done, color: controller.isRememberMe ? whitePrimary : whitePrimary, size: 11.webH(context),).center,
+                                                  color: controller.isRememberMe
+                                                      ? bluePrimary
+                                                      : whitePrimary,
+                                                  border: Border.all(
+                                                      color: controller
+                                                              .isRememberMe
+                                                          ? bluePrimary
+                                                          : greyLight)),
+                                              child: Icon(
+                                                Icons.done,
+                                                color: controller.isRememberMe
+                                                    ? whitePrimary
+                                                    : whitePrimary,
+                                                size: 11.webH(context),
+                                              ).center,
                                             ),
                                             8.webWidth(context),
-                                            Constant.rememberMe
-                                                .toTextWeb(
+                                            Constant.rememberMe.toTextWeb(
                                                 context: context,
                                                 textAlign: TextAlign.center,
                                                 fontSize: 14,
@@ -154,17 +171,16 @@ class _WebSignInScreenState extends State<WebSignInScreen> {
                                         ).onPress(() {
                                           controller.setRememberMe();
                                         }),
-                                        Constant.textBtnForgotPassword.toTextWeb(
+                                        Constant.textBtnForgotPassword
+                                            .toTextWeb(
                                                 context: context,
                                                 fontSize: 14,
-                                            maxLine: 2,
-                                            textAlign: TextAlign.center,
+                                                maxLine: 2,
+                                                textAlign: TextAlign.center,
                                                 overflow: TextOverflow.ellipsis,
                                                 color: pinkPrimary,
                                                 fontFamily: poppinsRegular)
-                                            .onPress(() {
-
-                                        }),
+                                            .onPress(() {}),
                                       ],
                                     ).paddingOnly(bottom: 50.webH(context)),
                                   ),
@@ -178,11 +194,13 @@ class _WebSignInScreenState extends State<WebSignInScreen> {
                                       onPressed: () async {
                                         // if (formKey.currentState!.validate()) {
                                         //   FocusManager.instance.primaryFocus?.unfocus();
-                                        Navigator.pushNamed(
-                                            context, RouterHelper.dashboardScreen);
+                                        Navigator.pushNamed(context,
+                                            RouterHelper.dashboardScreen);
                                         //}
                                       },
-                                    ).center.paddingOnly(bottom: 30.webH(context)),
+                                    )
+                                        .center
+                                        .paddingOnly(bottom: 30.webH(context)),
                                   ),
                                 ],
                               ).paddingSymmetric(horizontal: 180.webW(context)),
@@ -193,20 +211,23 @@ class _WebSignInScreenState extends State<WebSignInScreen> {
                         width: mediaQueryWebSize(context).width / 2,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage(Images.loginImage),
-                            fit: BoxFit.cover
-                          ),
+                              image: AssetImage(Images.loginImage),
+                              fit: BoxFit.cover),
                         ),
                         child: Align(
                           alignment: Alignment.bottomLeft,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              renderingStoreButton(Images.iconGooglePlay, "Google Play", "Get it on"),
+                              renderingStoreButton(Images.iconGooglePlay,
+                                  "Google Play", "Get it on"),
                               40.webWidth(context),
-                              renderingStoreButton(Images.iconApple, "App Store", "Download it on"),
+                              renderingStoreButton(Images.iconApple,
+                                  "App Store", "Download it on"),
                             ],
-                          ).paddingSymmetric(vertical: 32.webT(context), horizontal: 40.webT(context)),
+                          ).paddingSymmetric(
+                              vertical: 32.webT(context),
+                              horizontal: 40.webT(context)),
                         ),
                       ),
                     ],
@@ -225,10 +246,9 @@ class _WebSignInScreenState extends State<WebSignInScreen> {
       width: 135.webT(context),
       height: 40.webT(context),
       decoration: BoxDecoration(
-        color: blackPrimary,
-        border: Border.all(color: whitePrimary),
-        borderRadius: BorderRadius.circular(5.webT(context))
-      ),
+          color: blackPrimary,
+          border: Border.all(color: whitePrimary),
+          borderRadius: BorderRadius.circular(5.webT(context))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,

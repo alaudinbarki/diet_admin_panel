@@ -1,6 +1,7 @@
 import 'package:base_code/view/screens/dashboard/components/custom_drawer.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -17,11 +18,24 @@ class WebUserListingScreen extends StatefulWidget {
 class _WebUserListingScreenState extends State<WebUserListingScreen> {
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  // List userData = [];
 
-  @override
-  void initState() {
-    super.initState();
-  }
+  // Future getUser() async {
+  //   try {
+  //     FirebaseFirestore firebaseStore = FirebaseFirestore.instance;
+  //     QuerySnapshot<Map<String, dynamic>> data =
+  //         await firebaseStore.collection('users').get();
+  //     userData = data.docs.toList();
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   getUser();
+  // }
 
   @override
   Widget build(BuildContext context) {

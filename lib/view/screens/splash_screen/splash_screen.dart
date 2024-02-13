@@ -32,7 +32,8 @@ class _SplashScreenState extends State<SplashScreen> {
     final drawarProvider = Provider.of<DrawarProvider>(context, listen: false);
     drawarProvider.selectedItem = drawarProvider.drawerItems[0];
     Timer(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacementNamed(RouterHelper.detailReceipeScreen);
+      Navigator.of(context)
+          .pushReplacementNamed(RouterHelper.adminReceipeScreen);
     });
   }
 

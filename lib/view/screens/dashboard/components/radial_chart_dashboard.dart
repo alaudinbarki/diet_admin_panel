@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +17,10 @@ class RadialChartDashboard extends StatelessWidget {
       ChartData('Refund', 65, redPrimary),
     ];
     return SizedBox(
-      width: fromMobile! ? MediaQuery.of(context).size.width : 255.webT(context),
-      height: fromMobile! ? null : 255.webT(context),
-      child: SfCircularChart(
-        series: <CircularSeries>[
+        width:
+            fromMobile! ? MediaQuery.of(context).size.width : 255.webT(context),
+        height: fromMobile! ? null : 255.webT(context),
+        child: SfCircularChart(series: <CircularSeries>[
           RadialBarSeries<ChartData, String>(
             dataSource: chartData,
             xValueMapper: (ChartData data, _) => data.x,
@@ -30,9 +32,7 @@ class RadialChartDashboard extends StatelessWidget {
             gap: '15%',
             trackColor: borderColor,
           )
-        ]
-      )
-    );
+        ]));
   }
 }
 

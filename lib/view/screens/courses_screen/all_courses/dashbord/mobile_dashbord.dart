@@ -74,7 +74,6 @@ class _MobileCoursesDashbordState extends State<MobileCoursesDashbord> {
                   )
                 ],
               ),
-              
               body:
                   Consumer<RecepieProvider>(builder: (context, controller, _) {
                 return Container(
@@ -320,6 +319,7 @@ class _MobileCoursesDashbordState extends State<MobileCoursesDashbord> {
   }
 }
 
+// ignore: must_be_immutable
 class AllRecepies extends StatelessWidget {
   AllRecepies({super.key});
   List<bool> selectedRecipes = [];

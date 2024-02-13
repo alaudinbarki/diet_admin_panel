@@ -7,28 +7,28 @@ import '../../../../../utils/constant.dart';
 import '../../../dashboard/components/custom_drawer.dart';
 import '../../components/receipe_widet/receipe_widget.dart';
 
-class WebAdminReceipeScreen extends StatefulWidget {
+class WebAdminReceipeScreen extends StatelessWidget {
   const WebAdminReceipeScreen({super.key});
 
-  @override
-  State<WebAdminReceipeScreen> createState() => _WebAdminReceipeScreenState();
-}
+//   @override
+//   State<WebAdminReceipeScreen> createState() => _WebAdminReceipeScreenState();
+// }
 
-class _WebAdminReceipeScreenState extends State<WebAdminReceipeScreen> {
-  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+// class _WebAdminReceipeScreenState extends State<WebAdminReceipeScreen> {
+//   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+//   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  @override
-  void initState() {
-    super.initState();
-  }
+//   @override
+//   void initState() {
+//     super.initState();
+//   }
 
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: whiteStatusBar(),
       child: SafeArea(
-        key: scaffoldKey,
+        // key: scaffoldKey,
         child: Scaffold(
             resizeToAvoidBottomInset: true,
             backgroundColor: whitePrimary,

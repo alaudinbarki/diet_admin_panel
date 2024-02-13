@@ -9,7 +9,7 @@ import '../../../../../../utils/colors.dart';
 
 class ReceipeNotesWidget extends StatelessWidget {
   bool? fromMobile;
-  ReceipeNotesWidget({this.fromMobile, super.key});
+  ReceipeNotesWidget({this.fromMobile = false, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +24,14 @@ class ReceipeNotesWidget extends StatelessWidget {
           children: [
             fromMobile!
                 ? "Method".toText(
-                fontSize: 16,
-                color: blackPrimary,
-                fontWeight: FontWeight.w600)
+                    fontSize: 16,
+                    color: blackPrimary,
+                    fontWeight: FontWeight.w600)
                 : "Method".toTextWeb(
-                context: context,
-                fontSize: 24,
-                color: blackPrimary,
-                fontWeight: FontWeight.w600),
+                    context: context,
+                    fontSize: 24,
+                    color: blackPrimary,
+                    fontWeight: FontWeight.w600),
             20.webHeight(context),
             Container(
               width: double.infinity,
@@ -41,15 +41,16 @@ class ReceipeNotesWidget extends StatelessWidget {
                   border:
                       Border.all(color: borderColor, width: 1.webT(context)),
                   borderRadius: BorderRadius.circular(16.webT(context))),
-              child:
-              fromMobile!
-                  ? "Here you can find some additional notes or tips or advice for variation ideas for this recipe.".toText(
-                  fontSize: 12,
-                  color: blackPrimary,
-                  maxLine: 1000,
-                  fontWeight: FontWeight.w500).paddingSymmetric(
-                  horizontal: 10.webT(context),
-                  vertical: 24.webT(context))
+              child: fromMobile!
+                  ? "Here you can find some additional notes or tips or advice for variation ideas for this recipe."
+                      .toText(
+                          fontSize: 12,
+                          color: blackPrimary,
+                          maxLine: 1000,
+                          fontWeight: FontWeight.w500)
+                      .paddingSymmetric(
+                          horizontal: 10.webT(context),
+                          vertical: 24.webT(context))
                   : "Here you can find some additional notes or tips or advice for variation ideas for this recipe."
                       .toTextWeb(
                           context: context,
