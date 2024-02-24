@@ -1,6 +1,8 @@
+// ignore_for_file: must_be_immutable, invalid_use_of_visible_for_testing_member
+
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/utils/images.dart';
-import 'package:base_code/view/screens/dashboard/components/custom_popup_menu.dart';
+// import 'package:base_code/view/screens/dashboard/components/custom_popup_menu.dart';
 import 'package:base_code/view/widgets/custom_image.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
@@ -10,7 +12,7 @@ import 'package:base_code/view/widgets/web_widgets/web_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../../helper/routes_helper.dart';
+// import '../../../../../../helper/routes_helper.dart';
 import '../../../../../../provider/authentication_provider.dart';
 
 class UserDetailWidget extends StatelessWidget {
@@ -601,11 +603,13 @@ class UserDetailWidget extends StatelessWidget {
                                   width: 24.webT(context),
                                   height: 24.webT(context)),
                               7.webWidth(context),
-                              "Pick a Date".toTextWeb(
-                                  context: context,
-                                  fontSize: 16,
-                                  color: whitePrimary,
-                                  fontWeight: FontWeight.w500).onPress(() {
+                              "Pick a Date"
+                                  .toTextWeb(
+                                      context: context,
+                                      fontSize: 16,
+                                      color: whitePrimary,
+                                      fontWeight: FontWeight.w500)
+                                  .onPress(() {
                                 controller.selectDate(context);
                               })
                             ],
@@ -753,6 +757,7 @@ class UserDetailWidget extends StatelessWidget {
                                 } else {
                                   selectedIndex = index;
                                 }
+                                // ignore: invalid_use_of_protected_member
                                 controller.notifyListeners();
                               }),
                               if (selectedIndex == index)

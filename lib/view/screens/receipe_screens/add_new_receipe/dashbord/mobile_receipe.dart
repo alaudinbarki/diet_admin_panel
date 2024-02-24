@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:base_code/data/model/custom_model/recipe_category_model.dart';
 import 'package:base_code/provider/authentication_provider.dart';
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/utils/images.dart';
@@ -280,7 +281,7 @@ class MobNewReceipeWidget extends StatelessWidget {
                                   width: 1, // Width of te border
                                 )),
                             child: DropdownButtonHideUnderline(
-                              child: DropdownButton<String>(
+                              child: DropdownButton<RecipeCategoryModel>(
                                 value: controller.dropdownValue,
                                 padding: EdgeInsets.symmetric(horizontal: 10.h),
                                 icon: const Icon(
@@ -292,16 +293,16 @@ class MobNewReceipeWidget extends StatelessWidget {
                                   fontWeight: FontWeight.w500,
                                 ),
 
-                                onChanged: (String? newValue) {
+                                onChanged: (newValue) {
                                   controller.dropdownValue = newValue!;
                                   controller.notifer();
                                 },
-                                items: controller.items
-                                    .map<DropdownMenuItem<String>>(
-                                        (String value) {
-                                  return DropdownMenuItem<String>(
+                                items: controller.recipeCategoryList
+                                    .map<DropdownMenuItem<RecipeCategoryModel>>(
+                                        (value) {
+                                  return DropdownMenuItem<RecipeCategoryModel>(
                                     value: value,
-                                    child: value.toText(
+                                    child: value.nameEn.toText(
                                         fontSize: 16,
                                         color: blackPrimary,
                                         fontWeight: FontWeight.w500),
@@ -333,7 +334,7 @@ class MobNewReceipeWidget extends StatelessWidget {
                                   width: 1, // Width of the border
                                 )),
                             child: DropdownButtonHideUnderline(
-                              child: DropdownButton<String>(
+                              child: DropdownButton<RecipeCategoryModel>(
                                 padding: EdgeInsets.symmetric(horizontal: 10.h),
                                 value: controller.additonalCategoriesValue,
                                 icon: const Icon(
@@ -345,17 +346,17 @@ class MobNewReceipeWidget extends StatelessWidget {
                                   fontWeight: FontWeight.w500,
                                 ),
 
-                                onChanged: (String? newValue) {
+                                onChanged: (newValue) {
                                   controller.additonalCategoriesValue =
                                       newValue!;
                                   controller.notifer();
                                 },
-                                items: controller.additionalItems
-                                    .map<DropdownMenuItem<String>>(
-                                        (String value) {
-                                  return DropdownMenuItem<String>(
+                                items: controller.recipeCategoryList
+                                    .map<DropdownMenuItem<RecipeCategoryModel>>(
+                                        (value) {
+                                  return DropdownMenuItem<RecipeCategoryModel>(
                                     value: value,
-                                    child: value.toText(
+                                    child: value.nameEn.toText(
                                         fontSize: 16,
                                         color: blackPrimary,
                                         fontWeight: FontWeight.w500),

@@ -91,46 +91,57 @@ class _WebSignInScreenState extends State<WebSignInScreen> {
                                         )
                                         .paddingOnly(bottom: 50.webH(context)),
                                   ),
-                                  WebTextField(
-                                    height: 50.webT(context),
-                                    label: Constant.email,
-                                    radius: 8.webT(context),
-                                    controller:
-                                        controller.signInEmailController,
-                                    hintText: Constant.hintEmail,
-                                    iconPadding: 5.webT(context),
-                                    textInputType: TextInputType.emailAddress,
-                                    textInputAction: TextInputAction.next,
-                                    suffixIcon: Image.asset(
-                                      Images.iconEmailCross,
-                                      width: 20.webT(context),
-                                      height: 20.webT(context),
-                                    ).paddingSymmetric(
-                                        horizontal: 0.webT(context),
-                                        vertical: 12.webT(context)),
-                                  ).paddingOnly(bottom: 20.webH(context)),
-                                  WebTextField(
-                                    height: 50.webT(context),
-                                    label: Constant.password,
-                                    isPassword: true,
-                                    radius: 8.webT(context),
-                                    iconPadding: 5.webT(context),
-                                    controller:
-                                        controller.signInPasswordController,
-                                    hintText: Constant.hintPassword,
-                                    textInputType: TextInputType.text,
-                                    textInputAction: TextInputAction.done,
-                                    onEyeTap: () {
-                                      controller.passwordVisibility();
-                                    },
-                                    suffixIcon: Image.asset(
-                                      Images.iconPasswordHide,
-                                      width: 20.webT(context),
-                                      height: 20.webT(context),
-                                    ).paddingSymmetric(
-                                        horizontal: 0.webT(context),
-                                        vertical: 12.webT(context)),
-                                  ).paddingOnly(bottom: 10.webH(context)),
+                                  Form(
+                                      key: formKey,
+                                      child: Column(
+                                        children: [
+                                          WebTextField(
+                                            height: 50.webT(context),
+                                            label: Constant.email,
+                                            radius: 8.webT(context),
+                                            controller: controller
+                                                .signInEmailController,
+                                            hintText: Constant.hintEmail,
+                                            iconPadding: 5.webT(context),
+                                            textInputType:
+                                                TextInputType.emailAddress,
+                                            textInputAction:
+                                                TextInputAction.next,
+                                            suffixIcon: Image.asset(
+                                              Images.iconEmailCross,
+                                              width: 20.webT(context),
+                                              height: 20.webT(context),
+                                            ).paddingSymmetric(
+                                                horizontal: 0.webT(context),
+                                                vertical: 12.webT(context)),
+                                          ).paddingOnly(
+                                              bottom: 20.webH(context)),
+                                          WebTextField(
+                                            height: 50.webT(context),
+                                            label: Constant.password,
+                                            isPassword: true,
+                                            radius: 8.webT(context),
+                                            iconPadding: 5.webT(context),
+                                            controller: controller
+                                                .signInPasswordController,
+                                            hintText: Constant.hintPassword,
+                                            textInputType: TextInputType.text,
+                                            textInputAction:
+                                                TextInputAction.done,
+                                            onEyeTap: () {
+                                              controller.passwordVisibility();
+                                            },
+                                            suffixIcon: Image.asset(
+                                              Images.iconPasswordHide,
+                                              width: 20.webT(context),
+                                              height: 20.webT(context),
+                                            ).paddingSymmetric(
+                                                horizontal: 0.webT(context),
+                                                vertical: 12.webT(context)),
+                                          ).paddingOnly(
+                                              bottom: 10.webH(context)),
+                                        ],
+                                      )),
                                   SizedBox(
                                     width: 360.webW(context),
                                     child: Row(
@@ -187,17 +198,26 @@ class _WebSignInScreenState extends State<WebSignInScreen> {
                                   SizedBox(
                                     width: 360.webW(context),
                                     child: WebCustomButton(
-                                      buttonName: Constant.login,
+                                      buttonName: controller.loading
+                                          ? Constant.loading
+                                          : Constant.login,
                                       radius: 8.webT(context),
                                       width: 360.webW(context),
                                       height: 45.webH(context),
-                                      onPressed: () async {
-                                        // if (formKey.currentState!.validate()) {
-                                        //   FocusManager.instance.primaryFocus?.unfocus();
-                                        Navigator.pushNamed(context,
-                                            RouterHelper.dashboardScreen);
-                                        //}
-                                      },
+                                      onPressed: controller.loading
+                                          ? () {}
+                                          : () async {
+                                              if (formKey.currentState!
+                                                  .validate()) {
+                                                controller.signIn(
+                                                    context: context);
+                                              }
+
+                                              //   FocusManager.instance.primaryFocus?.unfocus();
+                                              // Navigator.pushNamed(context,
+                                              //     RouterHelper.dashboardScreen);
+                                              //}
+                                            },
                                     )
                                         .center
                                         .paddingOnly(bottom: 30.webH(context)),

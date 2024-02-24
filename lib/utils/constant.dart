@@ -1,4 +1,5 @@
 class Constant {
+  static const String loading = 'Loading...';
   static const String home = "Home";
   static const String setting = "Setting";
   static const String notification = "Notification";
@@ -174,10 +175,10 @@ class Constant {
   static const String monthlyText = "Monthly";
   static const String yearlyText = "Yearly";
 //recepies strings
-  static const adminRecipe  = "Admin Recipes";
-  static const allRecipe  = "All Recipes";
-  static const userRecepies  = "User Recipes";
-  static const categrories  = "Categories";
+  static const adminRecipe = "Admin Recipes";
+  static const allRecipe = "All Recipes";
+  static const userRecepies = "User Recipes";
+  static const categrories = "Categories";
 
 //
   static const double designHeight = 852;

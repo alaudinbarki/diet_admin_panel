@@ -17,6 +17,7 @@ import '../../../../../data/model/custom_model/recipe_model.dart';
 import '../../../../../data/model/custom_model/tab_item_model.dart';
 import '../../../../../helper/routes_helper.dart';
 import '../../../../../utils/constant.dart';
+import '../../../../widgets/web_header.dart';
 import '../../../../widgets/web_widgets/web_custom_button.dart';
 
 class ReceipeWidget extends StatefulWidget {
@@ -28,13 +29,13 @@ class ReceipeWidget extends StatefulWidget {
 
 class _ReceipeWidgetState extends State<ReceipeWidget> {
   int _selectedIndex = 0; // Track the selected index
-  RecepieProvider? recepieProvider;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    recepieProvider = Provider.of<RecepieProvider>(context, listen: false);
-  }
+  // RecepieProvider? recepieProvider;
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   recepieProvider = Provider.of<RecepieProvider>(context, listen: false);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -42,48 +43,14 @@ class _ReceipeWidgetState extends State<ReceipeWidget> {
       return Container(
         height: 1294.webH(context),
         color: backgroundColor,
-        child: recepieProvider!.isLoading
+        child: controller.isLoading
             ? const Center(child: CircularProgressIndicator.adaptive())
             : SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Container(
-                      height: 120.webT(context),
-                      decoration: BoxDecoration(
-                        color: whitePrimary,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.shade100,
-                            offset: const Offset(0, 3),
-                            blurRadius: 1,
-                            spreadRadius: 1,
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              CustomImage(
-                                  image: Images.iconProfileImage,
-                                  width: 50.webT(context),
-                                  height: 50.webT(context)),
-                              10.webWidth(context),
-                              "Marci Fumons".toTextWeb(
-                                  context: context,
-                                  fontSize: 22,
-                                  color: blackPrimary),
-                              CustomPopupMenuButton()
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
+                    WebHeader(),
                     38.webHeight(context),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,7 +134,7 @@ class _ReceipeWidgetState extends State<ReceipeWidget> {
                       ],
                     ).paddingSymmetric(horizontal: 48.webT(context)),
                     50.webHeight(context),
-                    AllRecepies(recipe: recepieProvider!.recipeList),
+                    AllRecepies(recipe: controller.recipeList),
                     20.webHeight(context),
                   ],
                 ),

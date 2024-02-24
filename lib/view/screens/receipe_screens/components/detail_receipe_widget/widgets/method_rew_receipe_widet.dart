@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:base_code/data/model/custom_model/recipe_model.dart';
 import 'package:base_code/view/widgets/custom_text_field.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
@@ -12,7 +13,7 @@ import '../../../../../../utils/colors.dart';
 import '../../../../../widgets/web_widgets/web_text_field.dart';
 
 class MethodDetailReceipeWidget extends StatelessWidget {
-  final List<TextEditingController> methods;
+  final List<RecipeMethods> methods;
   bool? fromMobile;
   MethodDetailReceipeWidget({
     this.fromMobile = false,
@@ -60,7 +61,7 @@ class MethodDetailReceipeWidget extends StatelessWidget {
                               height: 40.h,
                               width: 350.w,
                               radius: 5.w,
-                              controller: methods[index],
+                              controller: methods[index].instructionName,
                               // hintText: texts[index],
                               textInputAction: TextInputAction.next,
                             )
@@ -69,8 +70,8 @@ class MethodDetailReceipeWidget extends StatelessWidget {
                               width: 1210.webW(context),
                               isLabelBold: true,
                               radius: 8.webT(context),
-                              controller:
-                                  methods[index], // hintText: texts[index],
+                              controller: methods[index]
+                                  .instructionName, // hintText: texts[index],
                               textInputAction: TextInputAction.next,
                             )
                     ],

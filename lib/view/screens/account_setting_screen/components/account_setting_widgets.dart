@@ -5,6 +5,7 @@ import 'package:base_code/view/widgets/custom_image.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';
+import 'package:base_code/view/widgets/network_image.dart';
 import 'package:base_code/view/widgets/web_widgets/web_custom_button.dart';
 import 'package:base_code/view/widgets/web_widgets/web_text_field.dart';
 import 'package:flutter/material.dart';
@@ -97,18 +98,31 @@ class AccountSettingWidget extends StatelessWidget {
                                                 controller.selectedImage!,
                                                 fit: BoxFit.cover,
                                               )
-                                            : CustomImage(
-                                                image: Images.iconGallery,
-                                                width: 34.webT(context),
-                                                height: 34.webT(context),
-                                              ).center)
+                                            : controller.adminData?.picture !=
+                                                    null
+                                                ? AppNetworkImage(
+                                                    width: 34.webT(context),
+                                                    height: 34.webT(context),
+                                                    image: controller.adminData
+                                                            ?.picture ??
+                                                        "",
+                                                    errorPlaceHolder:
+                                                        Images.iconGallery,
+                                                  )
+                                                : CustomImage(
+                                                    image: Images.iconGallery,
+                                                    width: 34.webT(context),
+                                                    height: 34.webT(context),
+                                                  ).center)
                                     .onPress(() {
                                   controller.pickImageFromFiles();
                                 }),
                                 15.webHeight(context),
                                 WebCustomButton(
                                   buttonName: "Upload Photo",
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    controller.uploadImage(context);
+                                  },
                                   borderColor: greenPrimary,
                                   buttonColor: greenPrimary,
                                   // width: 200.webT(context),

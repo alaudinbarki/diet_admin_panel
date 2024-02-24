@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+// import 'package:flutter/widgets.dart';
 
 class RecipeModel {
   final String afrID;
@@ -13,7 +14,7 @@ class RecipeModel {
   final List<Ingredients> allIngredients;
   final bool isPremium;
   final String languageCode;
-  final String method;
+  final List<Methods> method;
   final String notes;
   final String title;
   final DateTime updateDate;
@@ -46,17 +47,18 @@ class RecipeModel {
   Map<String, dynamic> toMap() {
     return {
       'afrID': afrID,
-      'categoryList': categoryList,
+      'categoryList': categoryList ?? <String>[],
       'engID': engID,
-      'favouritedBy': favouritedBy,
+      'favouritedBy': favouritedBy ?? <String>[],
       'headerImage': headerImage,
       'id': id,
-      'ingredients': ingredients,
-      'ingredientsMap': ingredientsMap,
-      'allIngredients': allIngredients,
+      'ingredients': ingredients ?? "",
+      'ingredientsMap': ingredientsMap ?? {},
+      'allIngredients':
+          allIngredients.map((ingredient) => ingredient.toMap()).toList(),
       'isPremium': isPremium,
       'languageCode': languageCode,
-      'method': method,
+      'method': method.map((meth) => meth.toMap()).toList(),
       'notes': notes,
       'title': title,
       'updateDate': updateDate,
@@ -83,7 +85,11 @@ class RecipeModel {
             [],
         isPremium = snapshot.get('isPremium'),
         languageCode = snapshot.get('languageCode'),
-        method = snapshot.get('method'),
+        method = (snapshot.get('method') as List<dynamic>?)
+                ?.map((methods) => Methods.fromJson(methods))
+                .toList() ??
+            [],
+        //  snapshot.get('method'),
         notes = snapshot.get('notes'),
         title = snapshot.get('title'),
         updateDate = (snapshot.get('updateDate') as Timestamp).toDate(),
@@ -97,38 +103,85 @@ class Ingredients {
   final String notes;
   final String name;
   final String unit;
-  final int amount;
+  final String amount;
+  final String type;
+  final String heading;
 
   Ingredients({
     required this.amount,
     required this.name,
     required this.unit,
     required this.notes,
+    required this.type,
+    required this.heading,
   });
 
   factory Ingredients.fromJson(Map<String, dynamic> json) => Ingredients(
-        amount: json['amount'],
-        name: json['name'],
-        unit: json['unit'],
-        notes: json['notes'],
+      amount: json['amount'] ?? '0',
+      name: json['name'],
+      unit: json['unit'],
+      notes: json['notes'],
+      type: json['type'],
+      heading: json['heading']);
+
+  Map<String, dynamic> toMap() {
+    return {
+      'amount': amount,
+      'name': name,
+      'unit': unit,
+      'notes': notes,
+      "type": type,
+      'heading': heading,
+    };
+  }
+}
+
+class Methods {
+  final String type;
+  final String method;
+
+  Methods({
+    required this.type,
+    required this.method,
+  });
+
+  factory Methods.fromJson(Map<String, dynamic> json) => Methods(
+        type: json['type'],
+        method: json['method'],
       );
+
+  Map<String, dynamic> toMap() {
+    return {'type': type, 'method': method};
+  }
+}
+
+class RecipeMethods {
+  late String instructionType;
+  late TextEditingController instructionName;
+
+  RecipeMethods({
+    required String type,
+    required String instruction,
+  }) {
+    instructionType = type;
+    instructionName = TextEditingController(text: instruction);
+  }
 }
 
 class IngredientTextEditor {
-  late TextEditingController amountController;
-  late TextEditingController unitController;
-  late TextEditingController nameController;
-  late TextEditingController notesController;
+  final TextEditingController amountController;
+  final TextEditingController unitController;
+  final TextEditingController nameController;
+  final TextEditingController notesController;
+  final String type;
+  final TextEditingController ingredientHeading;
 
   IngredientTextEditor({
-    required String amount,
-    required String unit,
-    required String name,
-    required String notes,
-  }) {
-    amountController = TextEditingController(text: amount);
-    unitController = TextEditingController(text: unit);
-    nameController = TextEditingController(text: name);
-    notesController = TextEditingController(text: notes);
-  }
+    required this.amountController,
+    required this.unitController,
+    required this.nameController,
+    required this.notesController,
+    required this.type,
+    required this.ingredientHeading,
+  });
 }

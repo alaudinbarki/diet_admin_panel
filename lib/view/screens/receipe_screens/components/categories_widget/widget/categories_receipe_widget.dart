@@ -1,3 +1,4 @@
+import 'package:base_code/data/model/custom_model/recipe_category_model.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';
@@ -81,7 +82,7 @@ class CategoriesReceipeWidget extends StatelessWidget {
                           width: 1, // Width of the border
                         )),
                     child: DropdownButtonHideUnderline(
-                      child: DropdownButton<String>(
+                      child: DropdownButton<RecipeCategoryModel>(
                         value: controller.dropdownValue,
                         padding:
                             EdgeInsets.symmetric(horizontal: 10.webT(context)),
@@ -93,13 +94,14 @@ class CategoriesReceipeWidget extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
 
-                        onChanged: (String? newValue) {
+                        onChanged: (newValue) {
                           controller.dropdownValue = newValue!;
                           controller.notifer();
                         },
-                        items: controller.items
-                            .map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
+                        items: controller.recipeCategoryList
+                            .map<DropdownMenuItem<RecipeCategoryModel>>(
+                                (value) {
+                          return DropdownMenuItem<RecipeCategoryModel>(
                             value: value,
                             child: value.toTextWeb(
                                 context: context,

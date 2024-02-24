@@ -1,3 +1,4 @@
+import 'package:base_code/data/model/custom_model/recipe_category_model.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';
@@ -216,7 +217,8 @@ class _MobileCoursesDashbordState extends State<MobileCoursesDashbord> {
                                                     )),
                                                 child:
                                                     DropdownButtonHideUnderline(
-                                                  child: DropdownButton<String>(
+                                                  child: DropdownButton<
+                                                      RecipeCategoryModel>(
                                                     value: controller
                                                         .dropdownValue,
                                                     padding:
@@ -233,25 +235,28 @@ class _MobileCoursesDashbordState extends State<MobileCoursesDashbord> {
                                                           FontWeight.w500,
                                                     ),
 
-                                                    onChanged:
-                                                        (String? newValue) {
+                                                    onChanged: (newValue) {
                                                       controller.dropdownValue =
                                                           newValue!;
                                                       controller.notifer();
                                                     },
-                                                    items: controller.items.map<
-                                                            DropdownMenuItem<
-                                                                String>>(
-                                                        (String value) {
+                                                    items: controller
+                                                        .recipeCategoryList
+                                                        .map<
+                                                                DropdownMenuItem<
+                                                                    RecipeCategoryModel>>(
+                                                            (value) {
                                                       return DropdownMenuItem<
-                                                          String>(
+                                                          RecipeCategoryModel>(
                                                         value: value,
-                                                        child: value.toText(
-                                                            fontSize: 12,
-                                                            color: blackPrimary,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w500),
+                                                        child: value.nameEn
+                                                            .toText(
+                                                                fontSize: 12,
+                                                                color:
+                                                                    blackPrimary,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500),
                                                       );
                                                     }).toList(),
                                                     // Adding the rounded border by wrapping the DropdownButton with DecoratedBox

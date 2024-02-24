@@ -11,7 +11,7 @@ import 'package:base_code/view/widgets/web_widgets/web_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../provider/recepie_provider.dart';
+// import '../../../../../provider/recepie_provider.dart';
 
 class AddCourseWidget extends StatelessWidget {
   const AddCourseWidget({super.key});
@@ -21,8 +21,8 @@ class AddCourseWidget extends StatelessWidget {
     return Container(
       height: 1294.webH(context),
       color: backgroundColor,
-      child: Consumer2<RecepieProvider, AuthProvider>(
-        builder: (context, controller, controller2, child) {
+      child: Consumer<AuthProvider>(
+        builder: (context, controller2, child) {
           return SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,

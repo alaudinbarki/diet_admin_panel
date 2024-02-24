@@ -1,3 +1,4 @@
+import 'package:base_code/data/model/custom_model/recipe_model.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';
@@ -11,13 +12,13 @@ import '../../../../../widgets/web_widgets/web_custom_button.dart';
 import '../../../../../widgets/web_widgets/web_text_field.dart';
 
 class MethodNewReceipeWidget extends StatelessWidget {
-  const MethodNewReceipeWidget({super.key});
+  final List<RecipeMethods> methods;
+  const MethodNewReceipeWidget({super.key, required this.methods});
 
   @override
   Widget build(BuildContext context) {
     return Consumer<RecepieProvider>(builder: (context, controller, child) {
-      return 
-      Container(
+      return Container(
         decoration: BoxDecoration(
             color: whitePrimary,
             border: Border.all(color: borderColor, width: 1.webT(context)),
@@ -52,15 +53,34 @@ class MethodNewReceipeWidget extends StatelessWidget {
                             ),
                           ),
                           3.webScaleWidth(context),
-                          WebTextField(
-                            height: 50.webT(context),
-                            width: 1210.webW(context),
-                            isLabelBold: true,
-                            radius: 8.webT(context),
-                            controller: TextEditingController(),
-                            hintText: "Ingredient heading",
-                            textInputAction: TextInputAction.next,
-                          ),
+                          methods[index].instructionType == "heading"
+                              ? WebTextField(
+                                  height: 50.webT(context),
+                                  width: 1210.webW(context),
+                                  isLabelBold: true,
+                                  radius: 8.webT(context),
+                                  controller: methods[index].instructionName,
+                                  hintText: "Method heading",
+                                  textInputAction: TextInputAction.next,
+                                )
+                              : WebTextField(
+                                  height: 50.webT(context),
+                                  width: 1210.webW(context),
+                                  isLabelBold: true,
+                                  radius: 8.webT(context),
+                                  controller: methods[index].instructionName,
+                                  hintText:
+                                      "This is one step of the instructions",
+                                  textInputAction: TextInputAction.next,
+                                ),
+                          3.webScaleWidth(context),
+                          InkWell(
+                              onTap: () {
+                                // Provider.of<RecepieProvider>(context,
+                                //         listen: false)
+                                controller.removeMethod(index);
+                              },
+                              child: const Icon(Icons.delete_outline_outlined))
                         ],
                       )
                     ],
@@ -72,14 +92,18 @@ class MethodNewReceipeWidget extends StatelessWidget {
                     // color: dividerColor,
                   ).paddingSymmetric(vertical: 20.webT(context));
                 },
-                itemCount: 3),
+                itemCount: methods.length),
             30.webHeight(context),
             Row(
               children: [
                 WebCustomButton(
                   buttonName: "Add ingredient",
                   buttonTextColor: whitePrimary,
-                  onPressed: () {},
+                  onPressed: () {
+                    // Provider.of<RecepieProvider>(context, listen: false)
+                    // .addMethods('method');
+                    controller.addMethods('method');
+                  },
                   width: 420.webT(context),
                   height: 55.webT(context),
                   radius: 15.webT(context),
@@ -90,7 +114,11 @@ class MethodNewReceipeWidget extends StatelessWidget {
                 WebCustomButton(
                   buttonName: "Add ingredient heading",
                   buttonTextColor: whitePrimary,
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.addMethods("heading");
+                    // Provider.of<RecepieProvider>(context, listen: false)
+                    //     .addMethods('heading');
+                  },
                   width: 420.webT(context),
                   height: 55.webT(context),
                   radius: 15.webT(context),
@@ -103,7 +131,6 @@ class MethodNewReceipeWidget extends StatelessWidget {
           ],
         ).paddingAll(18.webT(context)),
       );
-   
     });
   }
 }

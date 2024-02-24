@@ -4,6 +4,7 @@ import 'package:base_code/view/widgets/extention/widget_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../../data/model/custom_model/recipe_model.dart';
 import '../../../../../../provider/recepie_provider.dart';
 import '../../../../../../utils/colors.dart';
 import '../../../../../../utils/images.dart';
@@ -12,7 +13,8 @@ import '../../../../../widgets/web_widgets/web_text_field.dart';
 import '../../receipe_widet/receipe_widget.dart';
 
 class IngrediantsRecepieWidget extends StatelessWidget {
-  const IngrediantsRecepieWidget({super.key});
+  final List<IngredientTextEditor> ingredientsList;
+  const IngrediantsRecepieWidget({super.key, required this.ingredientsList});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +80,8 @@ class IngrediantsRecepieWidget extends StatelessWidget {
                   return Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      index == 2
+                      ingredientsList[index].type == 'heading'
+                          // index == 2
                           ? Row(
                               children: [
                                 Align(
@@ -92,18 +95,31 @@ class IngrediantsRecepieWidget extends StatelessWidget {
                                 3.webScaleWidth(context),
                                 WebTextField(
                                   height: 50.webT(context),
-                                  width: 1210.webW(context),
+                                  width: 1236.webW(context),
                                   isLabelBold: true,
                                   radius: 8.webT(context),
-                                  controller: TextEditingController(),
+                                  controller:
+                                      ingredientsList[index].ingredientHeading,
                                   hintText: "Ingredient heading",
                                   textInputAction: TextInputAction.next,
                                 ),
+                                3.webScaleWidth(context),
+                                InkWell(
+                                    onTap: () {
+                                      Provider.of<RecepieProvider>(context,
+                                              listen: false)
+                                          .removeIngredient(index);
+                                    },
+                                    child: const Icon(
+                                        Icons.delete_outline_outlined))
                               ],
                             )
-                          : const SizedBox.shrink(),
-                      index != 2
-                          ? Row(
+                          :
+                          //  const SizedBox.shrink(),
+                          // ingredientsList[index].type == 'heading'
+                          // index != 2
+                          // ?
+                          Row(
                               children: [
                                 SizedBox(
                                   width: 220.webW(context),
@@ -123,7 +139,8 @@ class IngrediantsRecepieWidget extends StatelessWidget {
                                         width: 180.webW(context),
                                         isLabelBold: true,
                                         radius: 8.webT(context),
-                                        controller: TextEditingController(),
+                                        controller: ingredientsList[index]
+                                            .amountController,
                                         hintText: "2",
                                         textInputAction: TextInputAction.next,
                                       ),
@@ -136,7 +153,8 @@ class IngrediantsRecepieWidget extends StatelessWidget {
                                   width: 180.webW(context),
                                   isLabelBold: true,
                                   radius: 8.webT(context),
-                                  controller: TextEditingController(),
+                                  controller:
+                                      ingredientsList[index].unitController,
                                   hintText: "tbsp",
                                   textInputAction: TextInputAction.next,
                                 ),
@@ -146,7 +164,8 @@ class IngrediantsRecepieWidget extends StatelessWidget {
                                   width: 420.webW(context),
                                   isLabelBold: true,
                                   radius: 8.webT(context),
-                                  controller: TextEditingController(),
+                                  controller:
+                                      ingredientsList[index].nameController,
                                   hintText: "Olive oil",
                                   textInputAction: TextInputAction.next,
                                 ),
@@ -158,17 +177,25 @@ class IngrediantsRecepieWidget extends StatelessWidget {
                                       width: 370.webW(context),
                                       isLabelBold: true,
                                       radius: 8.webT(context),
-                                      controller: TextEditingController(),
+                                      controller: ingredientsList[index]
+                                          .notesController,
                                       hintText: "extra virgin",
                                       textInputAction: TextInputAction.next,
                                     ),
                                     3.webScaleWidth(context),
-                                    const Icon(Icons.delete_outline_outlined)
+                                    InkWell(
+                                        onTap: () {
+                                          Provider.of<RecepieProvider>(context,
+                                                  listen: false)
+                                              .removeIngredient(index);
+                                        },
+                                        child: const Icon(
+                                            Icons.delete_outline_outlined))
                                   ],
                                 ),
                               ],
                             )
-                          : const SizedBox.shrink()
+                      // : const SizedBox.shrink()
                     ],
                   );
                 },
@@ -178,14 +205,17 @@ class IngrediantsRecepieWidget extends StatelessWidget {
                     // color: dividerColor,
                   ).paddingSymmetric(vertical: 20.webT(context));
                 },
-                itemCount: 3),
+                itemCount: ingredientsList.length),
             30.webHeight(context),
             Row(
               children: [
                 WebCustomButton(
                   buttonName: "Add ingredient",
                   buttonTextColor: whitePrimary,
-                  onPressed: () {},
+                  onPressed: () {
+                    Provider.of<RecepieProvider>(context, listen: false)
+                        .addIngredient('ingredient');
+                  },
                   width: 420.webT(context),
                   height: 55.webT(context),
                   radius: 15.webT(context),
@@ -196,7 +226,10 @@ class IngrediantsRecepieWidget extends StatelessWidget {
                 WebCustomButton(
                   buttonName: "Add ingredient heading",
                   buttonTextColor: whitePrimary,
-                  onPressed: () {},
+                  onPressed: () {
+                    Provider.of<RecepieProvider>(context, listen: false)
+                        .addIngredient('heading');
+                  },
                   width: 420.webT(context),
                   height: 55.webT(context),
                   radius: 15.webT(context),
@@ -209,7 +242,6 @@ class IngrediantsRecepieWidget extends StatelessWidget {
           ],
         ).paddingAll(18.webT(context)),
       );
-   
     });
   }
 }

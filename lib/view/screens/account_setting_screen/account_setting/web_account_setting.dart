@@ -1,9 +1,11 @@
+import 'package:base_code/provider/authentication_provider.dart';
 import 'package:base_code/view/screens/account_setting_screen/components/account_setting_widgets.dart';
 import 'package:base_code/view/screens/dashboard/components/custom_drawer.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import '../../../../utils/colors.dart';
 
 class WebAccountSettingScreen extends StatefulWidget {
@@ -17,11 +19,6 @@ class WebAccountSettingScreen extends StatefulWidget {
 class _WebAccountSettingScreenState extends State<WebAccountSettingScreen> {
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
