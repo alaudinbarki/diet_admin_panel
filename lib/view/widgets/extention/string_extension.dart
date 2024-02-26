@@ -1,7 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:flutter/material.dart';
-
 
 extension StringExtension on String {
   Widget toText(

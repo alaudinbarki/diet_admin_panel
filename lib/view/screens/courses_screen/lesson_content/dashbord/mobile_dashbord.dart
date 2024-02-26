@@ -1,4 +1,4 @@
-import 'package:base_code/provider/recepie_provider.dart';
+import 'package:base_code/provider/courses_provider.dart';
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/view/screens/courses_screen/lesson_content/components/widgets.dart/html_editor.dart';
 import 'package:base_code/view/screens/courses_screen/lesson_content/components/widgets.dart/media_widget.dart';
@@ -27,7 +27,7 @@ class _MobileCoursesDashbordState extends State<MobileCoursesDashbord> {
   ScrollController scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
-    return Consumer<RecepieProvider>(builder: (context, controller, child) {
+    return Consumer<CoursesProvider>(builder: (context, controller, child) {
       return Scaffold(
         key: scaffoldKey,
         resizeToAvoidBottomInset: true,
@@ -162,7 +162,9 @@ class _MobileCoursesDashbordState extends State<MobileCoursesDashbord> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const MyHtmlEditor(),
+                      MyHtmlEditor(
+                        controller: controller.lessionDescription,
+                      ),
                       25.webHeight(context),
                       'Text'.toTextWeb(
                           context: context,

@@ -11,7 +11,8 @@ class WebDetailReceipeScreen extends StatefulWidget {
   // final RecipeModel recipe;
 
   const WebDetailReceipeScreen({
-    Key? key,
+    super.key,
+
     //  required this.recipe
   });
 
@@ -44,7 +45,7 @@ class _WebDetailReceipeScreenState extends State<WebDetailReceipeScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CustomDrawer(),
-                  DetailReceipeWidget(
+                  const DetailReceipeWidget(
                           // recipe: widget.recipe,
                           )
                       .expanded

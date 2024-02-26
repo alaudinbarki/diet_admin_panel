@@ -103,7 +103,7 @@ class CategoriesReceipeWidget extends StatelessWidget {
                                 (value) {
                           return DropdownMenuItem<RecipeCategoryModel>(
                             value: value,
-                            child: value.toTextWeb(
+                            child: value.nameEn.toTextWeb(
                                 context: context,
                                 fontSize: 16,
                                 color: blackPrimary,

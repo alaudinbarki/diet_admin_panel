@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import '../../utils/colors.dart';
 import '../../utils/images.dart';
 import '../screens/dashboard/components/custom_popup_menu.dart';
-import 'custom_image.dart';
 
 class WebHeader extends StatelessWidget {
   const WebHeader({super.key});

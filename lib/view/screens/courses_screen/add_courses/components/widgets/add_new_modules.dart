@@ -1,10 +1,10 @@
+import 'package:base_code/provider/courses_provider.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../../provider/recepie_provider.dart';
 import '../../../../../../utils/colors.dart';
 import '../../../../../widgets/web_widgets/web_custom_button.dart';
 import '../../../../../widgets/web_widgets/web_text_field.dart';
@@ -14,7 +14,7 @@ class AddNewModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<RecepieProvider>(builder: (context, controller, child) {
+    return Consumer<CoursesProvider>(builder: (context, controller, child) {
       return Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,7 +36,7 @@ class AddNewModule extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   WebTextField(
-                    controller: TextEditingController(),
+                    controller: controller.moduleName,
                     width: 1080.webT(context),
                     height: 58.webH(context),
                     hintText: "New Module Name Here",
@@ -49,7 +49,9 @@ class AddNewModule extends StatelessWidget {
                       borderColor: greenPrimary,
                       buttonColor: greenPrimary,
                       buttonName: "Add",
-                      onPressed: () {}),
+                      onPressed: () {
+                        controller.addModule(context);
+                      }),
                 ],
               ).center.paddingSymmetric(horizontal: 40.webT(context)),
             ),

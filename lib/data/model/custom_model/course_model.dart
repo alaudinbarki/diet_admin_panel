@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CourseModel {
@@ -13,7 +15,7 @@ class CourseModel {
   final String discountedPrice;
   final DateTime discountStartDate;
   final DateTime discountEndDate;
-  final List<Module> modules;
+  final List<ModuleUpdate> modules;
   final DateTime createdAt;
 
   CourseModel({
@@ -49,7 +51,7 @@ class CourseModel {
       discountStartDate: (snapshot['discountStartDate'] as Timestamp).toDate(),
       discountEndDate: (snapshot['discountEndDate'] as Timestamp).toDate(),
       modules: (snapshot['modules'] as List<dynamic>)
-          .map((module) => Module.fromMap(module))
+          .map((module) => ModuleUpdate.fromMap(module))
           .toList(),
       createdAt: (snapshot['createdAt'] as Timestamp).toDate(),
     );
@@ -88,14 +90,28 @@ class Module {
     required this.status,
     required this.lessons,
   });
+}
 
-  factory Module.fromMap(Map<String, dynamic> map) {
-    return Module(
+class ModuleUpdate {
+  String id;
+  String moduleName;
+  String status;
+  List<LessonUpdate> lessons;
+
+  ModuleUpdate({
+    required this.id,
+    required this.moduleName,
+    required this.status,
+    required this.lessons,
+  });
+
+  factory ModuleUpdate.fromMap(Map<String, dynamic> map) {
+    return ModuleUpdate(
       id: map['id'],
       moduleName: map['moduleName'],
       status: map['status'],
       lessons: (map['lessons'] as List<dynamic>)
-          .map((lesson) => Lesson.fromMap(lesson))
+          .map((lesson) => LessonUpdate.fromMap(lesson))
           .toList(),
     );
   }
@@ -111,12 +127,13 @@ class Module {
 }
 
 class Lesson {
-  String title;
-  String moduleId;
-  String mediaLink;
-  String mediaType;
-  String description;
-  List<dynamic> downloadFile;
+  final String title;
+  final String moduleId;
+  final Uint8List? mediaLink;
+  final String mediaType;
+  final String description;
+  final String status;
+  final List<dynamic> downloadFile;
 
   Lesson({
     required this.title,
@@ -125,16 +142,38 @@ class Lesson {
     required this.mediaType,
     required this.description,
     required this.downloadFile,
+    required this.status,
+  });
+}
+
+class LessonUpdate {
+  final String title;
+  final String moduleId;
+  final String? mediaLink;
+  final String mediaType;
+  final String description;
+  final String status;
+  final List<dynamic> downloadFile;
+
+  LessonUpdate({
+    required this.title,
+    required this.moduleId,
+    required this.mediaLink,
+    required this.mediaType,
+    required this.description,
+    required this.downloadFile,
+    required this.status,
   });
 
-  factory Lesson.fromMap(Map<String, dynamic> map) {
-    return Lesson(
+  factory LessonUpdate.fromMap(Map<String, dynamic> map) {
+    return LessonUpdate(
       title: map['title'],
       moduleId: map['moduleId'],
       mediaLink: map['mediaLink'],
       mediaType: map['mediaType'],
       description: map['description'],
       downloadFile: map['downloadFile'] ?? [],
+      status: map['status'],
     );
   }
 
@@ -146,6 +185,7 @@ class Lesson {
       'mediaType': mediaType,
       'description': description,
       'downloadFile': downloadFile,
+      "status": status,
     };
   }
 }

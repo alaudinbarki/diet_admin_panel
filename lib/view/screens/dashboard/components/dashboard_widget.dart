@@ -1,3 +1,4 @@
+import 'package:base_code/provider/authentication_provider.dart';
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/utils/images.dart';
 import 'package:base_code/view/screens/dashboard/components/custom_popup_menu.dart';
@@ -8,6 +9,9 @@ import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../widgets/network_image.dart';
 
 class DashboardWidget extends StatelessWidget {
   const DashboardWidget({super.key});
@@ -54,19 +58,33 @@ class DashboardWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      CustomImage(
-                          image: Images.iconProfileImage,
-                          width: 50.webT(context),
-                          height: 50.webT(context)),
-                      10.webWidth(context),
-                      "Marci Fumons".toTextWeb(
-                          context: context, fontSize: 22, color: blackPrimary),
-                      CustomPopupMenuButton()
-                    ],
-                  )
+                  Consumer<AuthProvider>(builder: (context, value, _) {
+                    return Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10000),
+                          child: AppNetworkImage(
+                            width: 50.webT(context),
+                            height: 50.webT(context),
+                            image: value.adminData!.picture,
+                            errorPlaceHolder: Images.iconProfileImage,
+                          ),
+                        ),
+                        // CustomImage(
+                        //     image: Images.iconProfileImage,
+                        //     width: 50.webT(context),
+                        //     height: 50.webT(context)),
+                        10.webWidth(context),
+                        '${value.adminData!.firstName} ${value.adminData!.lastName}'
+                            .toTextWeb(
+                                context: context,
+                                fontSize: 22,
+                                color: blackPrimary),
+                        CustomPopupMenuButton()
+                      ],
+                    );
+                  })
                 ],
               ).paddingSymmetric(horizontal: 50.webW(context)),
             ),

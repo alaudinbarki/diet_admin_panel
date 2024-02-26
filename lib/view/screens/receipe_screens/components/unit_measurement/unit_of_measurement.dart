@@ -10,9 +10,10 @@ import 'package:provider/provider.dart';
 
 import '../../../../../data/model/custom_model/tab_item_model.dart';
 import '../../../../../provider/recepie_provider.dart';
-import '../../../../../utils/images.dart';
-import '../../../../widgets/custom_image.dart';
-import '../../../dashboard/components/custom_popup_menu.dart';
+// import '../../../../../utils/images.dart';
+// import '../../../../widgets/custom_image.dart';
+import '../../../../widgets/web_header.dart';
+// import '../../../dashboard/components/custom_popup_menu.dart';
 
 class UnitOfMeasurementScreen extends StatefulWidget {
   const UnitOfMeasurementScreen({super.key});
@@ -39,41 +40,42 @@ class _UnitOfMeasurementScreenState extends State<UnitOfMeasurementScreen> {
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Container(
-                    height: 120.webT(context),
-                    decoration: BoxDecoration(
-                      color: whitePrimary,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.shade100,
-                          offset: const Offset(0, 3),
-                          blurRadius: 1,
-                          spreadRadius: 1,
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            CustomImage(
-                                image: Images.iconProfileImage,
-                                width: 50.webT(context),
-                                height: 50.webT(context)),
-                            10.webWidth(context),
-                            "Marci Fumons".toTextWeb(
-                                context: context,
-                                fontSize: 22,
-                                color: blackPrimary),
-                            CustomPopupMenuButton()
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
+                  const WebHeader(),
+                  // Container(
+                  //   height: 120.webT(context),
+                  //   decoration: BoxDecoration(
+                  //     color: whitePrimary,
+                  //     boxShadow: [
+                  //       BoxShadow(
+                  //         color: Colors.grey.shade100,
+                  //         offset: const Offset(0, 3),
+                  //         blurRadius: 1,
+                  //         spreadRadius: 1,
+                  //       ),
+                  //     ],
+                  //   ),
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.end,
+                  //     crossAxisAlignment: CrossAxisAlignment.center,
+                  //     children: [
+                  //       Row(
+                  //         crossAxisAlignment: CrossAxisAlignment.center,
+                  //         children: [
+                  //           CustomImage(
+                  //               image: Images.iconProfileImage,
+                  //               width: 50.webT(context),
+                  //               height: 50.webT(context)),
+                  //           10.webWidth(context),
+                  //           "Marci Fumons".toTextWeb(
+                  //               context: context,
+                  //               fontSize: 22,
+                  //               color: blackPrimary),
+                  //           CustomPopupMenuButton()
+                  //         ],
+                  //       )
+                  //     ],
+                  //   ),
+                  // ),
                   38.height,
                   Container(
                     decoration: BoxDecoration(

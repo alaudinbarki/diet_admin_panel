@@ -14,7 +14,7 @@ class ShowToasts {
       style: ToastificationStyle.flatColored,
       title: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w700,
           color: Colors.black87,
@@ -22,7 +22,7 @@ class ShowToasts {
       ),
       description: Text(
         message,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w400,
           color: Colors.black45,
@@ -61,7 +61,7 @@ class ShowToasts {
       style: ToastificationStyle.flatColored,
       title: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w700,
           color: Colors.black87,
@@ -69,7 +69,7 @@ class ShowToasts {
       ),
       description: Text(
         message,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w400,
           color: Colors.black45,
@@ -93,7 +93,7 @@ class ShowToasts {
       style: ToastificationStyle.flatColored,
       title: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w700,
           color: Colors.black87,
@@ -101,7 +101,7 @@ class ShowToasts {
       ),
       description: Text(
         message,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w400,
           color: Colors.black45,

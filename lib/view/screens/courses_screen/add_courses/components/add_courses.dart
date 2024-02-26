@@ -1,4 +1,5 @@
-import 'package:base_code/provider/authentication_provider.dart';
+// import 'package:base_code/provider/authentication_provider.dart';
+import 'package:base_code/provider/courses_provider.dart';
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/utils/images.dart';
 import 'package:base_code/view/screens/courses_screen/add_courses/components/widgets/add_modules.dart';
@@ -9,6 +10,7 @@ import 'package:base_code/view/widgets/extention/widget_extension.dart';
 import 'package:base_code/view/widgets/web_widgets/web_custom_button.dart';
 import 'package:base_code/view/widgets/web_widgets/web_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 // import '../../../../../provider/recepie_provider.dart';
@@ -21,8 +23,8 @@ class AddCourseWidget extends StatelessWidget {
     return Container(
       height: 1294.webH(context),
       color: backgroundColor,
-      child: Consumer<AuthProvider>(
-        builder: (context, controller2, child) {
+      child: Consumer<CoursesProvider>(
+        builder: (context, controller, child) {
           return SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -56,8 +58,13 @@ class AddCourseWidget extends StatelessWidget {
                             color: bluePrimary),
                         20.webScaleWidth(context),
                         WebCustomButton(
-                          buttonName: "Update",
-                          onPressed: () {},
+                          buttonName:
+                              controller.loading ? "Loading..." : "Update",
+                          onPressed: controller.loading
+                              ? () {}
+                              : () {
+                                  controller.addCourse(context: context);
+                                },
                           width: 206.webT(context),
                           height: 45.webT(context),
                           radius: 15.webT(context),
@@ -105,9 +112,9 @@ class AddCourseWidget extends StatelessWidget {
                                                     .withOpacity(0.2)),
                                             borderRadius: BorderRadius.circular(
                                                 15.webT(context))),
-                                        child: controller2.selectedImage != null
+                                        child: controller.selectedImage != null
                                             ? Image.memory(
-                                                controller2.selectedImage!,
+                                                controller.selectedImage!,
                                                 fit: BoxFit.cover,
                                               )
                                             : CustomImage(
@@ -116,12 +123,14 @@ class AddCourseWidget extends StatelessWidget {
                                                 height: 34.webT(context),
                                               ).center)
                                     .onPress(() {
-                                  controller2.pickImageFromFiles();
+                                  controller.pickImageFromFiles();
                                 }),
                                 15.webHeight(context),
                                 WebCustomButton(
                                   buttonName: "Upload Photo",
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    controller.pickImageFromFiles();
+                                  },
                                   borderColor: greenPrimary,
                                   buttonColor: greenPrimary,
                                   width: 200.webT(context),
@@ -141,7 +150,7 @@ class AddCourseWidget extends StatelessWidget {
                                 isLabelBold: true,
                                 label: "Course Title",
                                 radius: 8.webT(context),
-                                controller: controller2.firstNameController,
+                                controller: controller.title,
                                 hintText: "Healthy Tips for Eating Well",
                                 textInputAction: TextInputAction.next,
                               ).paddingOnly(bottom: 20.webH(context)),
@@ -155,14 +164,16 @@ class AddCourseWidget extends StatelessWidget {
                                     width: 420.webW(context),
                                     label: "Upload Date",
                                     isLabelBold: true,
+                                    isReadOnly: true,
                                     radius: 8.webT(context),
-                                    controller:
-                                        controller2.emailAddressController,
+                                    onTap: () => controller.pickDate(
+                                        context, controller.setUploadDate),
+                                    controller: controller.uploadDateEditor,
                                     hintText: "Select Date",
                                     suffixIcon:
                                         const Icon(Icons.calendar_month),
                                     textInputAction: TextInputAction.next,
-                                    textInputType: TextInputType.emailAddress,
+                                    textInputType: TextInputType.datetime,
                                   ),
                                   100.webScaleWidth(context),
                                   Column(
@@ -173,17 +184,57 @@ class AddCourseWidget extends StatelessWidget {
                                           color: blackPrimary,
                                           fontWeight: FontWeight.w600),
                                       16.webHeight(context),
-                                      WebCustomButton(
-                                        buttonName: "2 156",
-                                        onPressed: () {},
+                                      SizedBox(
                                         width: 165.webW(context),
                                         height: 57.webT(context),
-                                        buttonColor: Colors.transparent,
-                                        borderColor: greenPrimary,
-                                        buttonTextColor: greenPrimary,
-                                        radius: 15.webT(context),
-                                        textSize: 16,
-                                      ),
+                                        child: TextField(
+                                          controller: controller.activeEnroll,
+                                          style: TextStyle(
+                                            color: const Color(0xff32A071),
+                                            fontSize: 16.toDouble(),
+                                            fontFamily: 'PoppinsRegular',
+                                          ),
+                                          inputFormatters: [
+                                            FilteringTextInputFormatter.allow(
+                                                RegExp(r'^\d+\.?\d*')),
+                                          ],
+                                          keyboardType:
+                                              const TextInputType.numberWithOptions(
+                                                  decimal: true),
+                                          decoration: InputDecoration(
+                                            contentPadding: const EdgeInsets.all(8),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              borderSide: const BorderSide(
+                                                  color: Color(0xff32A071)),
+                                            ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              borderSide: const BorderSide(
+                                                  color: Color(0xff32A071)),
+                                            ),
+                                            border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              borderSide: const BorderSide(
+                                                  color: Color(0xff32A071)),
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                      // WebCustomButton(
+                                      //   buttonName: "2 156",
+                                      //   onPressed: () {},
+                                      //   width: 165.webW(context),
+                                      //   height: 57.webT(context),
+                                      //   buttonColor: Colors.transparent,
+                                      //   borderColor: greenPrimary,
+                                      //   buttonTextColor: greenPrimary,
+                                      //   radius: 15.webT(context),
+                                      //   textSize: 16,
+                                      // ),
                                     ],
                                   ),
                                   40.webScaleWidth(context),
@@ -195,17 +246,56 @@ class AddCourseWidget extends StatelessWidget {
                                           color: blackPrimary,
                                           fontWeight: FontWeight.w600),
                                       16.webHeight(context),
-                                      WebCustomButton(
-                                        buttonName: "4 781 ",
-                                        onPressed: () {},
+                                      SizedBox(
                                         width: 165.webW(context),
                                         height: 57.webT(context),
-                                        buttonColor: Colors.transparent,
-                                        borderColor: pinkPrimary,
-                                        buttonTextColor: womenLineColor,
-                                        radius: 15.webT(context),
-                                        textSize: 16,
-                                      ),
+                                        child: TextField(
+                                          controller: controller.totalEnroll,
+                                          style: TextStyle(
+                                            color: const Color(0xffFD4A95),
+                                            fontSize: 16.toDouble(),
+                                            fontFamily: 'PoppinsRegular',
+                                          ),
+                                          inputFormatters: [
+                                            FilteringTextInputFormatter.allow(
+                                                RegExp(r'^\d+\.?\d*')),
+                                          ],
+                                          keyboardType:
+                                              const TextInputType.numberWithOptions(
+                                                  decimal: true),
+                                          decoration: InputDecoration(
+                                              contentPadding: const EdgeInsets.all(8),
+                                              focusedBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                                borderSide: const BorderSide(
+                                                    color: Color(0xffFD4A95)),
+                                              ),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                                borderSide: const BorderSide(
+                                                    color: Color(0xffFD4A95)),
+                                              ),
+                                              border: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  borderSide: const BorderSide(
+                                                      color:
+                                                          Color(0xffFD4A95)))),
+                                        ),
+                                      )
+                                      // WebCustomButton(
+                                      //   buttonName: "4 781 ",
+                                      //   onPressed: () {},
+                                      //   width: 165.webW(context),
+                                      //   height: 57.webT(context),
+                                      //   buttonColor: Colors.transparent,
+                                      //   borderColor: pinkPrimary,
+                                      //   buttonTextColor: womenLineColor,
+                                      //   radius: 15.webT(context),
+                                      //   textSize: 16,
+                                      // ),
                                     ],
                                   ),
                                 ],
@@ -223,9 +313,9 @@ class AddCourseWidget extends StatelessWidget {
                             label: "Access Period (Days)",
                             isLabelBold: true,
                             radius: 8.webT(context),
-                            controller: controller2.emailAddressController,
+                            controller: controller.accessPeriod,
                             hintText: "Leave empty for lifetime access",
-                            suffixIcon: const Icon(Icons.calendar_month),
+                            // suffixIcon: const Icon(Icons.calendar_month),
                             textInputAction: TextInputAction.next,
                             textInputType: TextInputType.emailAddress,
                           ),
@@ -236,7 +326,10 @@ class AddCourseWidget extends StatelessWidget {
                             label: "Start Date",
                             isLabelBold: true,
                             radius: 8.webT(context),
-                            controller: controller2.emailAddressController,
+                            isReadOnly: true,
+                            onTap: () => controller.pickDate(
+                                context, controller.setStartDate),
+                            controller: controller.startDateEditor,
                             hintText: "Select Date",
                             suffixIcon: const Icon(Icons.calendar_month),
                             textInputAction: TextInputAction.next,
@@ -255,24 +348,37 @@ class AddCourseWidget extends StatelessWidget {
                               fontWeight: FontWeight.w600),
                           16.webHeight(context),
                           Container(
-                            height: 198.webT(context),
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                                color: whitePrimary,
-                                border: Border.all(
-                                    color: borderColor, width: 1.webT(context)),
-                                borderRadius:
-                                    BorderRadius.circular(16.webT(context))),
-                            child:
-                                "Type a short course description of maximum 2 sentences."
-                                    .toTextWeb(
-                                        context: context,
-                                        fontSize: 16,
-                                        color: greyLight,
-                                        fontWeight: FontWeight.w500)
-                                    .paddingSymmetric(
-                                        horizontal: 3.w, vertical: 10.h),
-                          ),
+                              height: 198.webT(context),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: whitePrimary,
+                                  // border: Border.all(
+                                  //     // color: borderColor,
+                                  //     // width: 1.webT(context)
+                                  //     ),
+                                  borderRadius:
+                                      BorderRadius.circular(16.webT(context))),
+                              child: TextFormField(
+                                controller: controller.description,
+                                decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                      borderSide: const BorderSide(
+                                          color: borderColor, width: 1),
+                                    ),
+                                    hintText:
+                                        "Type a short course description of maximum 2 sentences."),
+                                maxLines: 6,
+                              )
+                              //
+                              //     .toTextWeb(
+                              //         context: context,
+                              //         fontSize: 16,
+                              //         color: greyLight,
+                              //         fontWeight: FontWeight.w500)
+                              //     .paddingSymmetric(
+                              //         horizontal: 3.w, vertical: 10.h),
+                              ),
                         ],
                       ),
                     ],
@@ -296,13 +402,18 @@ class AddCourseWidget extends StatelessWidget {
                       WebTextField(
                         height: 57.webT(context),
                         width: 420.webW(context),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(
+                              RegExp(r'^\d+\.?\d*')),
+                        ],
+                        textInputType:
+                            const TextInputType.numberWithOptions(decimal: true),
                         label: "Price in ZAR",
                         isLabelBold: true,
                         radius: 8.webT(context),
-                        controller: controller2.emailAddressController,
+                        controller: controller.price,
                         hintText: "(0 for Free)",
                         textInputAction: TextInputAction.next,
-                        textInputType: TextInputType.emailAddress,
                       ),
                       66.webHeight(context),
                       Row(
@@ -314,10 +425,16 @@ class AddCourseWidget extends StatelessWidget {
                             label: "Discounted Price in ZAR",
                             isLabelBold: true,
                             radius: 8.webT(context),
-                            controller: controller2.emailAddressController,
+                            controller: controller.discountPrice,
                             hintText: "(0 for Free)",
                             textInputAction: TextInputAction.next,
-                            textInputType: TextInputType.emailAddress,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d+\.?\d*')),
+                            ],
+                            textInputType:
+                                const TextInputType.numberWithOptions(decimal: true),
+                            // textInputType: TextInputType.emailAddress,
                           ),
                           WebTextField(
                             height: 57.webT(context),
@@ -325,7 +442,10 @@ class AddCourseWidget extends StatelessWidget {
                             label: "Start Date",
                             isLabelBold: true,
                             radius: 8.webT(context),
-                            controller: controller2.emailAddressController,
+                            controller: controller.discountStartDateEditor,
+                            isReadOnly: true,
+                            onTap: () => controller.pickDate(
+                                context, controller.setDiscountStartDate),
                             hintText: "Select Date",
                             suffixIcon: const Icon(Icons.calendar_month),
                             textInputAction: TextInputAction.next,
@@ -338,8 +458,11 @@ class AddCourseWidget extends StatelessWidget {
                             isLabelBold: true,
                             suffixIcon: const Icon(Icons.calendar_month),
                             radius: 8.webT(context),
-                            controller: controller2.emailAddressController,
+                            controller: controller.discountEndDateEditor,
                             hintText: "Select Date",
+                            isReadOnly: true,
+                            onTap: () => controller.pickDate(
+                                context, controller.setDiscountEndDate),
                             textInputAction: TextInputAction.next,
                             textInputType: TextInputType.emailAddress,
                           ),
@@ -353,8 +476,12 @@ class AddCourseWidget extends StatelessWidget {
                 const ModuleWidget(),
                 87.webScaleHeight(context),
                 WebCustomButton(
-                  buttonName: "Publish",
-                  onPressed: () {},
+                  buttonName: controller.loading ? "Loading..." : "Publish",
+                  onPressed: controller.loading
+                      ? () {}
+                      : () async {
+                          await controller.addCourse(context: context);
+                        },
                   borderColor: purplePrimary,
                   buttonColor: purplePrimary,
                   width: 206.webT(context),

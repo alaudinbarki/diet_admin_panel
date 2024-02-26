@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
 
 class MyHtmlEditor extends StatefulWidget {
-  const MyHtmlEditor({super.key});
+  final HtmlEditorController controller;
+  const MyHtmlEditor({super.key, required this.controller});
 
   @override
-  _MyHtmlEditorState createState() => _MyHtmlEditorState();
+  State<MyHtmlEditor> createState() => _MyHtmlEditorState();
 }
 
 class _MyHtmlEditorState extends State<MyHtmlEditor> {
-  final HtmlEditorController controller = HtmlEditorController();
+  //  = HtmlEditorController();
 
   @override
   Widget build(BuildContext context) {
     return HtmlEditor(
-      controller: controller, //required
+      controller: widget.controller, //required
       htmlEditorOptions: const HtmlEditorOptions(
         hint: "Your text here...",
         //initialText: "<p>text content initial, if any</p>",

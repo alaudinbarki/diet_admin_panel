@@ -1,3 +1,5 @@
+// ignore_for_file: implementation_imports
+
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';

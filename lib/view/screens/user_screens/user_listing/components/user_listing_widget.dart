@@ -2,7 +2,7 @@ import 'package:base_code/helper/routes_helper.dart';
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/utils/date_time_format.dart';
 import 'package:base_code/utils/images.dart';
-import 'package:base_code/view/screens/dashboard/components/custom_popup_menu.dart';
+// import 'package:base_code/view/screens/dashboard/components/custom_popup_menu.dart';
 import 'package:base_code/view/widgets/custom_image.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../provider/user_provider.dart';
+import '../../../../widgets/web_header.dart';
 
 class UserListingWidget extends StatelessWidget {
   const UserListingWidget({super.key});
@@ -24,7 +25,6 @@ class UserListingWidget extends StatelessWidget {
   // UserProvider? userProvider;
   // @override
   // void initState() {
-  //   // TODO: implement initState
   //   super.initState();
   //   userProvider = Provider.of<UserProvider>(context, listen: false);
   // }
@@ -42,41 +42,42 @@ class UserListingWidget extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Container(
-                      height: 120.webT(context),
-                      decoration: BoxDecoration(
-                        color: whitePrimary,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.shade100,
-                            offset: const Offset(0, 3),
-                            blurRadius: 1,
-                            spreadRadius: 1,
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              CustomImage(
-                                  image: Images.iconProfileImage,
-                                  width: 50.webT(context),
-                                  height: 50.webT(context)),
-                              10.webWidth(context),
-                              "Marci Fumons".toTextWeb(
-                                  context: context,
-                                  fontSize: 22,
-                                  color: blackPrimary),
-                              CustomPopupMenuButton()
-                            ],
-                          )
-                        ],
-                      ).paddingSymmetric(horizontal: 50.webW(context)),
-                    ),
+                    const WebHeader(),
+                    // Container(
+                    //   height: 120.webT(context),
+                    //   decoration: BoxDecoration(
+                    //     color: whitePrimary,
+                    //     boxShadow: [
+                    //       BoxShadow(
+                    //         color: Colors.grey.shade100,
+                    //         offset: const Offset(0, 3),
+                    //         blurRadius: 1,
+                    //         spreadRadius: 1,
+                    //       ),
+                    //     ],
+                    //   ),
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.end,
+                    //     crossAxisAlignment: CrossAxisAlignment.center,
+                    //     children: [
+                    //       Row(
+                    //         crossAxisAlignment: CrossAxisAlignment.center,
+                    //         children: [
+                    //           CustomImage(
+                    //               image: Images.iconProfileImage,
+                    //               width: 50.webT(context),
+                    //               height: 50.webT(context)),
+                    //           10.webWidth(context),
+                    //           "Marci Fumons".toTextWeb(
+                    //               context: context,
+                    //               fontSize: 22,
+                    //               color: blackPrimary),
+                    //           CustomPopupMenuButton()
+                    //         ],
+                    //       )
+                    //     ],
+                    //   ).paddingSymmetric(horizontal: 50.webW(context)),
+                    // ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

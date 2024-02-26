@@ -1,4 +1,6 @@
 // import 'dart:js_interop';
+// ignore_for_file: avoid_print
+
 import 'dart:typed_data';
 
 // import 'packae_code/view/widgets/extention/object_extension.dart';
@@ -32,12 +34,7 @@ class RecepieProvider extends ChangeNotifier {
     TabItem(label: 'Trash', count: '0'),
     TabItem(label: 'Imported', count: '0'),
   ];
-  final List<TabItem> courseTabs = [
-    TabItem(label: 'All', count: '265'),
-    TabItem(label: 'Drafts', count: '10'),
-    TabItem(label: 'Published', count: '74'),
-    TabItem(label: 'Bin', count: '8'),
-  ];
+
   final List<TabItem> selectedLanguagesList = [
     TabItem(label: 'Afrikaans', count: ''),
     TabItem(label: 'English', count: ''),
@@ -295,7 +292,9 @@ class RecepieProvider extends ChangeNotifier {
         await imageRef.putData(selectedImage!, metadata).whenComplete(() async {
           final String url = await imageRef.getDownloadURL();
 
-          _add(url, context);
+          if (context.mounted) {
+            _add(url, context);
+          }
           selectedImage = null;
         });
       } else {
@@ -307,8 +306,10 @@ class RecepieProvider extends ChangeNotifier {
       }
     } on FirebaseException catch (e) {
       setLoading(false);
-      ShowToasts.showInfo(
-          title: "Error", message: "Something went wrong", context: context);
+      if (context.mounted) {
+        ShowToasts.showInfo(
+            title: "Error", message: "Something went wrong", context: context);
+      }
       print(
           "<==============Upload Recipe Picture Error=====$e====================>");
     }

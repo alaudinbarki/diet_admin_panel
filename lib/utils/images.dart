@@ -1,6 +1,7 @@
 class Images {
   static const String imgChair = "assets/images/img_chair.png";
-  static const String imgChangePassword = "assets/images/img_change_password.svg";
+  static const String imgChangePassword =
+      "assets/images/img_change_password.svg";
   static const String imgConnection = "assets/images/img_connection.png";
   static const String imgForgot = "assets/images/img_forgot.svg";
   static const String imgLogin = "assets/images/img_login.svg";
@@ -15,7 +16,8 @@ class Images {
   static const String imgLogoWithText = "assets/images/img_logo_with_text.svg";
   static const String imgCard = "assets/images/img_card.png";
   static const String imgProfile = "assets/images/img_profile.png";
-  static const String imgForgotPassword = "assets/images/img_forgot_password.svg";
+  static const String imgForgotPassword =
+      "assets/images/img_forgot_password.svg";
 
   // Icons
   static const String iconAdd = "assets/icons/ic_add.svg";
@@ -75,7 +77,8 @@ class Images {
   static const String iconDropDown = "assets/icons/ic_drop_down.png";
 
   static const String iconActiveUser = "assets/icons/ic_active_user.png";
-  static const String iconActiveSubscrription = "assets/icons/ic_active_subscription.png";
+  static const String iconActiveSubscrription =
+      "assets/icons/ic_active_subscription.png";
   static const String iconThisMonth = "assets/icons/ic_this_month.png";
   static const String iconTotalUser = "assets/icons/ic_total_user.png";
 
@@ -90,4 +93,12 @@ class Images {
   static const String iconExport = "assets/icons/ic_export.png";
   static const String moveAlt = "assets/icons/move_alt.png";
   static const String ingrediantsIcon = "assets/icons/ingrediants.png";
+}
+
+class AppIcon {
+  static const String _bathPath = 'assets/icons/';
+  static const String mediaCamera = '${_bathPath}media_camera.png';
+  static const String mediaMic = '${_bathPath}media_mic.png';
+  static const String mediaNone = '${_bathPath}media_none.png';
+  static const String mediaVideo = '${_bathPath}media_video.png';
 }

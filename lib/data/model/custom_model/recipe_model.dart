@@ -47,13 +47,13 @@ class RecipeModel {
   Map<String, dynamic> toMap() {
     return {
       'afrID': afrID,
-      'categoryList': categoryList ?? <String>[],
+      'categoryList': categoryList,
       'engID': engID,
-      'favouritedBy': favouritedBy ?? <String>[],
+      'favouritedBy': favouritedBy,
       'headerImage': headerImage,
       'id': id,
-      'ingredients': ingredients ?? "",
-      'ingredientsMap': ingredientsMap ?? {},
+      'ingredients': ingredients,
+      'ingredientsMap': ingredientsMap,
       'allIngredients':
           allIngredients.map((ingredient) => ingredient.toMap()).toList(),
       'isPremium': isPremium,

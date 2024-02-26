@@ -1,10 +1,10 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables
 
 import 'package:base_code/provider/recepie_provider.dart';
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/utils/date_time_format.dart';
 import 'package:base_code/utils/images.dart';
-import 'package:base_code/view/screens/dashboard/components/custom_popup_menu.dart';
+// import 'package:base_code/view/screens/dashboard/components/custom_popup_menu.dart';
 import 'package:base_code/view/widgets/custom_image.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
@@ -32,7 +32,6 @@ class _ReceipeWidgetState extends State<ReceipeWidget> {
   // RecepieProvider? recepieProvider;
   // @override
   // void initState() {
-  //   // TODO: implement initState
   //   super.initState();
   //   recepieProvider = Provider.of<RecepieProvider>(context, listen: false);
   // }
@@ -50,7 +49,7 @@ class _ReceipeWidgetState extends State<ReceipeWidget> {
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    WebHeader(),
+                    const WebHeader(),
                     38.webHeight(context),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -357,7 +356,6 @@ class _CustomPaginationState extends State<CustomPagination> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     totalEntries = widget.recipe.length;
   }

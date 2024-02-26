@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:io';
 import 'package:base_code/view/widgets/extention/object_extension.dart';
 import 'package:dio/dio.dart';

@@ -8,7 +8,7 @@ import 'dashbord/web_receipe.dart';
 class DetailReceipeScreen extends StatelessWidget {
   // final RecipeModel? recipeModel;
   const DetailReceipeScreen({
-    Key? key,
+    super.key,
   });
 
   @override
@@ -19,7 +19,7 @@ class DetailReceipeScreen extends StatelessWidget {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth > 700) {
-          return WebDetailReceipeScreen(
+          return const WebDetailReceipeScreen(
               // recipe: recipe
               );
         } else {

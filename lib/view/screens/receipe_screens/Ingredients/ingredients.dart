@@ -13,7 +13,7 @@ class IngrediantsScreen extends StatelessWidget {
         if (constraints.maxWidth > 700) {
           return const WebIngredientsScreen();
         } else {
-          return MobileIngrediantsScreen();
+          return const MobileIngrediantsScreen();
         }
       },
     );

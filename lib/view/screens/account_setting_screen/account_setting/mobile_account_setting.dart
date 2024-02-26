@@ -137,41 +137,39 @@ class MobileAccountSettingScreen extends StatelessWidget {
   }
 
   Widget buildMobileProfileInfo(BuildContext context, AuthProvider controller) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomTextField(
-            label: "First Name",
-            controller: controller.firstNameController,
-            hintText: "Name",
-            textInputAction: TextInputAction.next,
-          ),
-          const SizedBox(height: 20.0),
-          CustomTextField(
-            label: "Last Name",
-            controller: controller.lastNameController,
-            hintText: "Surname",
-            textInputAction: TextInputAction.next,
-          ),
-          const SizedBox(height: 20.0),
-          CustomTextField(
-            label: "Email Address",
-            controller: controller.emailAddressController,
-            hintText: "example@email.com",
-            textInputAction: TextInputAction.next,
-            textInputType: TextInputType.emailAddress,
-          ),
-          const SizedBox(height: 20.0),
-          CustomButton(
-            buttonTextColor: bluePrimary,
-            buttonName: "Edit / Change Email Address",
-            onPressed: () {},
-            buttonColor: Colors.transparent,
-            borderColor: bluePrimary,
-          ).center,
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CustomTextField(
+          label: "First Name",
+          controller: controller.firstNameController,
+          hintText: "Name",
+          textInputAction: TextInputAction.next,
+        ),
+        const SizedBox(height: 20.0),
+        CustomTextField(
+          label: "Last Name",
+          controller: controller.lastNameController,
+          hintText: "Surname",
+          textInputAction: TextInputAction.next,
+        ),
+        const SizedBox(height: 20.0),
+        CustomTextField(
+          label: "Email Address",
+          controller: controller.emailAddressController,
+          hintText: "example@email.com",
+          textInputAction: TextInputAction.next,
+          textInputType: TextInputType.emailAddress,
+        ),
+        const SizedBox(height: 20.0),
+        CustomButton(
+          buttonTextColor: bluePrimary,
+          buttonName: "Edit / Change Email Address",
+          onPressed: () {},
+          buttonColor: Colors.transparent,
+          borderColor: bluePrimary,
+        ).center,
+      ],
     );
   }
 

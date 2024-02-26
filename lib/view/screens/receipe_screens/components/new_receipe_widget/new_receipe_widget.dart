@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:base_code/data/model/custom_model/recipe_category_model.dart';
 // import 'package:base_code/provider/authentication_provider.dart';
 import 'package:base_code/utils/colors.dart';
@@ -252,7 +254,8 @@ class _NewReceipeWidgetState extends State<NewReceipeWidget> {
                                       radius: 8.webT(context),
                                       controller: controller.recipeUpdateDate,
                                       hintText: "Select Date",
-                                      suffixIcon: Icon(Icons.calendar_month),
+                                      suffixIcon:
+                                          const Icon(Icons.calendar_month),
                                       isReadOnly: true,
                                       onTap: () {
                                         controller.pickDate(context);
@@ -293,18 +296,20 @@ class _NewReceipeWidgetState extends State<NewReceipeWidget> {
                                       child: TextField(
                                         controller: controller.totalLikes,
                                         style: TextStyle(
-                                          color: Color(0xffB84AB3),
+                                          color: const Color(0xffB84AB3),
                                           fontSize: 16.toDouble(),
                                           fontFamily: 'PoppinsRegular',
                                         ),
                                         decoration: InputDecoration(
-                                            contentPadding: EdgeInsets.all(8),
+                                            contentPadding:
+                                                const EdgeInsets.all(8),
                                             border: OutlineInputBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(8),
                                                 borderSide: BorderSide(
-                                                    color: Color(0xffB84AB3)
-                                                        .withOpacity(.5)))),
+                                                    color:
+                                                        const Color(0xffB84AB3)
+                                                            .withOpacity(.5)))),
                                       ),
                                     )
 
@@ -324,7 +329,7 @@ class _NewReceipeWidgetState extends State<NewReceipeWidget> {
                               ],
                             ),
                             controller.isLoading
-                                ? Center(
+                                ? const Center(
                                     child: CircularProgressIndicator.adaptive(),
                                   )
                                 : Row(
@@ -355,7 +360,7 @@ class _NewReceipeWidgetState extends State<NewReceipeWidget> {
                                             child: DropdownButtonHideUnderline(
                                               child: DropdownButton<
                                                   RecipeCategoryModel>(
-                                                hint: Text(
+                                                hint: const Text(
                                                   "Select Category",
                                                   style: TextStyle(
                                                       fontSize: 12,
@@ -448,7 +453,8 @@ class _NewReceipeWidgetState extends State<NewReceipeWidget> {
                                                   color: blackPrimary,
                                                   fontWeight: FontWeight.w500,
                                                 ),
-                                                hint: Text('Select Categories',
+                                                hint: const Text(
+                                                    'Select Categories',
                                                     style: TextStyle(
                                                         fontSize: 14,
                                                         fontWeight:
@@ -500,7 +506,7 @@ class _NewReceipeWidgetState extends State<NewReceipeWidget> {
                         methods: controller.methodText,
                       ),
                       45.webHeight(context),
-                      Text(
+                      const Text(
                         "Recipes Notes",
                         style: TextStyle(
                             fontSize: 15, fontWeight: FontWeight.w700),

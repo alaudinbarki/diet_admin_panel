@@ -1,4 +1,5 @@
 import 'package:base_code/data/model/custom_model/recipe_category_model.dart';
+import 'package:base_code/provider/courses_provider.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';
@@ -75,8 +76,8 @@ class _MobileCoursesDashbordState extends State<MobileCoursesDashbord> {
                   )
                 ],
               ),
-              body:
-                  Consumer<RecepieProvider>(builder: (context, controller, _) {
+              body: Consumer2<CoursesProvider, RecepieProvider>(
+                  builder: (context, controller, controller2, _) {
                 return Container(
                   color: backgroundColor,
                   child: SingleChildScrollView(
@@ -219,7 +220,7 @@ class _MobileCoursesDashbordState extends State<MobileCoursesDashbord> {
                                                     DropdownButtonHideUnderline(
                                                   child: DropdownButton<
                                                       RecipeCategoryModel>(
-                                                    value: controller
+                                                    value: controller2
                                                         .dropdownValue,
                                                     padding:
                                                         EdgeInsets.symmetric(
@@ -236,11 +237,12 @@ class _MobileCoursesDashbordState extends State<MobileCoursesDashbord> {
                                                     ),
 
                                                     onChanged: (newValue) {
-                                                      controller.dropdownValue =
+                                                      controller2
+                                                              .dropdownValue =
                                                           newValue!;
-                                                      controller.notifer();
+                                                      controller2.notifer();
                                                     },
-                                                    items: controller
+                                                    items: controller2
                                                         .recipeCategoryList
                                                         .map<
                                                                 DropdownMenuItem<

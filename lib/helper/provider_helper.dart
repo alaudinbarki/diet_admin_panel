@@ -1,3 +1,4 @@
+import 'package:base_code/provider/courses_provider.dart';
 import 'package:base_code/provider/dashboard_provider.dart';
 import 'package:base_code/provider/recepie_provider.dart';
 import 'package:base_code/provider/user_provider.dart';
@@ -17,5 +18,7 @@ class ProviderHelper {
     ChangeNotifierProvider<RecepieProvider>(
         create: (context) => RecepieProvider()),
     ChangeNotifierProvider<UserProvider>(create: (context) => UserProvider()),
+    ChangeNotifierProvider<CoursesProvider>(
+        create: (context) => CoursesProvider())
   ];
 }

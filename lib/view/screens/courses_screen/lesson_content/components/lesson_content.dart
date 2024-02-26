@@ -1,4 +1,6 @@
-import 'package:base_code/provider/recepie_provider.dart';
+import 'package:base_code/data/model/custom_model/course_model.dart';
+import 'package:base_code/provider/courses_provider.dart';
+// import 'package:base_code/provider/recepie_provider.dart';
 import 'package:base_code/utils/colors.dart';
 import 'package:base_code/view/screens/courses_screen/lesson_content/components/widgets.dart/html_editor.dart';
 import 'package:base_code/view/screens/courses_screen/lesson_content/components/widgets.dart/media_widget.dart';
@@ -22,7 +24,7 @@ class LessonContentWidget extends StatefulWidget {
 class _LessonContentWidgetState extends State<LessonContentWidget> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<RecepieProvider>(builder: (context, controller, child) {
+    return Consumer<CoursesProvider>(builder: (context, controller, child) {
       return Container(
         height: 1294.webH(context),
         color: backgroundColor,
@@ -51,11 +53,16 @@ class _LessonContentWidgetState extends State<LessonContentWidget> {
                   Row(
                     children: [
                       "Save to drafts".toTextWeb(
-                          context: context, fontSize: 18, fontWeight: FontWeight.w600, color: bluePrimary),
+                          context: context,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: bluePrimary),
                       20.webScaleWidth(context),
                       WebCustomButton(
                         buttonName: "Update",
-                        onPressed: () {},
+                        onPressed: () {
+                          controller.addLession(context);
+                        },
                         width: 206.webT(context),
                         height: 45.webT(context),
                         radius: 15.webT(context),
@@ -85,24 +92,72 @@ class _LessonContentWidgetState extends State<LessonContentWidget> {
                     Column(
                       children: [
                         WebTextField(
-                          controller: TextEditingController(),
+                          controller: controller.lessionTitle,
                           width: double.infinity,
                           label: 'Course Title',
-                          hintText: "Search",
+                          hintText: "Healthy Tips for Eating Well",
                           height: 57.webT(context),
                         ),
                         SizedBox(
                           height: 36.webH(context),
                         ),
-                        WebTextField(
-                          controller: TextEditingController(),
+                        Container(
+                          height: 57.webH(context),
                           width: double.infinity,
-                          label: 'Module',
-                          height: 57.webT(context),
-                          suffixIcon:
-                              const Icon(Icons.keyboard_arrow_down_sharp),
-                          hintText: "Module",
+                          decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.circular(15.webT(context)),
+                              border: Border.all(
+                                color: greyLight, // Color of the border
+                                width: 1, // Width of the border
+                              )),
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton<Module>(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10.webT(context)),
+                              value: controller.selectedModule,
+                              icon: const Icon(
+                                  Icons.keyboard_arrow_down_outlined),
+                              elevation: 16,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                color: blackPrimary,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              hint: const Text('Choose module',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.grey)),
+                              onChanged: (newValue) {
+                                controller.selectedModule = newValue!;
+                                controller.notifier();
+                              },
+                              items: controller.moduleList
+                                  .map<DropdownMenuItem<Module>>((value) {
+                                return DropdownMenuItem<Module>(
+                                  value: value,
+                                  child: value.moduleName.toTextWeb(
+                                      context: context,
+                                      fontSize: 16,
+                                      color: blackPrimary,
+                                      fontWeight: FontWeight.w500),
+                                );
+                              }).toList(),
+                              // Adding the rounded border by wrapping the DropdownButton with DecoratedBox
+                              dropdownColor: Colors.white,
+                            ),
+                          ),
                         ),
+                        // WebTextField(
+                        //   controller: TextEditingController(),
+                        //   width: double.infinity,
+                        //   label: 'Module',
+                        //   height: 57.webT(context),
+                        //   suffixIcon:
+                        //       const Icon(Icons.keyboard_arrow_down_sharp),
+                        //   hintText: "Module",
+                        // ),
                       ],
                     ),
                     30.webHeight(context),
@@ -126,7 +181,7 @@ class _LessonContentWidgetState extends State<LessonContentWidget> {
                         color: blackPrimary,
                         fontWeight: FontWeight.w600),
                     60.webHeight(context),
-                     MediaContainer(isPhone: false,),
+                    MediaContainer(isPhone: false),
                   ],
                 ).paddingAll(18.webT(context)),
               ).paddingSymmetric(horizontal: 48.webW(context)),
@@ -140,7 +195,9 @@ class _LessonContentWidgetState extends State<LessonContentWidget> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const MyHtmlEditor(),
+                    MyHtmlEditor(
+                      controller: controller.lessionDescription,
+                    ),
                     25.webHeight(context),
                     'Text'.toTextWeb(
                         context: context,

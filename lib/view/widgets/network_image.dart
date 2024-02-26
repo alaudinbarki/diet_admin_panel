@@ -1,7 +1,6 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../utils/images.dart';
 
 class AppNetworkImage extends StatelessWidget {
   final double width;

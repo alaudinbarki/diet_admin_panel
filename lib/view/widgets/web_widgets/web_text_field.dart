@@ -14,6 +14,7 @@ class WebTextField extends StatelessWidget {
   WebTextField(
       {super.key,
       required this.controller,
+      this.inputFormatters,
       this.hintText,
       this.obscureText,
       this.textInputType,
@@ -45,6 +46,7 @@ class WebTextField extends StatelessWidget {
       this.onSearchTap,
       this.isSearchTap});
   TextEditingController controller;
+  List<TextInputFormatter>? inputFormatters;
   double? height;
   String? label;
   double? width;
@@ -117,9 +119,14 @@ class WebTextField extends StatelessWidget {
               onFieldSubmitted: onSubmitted,
               textInputAction: textInputAction,
               onTap: onTap,
-              inputFormatters: [
-                LengthLimitingTextInputFormatter(inputFormatter)
-              ],
+              // keyboardType: allowDecimals
+              // ? TextInputType.numberWithOptions(decimal: true)
+              // : TextInputType.number,
+              inputFormatters: inputFormatters,
+
+              // inputFormatters: [
+              //   LengthLimitingTextInputFormatter(inputFormatter)
+              // ],
               decoration: InputDecoration(
                 errorStyle: TextStyle(
                     fontSize: 16.webT(context),

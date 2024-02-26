@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
 import 'package:base_code/view/widgets/extention/widget_extension.dart';

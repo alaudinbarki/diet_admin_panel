@@ -1,9 +1,12 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables
 
-import 'package:base_code/provider/recepie_provider.dart';
+import 'package:base_code/helper/routes_helper.dart';
+import 'package:base_code/provider/courses_provider.dart';
+// import 'package:base_code/provider/recepie_provider.dart';
 import 'package:base_code/utils/colors.dart';
+import 'package:base_code/utils/date_time_format.dart';
 import 'package:base_code/utils/images.dart';
-import 'package:base_code/view/screens/dashboard/components/custom_popup_menu.dart';
+// import 'package:base_code/view/screens/dashboard/components/custom_popup_menu.dart';
 import 'package:base_code/view/widgets/custom_image.dart';
 import 'package:base_code/view/widgets/extention/int_extension.dart';
 import 'package:base_code/view/widgets/extention/string_extension.dart';
@@ -13,6 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../data/model/custom_model/tab_item_model.dart';
+import '../../../../widgets/web_header.dart';
 import '../../../../widgets/web_widgets/web_custom_button.dart';
 import 'widget/course_setting_widget.dart';
 
@@ -27,136 +31,153 @@ class _AllCoursesWidgetState extends State<AllCoursesWidget> {
   int _selectedIndex = 0; // Track the selected index
 
   @override
+  void initState() {
+    super.initState();
+    Provider.of<CoursesProvider>(context, listen: false).getCourses();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Consumer<RecepieProvider>(builder: (context, controller, child) {
+    return Consumer<CoursesProvider>(builder: (context, controller, child) {
       return Container(
         height: 1294.webH(context),
         color: backgroundColor,
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Container(
-                height: 120.webT(context),
-                decoration: BoxDecoration(
-                  color: whitePrimary,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.shade100,
-                      offset: const Offset(0, 3),
-                      blurRadius: 1,
-                      spreadRadius: 1,
-                    ),
-                  ],
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+          child: controller.loading
+              ? const Center(
+                  child: CircularProgressIndicator.adaptive(),
+                )
+              : Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                    const WebHeader(),
+                    // Container(
+                    //   height: 120.webT(context),
+                    //   decoration: BoxDecoration(
+                    //     color: whitePrimary,
+                    //     boxShadow: [
+                    //       BoxShadow(
+                    //         color: Colors.grey.shade100,
+                    //         offset: const Offset(0, 3),
+                    //         blurRadius: 1,
+                    //         spreadRadius: 1,
+                    //       ),
+                    //     ],
+                    //   ),
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.end,
+                    //     crossAxisAlignment: CrossAxisAlignment.center,
+                    //     children: [
+                    //       Row(
+                    //         crossAxisAlignment: CrossAxisAlignment.center,
+                    //         children: [
+                    //           CustomImage(
+                    //               image: Images.iconProfileImage,
+                    //               width: 50.webT(context),
+                    //               height: 50.webT(context)),
+                    //           10.webWidth(context),
+                    //           "Marci Fumons".toTextWeb(
+                    //               context: context,
+                    //               fontSize: 22,
+                    //               color: blackPrimary),
+                    //           CustomPopupMenuButton()
+                    //         ],
+                    //       )
+                    //     ],
+                    //   ),
+                    // ),
+                    38.height,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CustomImage(
-                            image: Images.iconProfileImage,
-                            width: 50.webT(context),
-                            height: 50.webT(context)),
-                        10.webWidth(context),
-                        "Marci Fumons".toTextWeb(
+                        widget.title.toString().toTextWeb(
                             context: context,
-                            fontSize: 22,
+                            fontSize: 28,
+                            fontWeight: FontWeight.w600,
                             color: blackPrimary),
-                        CustomPopupMenuButton()
+                        29.height,
+                        Container(
+                          decoration: BoxDecoration(
+                            color: whitePrimary,
+                            border: Border.all(
+                              color: borderColor,
+                              width: 1.webT(context),
+                            ),
+                            borderRadius:
+                                BorderRadius.circular(16.webT(context)),
+                          ),
+                          height: 115.webT(context),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: controller.courseTabs
+                                .asMap()
+                                .entries
+                                .map((entry) {
+                              int idx = entry.key;
+                              TabItem title = entry.value;
+                              bool isSelected = _selectedIndex == idx;
+                              return InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    _selectedIndex = idx;
+                                  });
+                                },
+                                child: Row(
+                                  children: [
+                                    isSelected
+                                        ? title.label.toTextWeb(
+                                            context: context,
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.w600,
+                                            color: purplePrimary)
+                                        : title.label.toTextWeb(
+                                            context: context,
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.w600,
+                                            color: greyDark),
+                                    10.webScaleWidth(context),
+                                    Container(
+                                      decoration: isSelected
+                                          ? BoxDecoration(
+                                              color:
+                                                  purplePrimary, // Selected tab background color
+                                              borderRadius:
+                                                  BorderRadius.circular(25),
+                                            )
+                                          : BoxDecoration(
+                                              color:
+                                                  blueSecondary, // Selected tab background color
+                                              borderRadius:
+                                                  BorderRadius.circular(25),
+                                            ),
+                                      child: title.count
+                                          .toTextWeb(
+                                              context: context,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w600,
+                                              color: whitePrimary)
+                                          .paddingSymmetric(
+                                              vertical: 3.webT(context),
+                                              horizontal: 4.w),
+                                    ),
+                                  ],
+                                ).paddingOnly(
+                                    left: 15.webT(context),
+                                    right: 15.webT(context)),
+                              );
+                            }).toList(),
+                          ),
+                        ),
                       ],
-                    )
+                    ).paddingSymmetric(horizontal: 48.webT(context)),
+                    50.webHeight(context),
+                    AllRecepies(),
+                    50.webHeight(context),
+                    const CourseSettingWidget(),
+                    20.webScaleHeight(context),
                   ],
                 ),
-              ),
-              38.height,
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  widget.title.toString().toTextWeb(
-                      context: context,
-                      fontSize: 28,
-                      fontWeight: FontWeight.w600,
-                      color: blackPrimary),
-                  29.height,
-                  Container(
-                    decoration: BoxDecoration(
-                      color: whitePrimary,
-                      border: Border.all(
-                        color: borderColor,
-                        width: 1.webT(context),
-                      ),
-                      borderRadius: BorderRadius.circular(16.webT(context)),
-                    ),
-                    height: 115.webT(context),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children:
-                          controller.courseTabs.asMap().entries.map((entry) {
-                        int idx = entry.key;
-                        TabItem title = entry.value;
-                        bool isSelected = _selectedIndex == idx;
-                        return InkWell(
-                          onTap: () {
-                            setState(() {
-                              _selectedIndex = idx;
-                            });
-                          },
-                          child: Row(
-                            children: [
-                              isSelected
-                                  ? title.label.toTextWeb(
-                                      context: context,
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.w600,
-                                      color: purplePrimary)
-                                  : title.label.toTextWeb(
-                                      context: context,
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.w600,
-                                      color: greyDark),
-                              10.webScaleWidth(context),
-                              Container(
-                                decoration: isSelected
-                                    ? BoxDecoration(
-                                        color:
-                                            purplePrimary, // Selected tab background color
-                                        borderRadius: BorderRadius.circular(25),
-                                      )
-                                    : BoxDecoration(
-                                        color:
-                                            blueSecondary, // Selected tab background color
-                                        borderRadius: BorderRadius.circular(25),
-                                      ),
-                                child: title.count
-                                    .toTextWeb(
-                                        context: context,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                        color: whitePrimary)
-                                    .paddingSymmetric(
-                                        vertical: 3.webT(context),
-                                        horizontal: 4.w),
-                              ),
-                            ],
-                          ).paddingOnly(
-                              left: 15.webT(context), right: 15.webT(context)),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ],
-              ).paddingSymmetric(horizontal: 48.webT(context)),
-              50.webHeight(context),
-              AllRecepies(),
-              50.webHeight(context),
-              const CourseSettingWidget(),
-              20.webScaleHeight(context),
-            ],
-          ),
         ),
       );
     });
@@ -233,7 +254,7 @@ class AllRecepies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<RecepieProvider>(builder: (context, controller, child) {
+    return Consumer<CoursesProvider>(builder: (context, controller, child) {
       return Container(
         decoration: BoxDecoration(
             color: whitePrimary,
@@ -254,7 +275,10 @@ class AllRecepies extends StatelessWidget {
                 WebCustomButton(
                   buttonName: "New Course",
                   textSize: 13,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(
+                        context, RouterHelper.addCourseDashbord);
+                  },
                   width: 200.webW(context),
                   height: 45.webT(context),
                   radius: 15.webT(context),
@@ -405,7 +429,7 @@ class AllRecepies extends StatelessWidget {
                       ),
                       SizedBox(
                         width: 240.webW(context),
-                        child: "Simple Morning Habits ForYour Day".toTextWeb(
+                        child: controller.coursesData[index].title.toTextWeb(
                             context: context,
                             fontSize: 16,
                             maxLine: 2,
@@ -414,7 +438,17 @@ class AllRecepies extends StatelessWidget {
                       ),
                       SizedBox(
                         width: 208.webW(context),
-                        child: "2 851".toTextWeb(
+                        child: controller.coursesData[index].activeEnroll
+                            .toTextWeb(
+                                context: context,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                textAlign: TextAlign.center,
+                                color: blackPrimary),
+                      ),
+                      SizedBox(
+                        width: 208.webW(context),
+                        child: controller.coursesData[index].pricing.toTextWeb(
                             context: context,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
@@ -423,21 +457,14 @@ class AllRecepies extends StatelessWidget {
                       ),
                       SizedBox(
                         width: 208.webW(context),
-                        child: "R1 578.00".toTextWeb(
-                            context: context,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                            textAlign: TextAlign.center,
-                            color: blackPrimary),
-                      ),
-                      SizedBox(
-                        width: 208.webW(context),
-                        child: "04-Aug-19  14:08".toTextWeb(
-                            context: context,
-                            fontSize: 16,
-                            textAlign: TextAlign.end,
-                            fontWeight: FontWeight.w400,
-                            color: blackPrimary),
+                        child:
+                            formatDate(controller.coursesData[index].uploadDate)
+                                .toTextWeb(
+                                    context: context,
+                                    fontSize: 16,
+                                    textAlign: TextAlign.end,
+                                    fontWeight: FontWeight.w400,
+                                    color: blackPrimary),
                       ),
                       SizedBox(
                         width: 220.webW(context),
@@ -493,7 +520,7 @@ class AllRecepies extends StatelessWidget {
                     color: dividerColor,
                   ).paddingSymmetric(vertical: 20.webT(context));
                 },
-                itemCount: 10),
+                itemCount: controller.coursesData.length),
             Container(
               height: 75.webT(context),
               decoration: BoxDecoration(

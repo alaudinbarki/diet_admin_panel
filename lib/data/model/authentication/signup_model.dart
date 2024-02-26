@@ -2,6 +2,8 @@
 //
 //     final signupModel = signupModelFromJson(jsonString);
 
+// ignore_for_file: prefer_null_aware_operators
+
 import 'dart:convert';
 
 SignupModel signupModelFromJson(String str) =>

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:typed_data';
 
 import 'package:base_code/provider/utils_provider.dart';
@@ -205,10 +207,12 @@ class AuthProvider extends UtilProvider {
         await imageRef.putData(selectedImage!, metadata).whenComplete(() async {
           final String url = await imageRef.getDownloadURL();
           _adminCollection.doc(adminData!.uid).update({"Picture": url});
-          ShowToasts.showSuccessToast(
-              title: "Successful !",
-              message: "Picture successfully upload",
-              context: context);
+          if (context.mounted) {
+            ShowToasts.showSuccessToast(
+                title: "Successful !",
+                message: "Picture successfully upload",
+                context: context);
+          }
           selectedImage = null;
           // ShowSnack.showToast("File Uploaded...");
         });
@@ -219,8 +223,10 @@ class AuthProvider extends UtilProvider {
             context: context);
       }
     } on FirebaseException catch (e) {
-      ShowToasts.showInfo(
-          title: "Error", message: "Something went wrong", context: context);
+      if (context.mounted) {
+        ShowToasts.showInfo(
+            title: "Error", message: "Something went wrong", context: context);
+      }
       print(
           "<==============Upload Profile Picture Error=====$e====================>");
     }
